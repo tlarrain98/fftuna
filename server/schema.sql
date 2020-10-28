@@ -16,8 +16,12 @@ CREATE TABLE posts (
   like_user_id INT[] DEFAULT ARRAY[]::INT[],
   likes INT DEFAULT 0,
   dislike_user_id INT[] DEFAULT ARRAY[]::INT[],
-  dislikes INT DEFAULT 0
+  dislikes INT DEFAULT 0,
+  page_id VARCHAR(255)
 );
+
+ALTER TABLE posts
+DROP COLUMN location;
 
 CREATE TABLE comments (
   cid SERIAL PRIMARY KEY,
