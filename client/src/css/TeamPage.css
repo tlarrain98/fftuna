@@ -1,0 +1,35 @@
+.teamPageWrapper {
+    text-align: left;
+    width: 100vw;
+    height: 100vh;
+    margin-left: 10vw;
+}
+
+.backButton {
+    margin-top: 15px;
+}
+
+.teamPage {
+    display: flex;
+}
+
+.imageWrapper {
+    margin-top: 50px;
+    width: 15%;
+    height: 100%;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+}
+
+.teamInfo {
+    margin-top: 50px;
+    margin-left: 2%;
+    width: 68%;
+}
+
+.name {
+    font-size: xx-large;
+}

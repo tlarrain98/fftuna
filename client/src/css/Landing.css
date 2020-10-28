@@ -1,0 +1,16 @@
+.landing {
+    /* width: 100vw;
+    height: 100vh; */
+}
+
+.signupButton {
+    height: 50px;
+    width: 200px;
+    margin-top: 60vh;
+}
+
+.loginButton {
+    height: 50px;
+    width: 200px;
+    margin-top: 5px;
+}

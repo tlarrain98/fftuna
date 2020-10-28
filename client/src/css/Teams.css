@@ -1,0 +1,62 @@
+.teamListWrapper {
+    padding-bottom: 20px;
+}
+
+.teamWrapper {
+    text-align: left;
+    display: flex;
+    width: 100vw;
+    height: 25vh;
+    margin-top: 20px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.teamWrapper:hover {
+    background-color: rgb(212, 212, 212);
+}
+
+.teamRow {
+    text-align: left;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    vertical-align: middle;
+    margin-left: 30px;
+}
+
+.imageBox {
+    width: 10%;
+    height: 100%;
+}
+
+.descriptionBox {
+    width: 90%;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.teamName {
+    font-size: larger;
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.w-l {
+    color: rgb(124, 124, 124);
+    font-size: medium;
+}
+
+.points {
+    color: rgb(124, 124, 124);
+    font-size: small;
+    font-weight: 500;
+}
