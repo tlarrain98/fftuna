@@ -13,11 +13,11 @@ const ContentHandler = () => {
 
     const [page, setPage] = useState('landing');
 
-    useEffect(() => {
-        console.log("Hello????????");
-        axios.get("/api/hello")
-            .then(res => console.log("res: " + res.data))
-    })
+    // useEffect(() => {
+    //     console.log("Hello????????");
+    //     axios.get("/api/hello")
+    //         .then(res => console.log("res: " + res.data))
+    // })
 
     // helper functions
     const goLanding = () => {
