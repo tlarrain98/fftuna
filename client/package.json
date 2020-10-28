@@ -43,5 +43,6 @@
   },
   "devDependencies": {
     "nodemon": "^1.18.9"
-  }
+  },
+  "proxy": "http://localhost:5000"
 }
