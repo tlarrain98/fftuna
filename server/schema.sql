@@ -14,7 +14,9 @@ CREATE TABLE posts (
   author VARCHAR REFERENCES users(username),
   date_created TIMESTAMP
   like_user_id INT[] DEFAULT ARRAY[]::INT[],
-  likes INT DEFAULT 0
+  likes INT DEFAULT 0,
+  dislike_user_id INT[] DEFAULT ARRAY[]::INT[],
+  dislikes INT DEFAULT 0
 );
 
 CREATE TABLE comments (
@@ -23,5 +25,9 @@ CREATE TABLE comments (
   author VARCHAR REFERENCES users(username),
   user_id INT REFERENCES users(uid),
   post_id INT REFERENCES posts(pid),
-  date_created TIMESTAMP
+  date_created TIMESTAMP,
+  like_user_id INT[] DEFAULT ARRAY[]::INT[],
+  likes INT DEFAULT 0,
+  dislike_user_id INT[] DEFAULT ARRAY[]::INT[],
+  dislikes INT DEFAULT 0
 );
