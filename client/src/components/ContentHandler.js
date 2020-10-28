@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../css/ContentHandler.css';
 import Home from './home/Home.js';
 import TunaNavBar from './TunaNavBar.js';
@@ -6,10 +6,18 @@ import TunaTimes from './weeklytimes/TunaTimes.js';
 import CharlieFormula from './charlieformula/CharlieFormula.js';
 import TeamHandler from './teams/TeamHandler.js';
 import Landing from './landingpages/Landing.js';
+import axios from 'axios';
+
 
 const ContentHandler = () => {
 
     const [page, setPage] = useState('landing');
+
+    useEffect(() => {
+        console.log("Hello????????");
+        axios.get("/api/hello")
+            .then(res => console.log("res: " + res.data))
+    })
 
     // helper functions
     const goLanding = () => {
@@ -29,7 +37,7 @@ const ContentHandler = () => {
     }
 
     const showNavBar = () => {
-        if (page != 'landing') {
+        if (page !== 'landing') {
             return (
                 <TunaNavBar goHome={goHome}
                     goTimes={goTimes}
@@ -42,27 +50,27 @@ const ContentHandler = () => {
 
     // chooses which page to render
     const pagePicker = () => {
-        if (page == 'landing') {
+        if (page === 'landing') {
             return (
                 <Landing goHome={goHome} />
             )
         }
-        if (page == 'home') {
+        if (page === 'home') {
             return (
                 <Home />
             )
         }
-        if (page == 'times') {
+        if (page === 'times') {
             return (
                 <TunaTimes />
             )
         }
-        if (page == 'charlie') {
+        if (page === 'charlie') {
             return (
                 <CharlieFormula />
             )
         }
-        if (page == 'teams') {
+        if (page === 'teams') {
             return (
                 <TeamHandler />
             )

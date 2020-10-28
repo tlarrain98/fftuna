@@ -14,6 +14,7 @@ const TeamHandler = (props) => {
     const [SID, setSID] = useState('2020');
 
     useEffect(() => {
+        setSID('2020');
         getData();
     }, [team]);
 

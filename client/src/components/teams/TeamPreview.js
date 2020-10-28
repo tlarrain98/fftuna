@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import '../../css/Teams.css';
 
 const TeamPreview = (props) => {

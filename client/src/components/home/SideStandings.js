@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Table from 'react-bootstrap/Table';
-import Card from 'react-bootstrap/Card';
 import StandingEntry from './StandingEntry.js';
 import '../../css/Home.css';
 import { Client } from 'espn-fantasy-football-api/node';
@@ -15,6 +14,7 @@ const SideStandings = (props) => {
 
     // only rerenders on change of SID, prevents infinite loop
     useEffect(() => {
+        setSID('2020');
         getData();
     }, [SID]);
 
