@@ -25,11 +25,10 @@ router.post('/api/post/usertodb', (req, res, next) => { // <--------------------
     const values = [                                    //                       need to enter users before they can post
         req.body.uid,
         req.body.username,
-        req.body.email,
-        req.body.lastlogin
+        req.body.email
     ]
     pool.query(`INSERT INTO users(uid, username, email, date_created, last_login)
                     VALUES($1, $2, $3, NOW(), NOW())`)
 })
 
-module.exports = router
+module.exports = router;
