@@ -1,5 +1,5 @@
 import React from 'react';
-import CreatePost from './CreatePost';
+import CreatePost from '../posts/CreatePost';
 import '../../css/CharlieFormula.css';
 
 const CharlieFormula = (props) => {

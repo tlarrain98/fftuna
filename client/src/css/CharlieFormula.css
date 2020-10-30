@@ -11,22 +11,3 @@
 .charlieHeader {
     font-size: 500%;
 }
-
-.formWrapper {
-    text-align: center;
-    width: 75vw;
-    text-align: left;
-    margin: auto;
-}
-
-.titleForm {
-    margin-bottom: 10px;
-}
-
-.bodyForm {
-    margin-bottom: 10px;
-}
-
-.submitButton {
-    margin-right: 3px;
-}

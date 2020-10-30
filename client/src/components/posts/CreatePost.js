@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import PostForm from './PostForm.js';
 import '../../css/CharlieFormula.css';
 import axios from 'axios';
 
@@ -8,7 +8,11 @@ const CreatePost = (props) => {
 
     const [create, setCreate] = useState(false);
 
-    const handleSubmit = () => {
+    const handleCancel = () => {
+        setCreate(false);
+    }
+
+    const handleSubmit = (titleText, bodyText) => {
         const data = {
             title: document.getElementById('title').value,
             body: document.getElementById('body').value,
@@ -28,20 +32,7 @@ const CreatePost = (props) => {
     const chooseDisplay = () => {
         if(create) {
             return(
-                <div className="formWrapper">
-                    <Form.Group>
-                        <Form.Label>Title</Form.Label>
-                        <Form.Control className="titleForm" type="text" id="title" placeholder="Enter post title"/>
-                        <Form.Label>Body</Form.Label>
-                        <Form.Control className="bodyForm" as="textarea" id="body" rows={10}/>
-                        <Button className="submitButton" onClick={() => handleSubmit()}>
-                            Submit
-                        </Button>
-                        <Button className="cancelButton" variant="secondary" onClick={() => setCreate(false)}>
-                            Cancel
-                        </Button>
-                    </Form.Group>
-                </div>
+                <PostForm handleCancel={handleCancel} handleSubmit={handleSubmit}/>
             )
         }
         else {
