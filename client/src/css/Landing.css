@@ -1,16 +1,48 @@
 .landing {
-    /* width: 100vw;
-    height: 100vh; */
+    width: 100vw;
+    height: 100vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+.landingMargin {
+    margin-top: 75px;
+}
+
+.title {
+    font-size: 400%;
 }
 
 .signupButton {
     height: 50px;
     width: 200px;
-    margin-top: 60vh;
+    margin-top: 200px;
 }
 
 .loginButton {
     height: 50px;
     width: 200px;
     margin-top: 5px;
+}
+
+.cardWrapper {
+    width: 20vw;
+    height: 50vh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20vh;
+}
+
+.userForm {
+    margin-bottom: 15px;
+}
+
+.passForm {
+    margin-bottom: 15px;
+}
+
+.headers {
+    text-align: left;
+    float: left;
 }

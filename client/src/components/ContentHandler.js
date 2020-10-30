@@ -6,18 +6,11 @@ import TunaTimes from './weeklytimes/TunaTimes.js';
 import CharlieFormula from './charlieformula/CharlieFormula.js';
 import TeamHandler from './teams/TeamHandler.js';
 import Landing from './landingpages/Landing.js';
-import axios from 'axios';
 
 
 const ContentHandler = () => {
 
     const [page, setPage] = useState('landing');
-
-    // useEffect(() => {
-    //     console.log("Hello????????");
-    //     axios.get("/api/hello")
-    //         .then(res => console.log("res: " + res.data))
-    // })
 
     // helper functions
     const goLanding = () => {

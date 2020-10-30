@@ -7,7 +7,7 @@ const PostForm = (props) => {
     
     const handleText = () => {
         props.handleSubmit(document.getElementById('title').value, 
-            document.getElementById('body').value);
+            document.getElementById('body').value); 
     }
 
     return(
