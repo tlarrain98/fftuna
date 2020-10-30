@@ -21,7 +21,7 @@ const CreatePost = (props) => {
             page: 'charlie'
         }
 
-        console.log(data);
+        //console.log(data);
 
         axios.post('/api/post/posttodb', data)
             .then(response => console.log(response))

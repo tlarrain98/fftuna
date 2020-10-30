@@ -11,12 +11,21 @@ import Landing from './landingpages/Landing.js';
 const ContentHandler = () => {
 
     const [page, setPage] = useState('landing');
+    const [user, setUser] = useState({
+        uid: '',
+        username: '',
+        email: ''
+    })
 
     // helper functions
     const goLanding = () => {
         setPage('landing');
     }
+    const goSetUsername = () => {
+        setPage('username')
+    }
     const goHome = () => {
+        console.log(user)
         setPage('home');
     }
     const goTimes = () => {
@@ -45,7 +54,15 @@ const ContentHandler = () => {
     const pagePicker = () => {
         if (page === 'landing') {
             return (
-                <Landing goHome={goHome} />
+                <Landing goHome={goHome}
+                    setUser={setUser}/>
+            )
+        }
+        if (page === 'username') {
+            return(
+                <div>
+                    {console.log("set username page")}
+                </div>
             )
         }
         if (page === 'home') {
