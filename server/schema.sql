@@ -12,16 +12,13 @@ CREATE TABLE posts (
   body VARCHAR,
   user_id INT REFERENCES users(uid),
   author VARCHAR REFERENCES users(username),
+  page_name VARCHAR(255),
   date_created TIMESTAMP,
   like_user_id INT[] DEFAULT ARRAY[]::INT[],
   likes INT DEFAULT 0,
   dislike_user_id INT[] DEFAULT ARRAY[]::INT[],
-  dislikes INT DEFAULT 0,
-  page_id VARCHAR(255)
+  dislikes INT DEFAULT 0
 );
-
-ALTER TABLE posts
-DROP COLUMN location;
 
 CREATE TABLE comments (
   cid SERIAL PRIMARY KEY,
