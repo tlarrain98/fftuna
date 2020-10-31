@@ -22,8 +22,8 @@ router.post('/api/post/posttodb', (req, res, next) => {
 })
 
 // posts user into db (do nothing if user already exists)
-router.post('/api/post/usertodb', (req, res, next) => { // <-------------------- this is what you were working on
-    const values = [                                    //                       need to enter users before they can post
+router.post('/api/post/usertodb', (req, res, next) => {
+    const values = [
         req.body.email
     ]
     pool.query(`INSERT INTO users(email, date_created)

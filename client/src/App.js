@@ -6,9 +6,7 @@ function App() {
   
   return (
     <UserContextProvider>
-      <div className="App">
         <ContentHandler />
-      </div>
     </UserContextProvider>
   )
 }

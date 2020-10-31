@@ -1,12 +1,12 @@
 import React from 'react';
 import '../../css/Home.css';
 
-const HomeContent = (props) => {
+const HomeContent = () => {
 
     return (
-        <div className="homecontent">
-            homeeeeeeeeee
-        </div>
+        <>
+            home page
+        </>
     )
 }
 
