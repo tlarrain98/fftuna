@@ -20,7 +20,7 @@ const TeamHandler = (props) => {
 
     const getData = async () => {
         const response = await ffClient.getTeamsAtWeek({ seasonId: SID, scoringPeriodId: 18 });
-        console.log(response);
+        // console.log(response);
         setData(response);
     }
 

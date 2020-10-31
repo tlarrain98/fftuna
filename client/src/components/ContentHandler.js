@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useContext } from 'react';
+import UserContext from '../App';
 import '../css/ContentHandler.css';
 import Home from './home/Home.js';
 import TunaNavBar from './TunaNavBar.js';
@@ -10,22 +11,14 @@ import Landing from './landingpages/Landing.js';
 
 const ContentHandler = () => {
 
+    const userData = useContext(UserContext)
     const [page, setPage] = useState('landing');
-    const [user, setUser] = useState({
-        uid: '',
-        username: '',
-        email: ''
-    })
 
     // helper functions
     const goLanding = () => {
         setPage('landing');
     }
-    const goSetUsername = () => {
-        setPage('username')
-    }
     const goHome = () => {
-        console.log(user)
         setPage('home');
     }
     const goTimes = () => {
@@ -54,8 +47,7 @@ const ContentHandler = () => {
     const pagePicker = () => {
         if (page === 'landing') {
             return (
-                <Landing goHome={goHome}
-                    setUser={setUser}/>
+                <Landing goHome={goHome}/>
             )
         }
         if (page === 'username') {

@@ -1,12 +1,16 @@
-import React from 'react';
-import ContentHandler from './components/ContentHandler.js';
+import React, { useState, useEffect } from 'react'
+import ContentHandler from './components/ContentHandler.js'
+import { UserContextProvider } from './UserContext'
 
 function App() {
+  
   return (
-    <div className="App">
-      <ContentHandler />
-    </div>
-  );
+    <UserContextProvider>
+      <div className="App">
+        <ContentHandler />
+      </div>
+    </UserContextProvider>
+  )
 }
 
 export default App;

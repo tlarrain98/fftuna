@@ -10,7 +10,8 @@ const TeamList = (props) => {
             for (let i = 0; i < props.data.length; i++) {
                 teams.push(
                     <div className="teamWrapper" onClick={() => props.setTeam(i)}>
-                        <TeamPreview name={props.data[i].name}
+                        <TeamPreview key={i} 
+                            name={props.data[i].name} 
                             wins={props.data[i].wins}
                             losses={props.data[i].losses}
                             logoURL={props.data[i].logoURL}

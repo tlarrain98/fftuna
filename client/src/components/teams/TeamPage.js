@@ -23,7 +23,7 @@ const TeamPage = (props) => {
             </Button>
             <div className="teamPage">
                 <div className="imageWrapper">
-                    <img className="image" src={props.data.logoURL} />
+                    <img className="image" alt="team" src={props.data.logoURL} />
                 </div>
                 <div className="teamInfo">
                     <text className="name">{props.data.name}</text>

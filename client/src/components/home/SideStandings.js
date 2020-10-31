@@ -39,7 +39,8 @@ const SideStandings = (props) => {
         let ordered = getOrder();
         for (let i = 0; i < ordered.length; i++) {
             standings.push(
-                <StandingEntry name={ordered[i].name}
+                <StandingEntry key={i}
+                    name={ordered[i].name}
                     wins={ordered[i].wins}
                     losses={ordered[i].losses} />
             )
@@ -52,9 +53,11 @@ const SideStandings = (props) => {
         <div className="standings">
             <Table size="sm" striped>
                 <thead>
-                    <th className="leftalign">Team</th>
-                    <th className="leftalign">W</th>
-                    <th className="leftalign">L</th>
+                    <tr>
+                        <th className="leftalign">Team</th>
+                        <th className="leftalign">W</th>
+                        <th className="leftalign">L</th>
+                    </tr>
                 </thead>
                 <tbody className="leftalign">
                     {displayStandings()}

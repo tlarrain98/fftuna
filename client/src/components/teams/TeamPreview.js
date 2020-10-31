@@ -17,7 +17,7 @@ const TeamPreview = (props) => {
     return (
         <div className="teamRow">
             <div className="imageBox">
-                <img className="logo" src={props.logoURL} />
+                <img className="logo" alt="team" src={props.logoURL} />
             </div>
             <div className="descriptionBox">
                 <text className="teamName">{props.name}</text>
