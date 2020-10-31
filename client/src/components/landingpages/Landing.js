@@ -1,37 +1,18 @@
-import React, { useEffect } from 'react';
-import LoginButton from './LoginButton.js';
-import '../../css/Landing.css';
-import { useAuth0 } from '@auth0/auth0-react';
-import SignUpButton from './SignUpButton.js';
-import axios from 'axios';
+import React, { useEffect, useContext } from 'react'
+import { UserContext } from '../../UserContext'
+import LoginButton from './LoginButton.js'
+import '../../css/Landing.css'
+import { useAuth0 } from '@auth0/auth0-react'
+import SignUpButton from './SignUpButton.js'
+import axios from 'axios'
 
 const Landing = (props) => {
 
+    const { userProfile, setUserProfile } = useContext(UserContext);
     const isAuthenticated = useAuth0().isAuthenticated;
     const { isLoading } = useAuth0();
     const { user } = useAuth0();
 
-    useEffect(() => {
-        if (isAuthenticated) {
-            const data = {
-                email: user.email
-            }
-            axios.post('/api/post/usertodb', data)
-                .then(axios.get('/api/get/userfromdb', {
-                    params: { email: user.email }
-                })
-                    .then(res => {
-                        //console.log(res.data[0].uid)
-                        // props.setUser({
-                        //     uid: res.data[0].uid, // <------------------------------------these aren't working, make global context
-                        //     username: res.data[0].username,
-                        //     email: res.data[0].email
-                        // })
-                    }))
-
-            props.goHome();
-        }
-    })
     if (isLoading) {
         return (
             <div className="landing">
@@ -42,7 +23,20 @@ const Landing = (props) => {
         )
     }
 
+    if (isAuthenticated) {
+        const data = {
+            email: user.email
+        }
+        axios.post('/api/post/usertodb', data)
+            .then(axios.get('/api/get/userfromdb', {
+                params: { email: user.email }
+            })
+                .then(res => {
+                    setUserProfile(res.data[0])
+                }))
 
+        props.goHome();
+    }
 
     return (
         <div className="landing">

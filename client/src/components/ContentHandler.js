@@ -1,18 +1,18 @@
-import React, { useState, useContext } from 'react';
-import UserContext from '../App';
-import '../css/ContentHandler.css';
-import Home from './home/Home.js';
-import TunaNavBar from './TunaNavBar.js';
-import TunaTimes from './weeklytimes/TunaTimes.js';
-import CharlieFormula from './charlieformula/CharlieFormula.js';
-import TeamHandler from './teams/TeamHandler.js';
-import Landing from './landingpages/Landing.js';
-
+import React, { useState, useContext } from 'react'
+import '../css/ContentHandler.css'
+import Home from './home/Home'
+import TunaNavBar from './TunaNavBar'
+import TunaTimes from './weeklytimes/TunaTimes'
+import CharlieFormula from './charlieformula/CharlieFormula'
+import TeamHandler from './teams/TeamHandler'
+import Landing from './landingpages/Landing'
+import SetUsername from './SetUsername'
+import { UserContext } from '../UserContext'
 
 const ContentHandler = () => {
 
-    const userData = useContext(UserContext)
     const [page, setPage] = useState('landing');
+    const {userProfile, setUserProfile} = useContext(UserContext);
 
     // helper functions
     const goLanding = () => {
@@ -41,6 +41,10 @@ const ContentHandler = () => {
                     goLanding={goLanding}/>
             )
         }
+    }
+
+    if (userProfile && userProfile.username === null) {
+        
     }
 
     // chooses which page to render

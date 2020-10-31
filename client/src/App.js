@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import ContentHandler from './components/ContentHandler.js'
-import { UserContextProvider } from './UserContext'
+import { UserContext } from './UserContext.js';
 
 function App() {
+
+  const [userProfile, setUserProfile] = useState(null)
   
   return (
-    <UserContextProvider>
-        <ContentHandler />
-    </UserContextProvider>
+    <UserContext.Provider value={{userProfile, setUserProfile}}>
+      <ContentHandler />
+    </UserContext.Provider>
   )
 }
 

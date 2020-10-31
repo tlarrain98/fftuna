@@ -1,7 +1,9 @@
-import React from 'react';
-import '../../css/Home.css';
-import HomeContent from './HomeContent.js';
-import SideStandings from './SideStandings';
+import React, { useContext } from 'react'
+import '../../css/Home.css'
+import { UserContext } from '../../UserContext'
+import HomeContent from './HomeContent.js'
+import SideStandings from './SideStandings'
+
 
 const Home = () => {
 
