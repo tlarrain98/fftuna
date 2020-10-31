@@ -63,7 +63,8 @@ router.put('/api/put/username', (req, res, next) => {
                 SET username=$2
                 WHERE uid=$1`,
         values, (q_err, q_res) => {
-            console.log(q_err);
+            if(q_err) return next(q_err);
+            res.json(q_res.rows)
         }
     )
 })

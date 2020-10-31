@@ -19,7 +19,6 @@ const ContentHandler = () => {
         setPage('landing');
     }
     const goSetUsername = () => {
-        console.log("hi")
         setPage('setuser')
     }
     const goHome = () => {
@@ -36,7 +35,7 @@ const ContentHandler = () => {
     }
 
     const showNavBar = () => {
-        if (page !== 'landing' && page!== 'setuser') {
+        if (page !== 'landing' && page !== 'setuser') {
             return (
                 <TunaNavBar goHome={goHome}
                     goTimes={goTimes}

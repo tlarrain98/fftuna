@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useContext } from 'react'
 import { UserContext } from '../../UserContext'
 import LoginButton from './LoginButton'
 import '../../css/Landing.css'
@@ -33,15 +33,15 @@ const Landing = (props) => {
             })
                 .then(res => {
                     setUserProfile(res.data[0])
+                    // check if username has been set
                     if (userProfile && userProfile.username === null) {
                         props.goSetUsername()
                     }
                     else {
                         props.goHome()
                     }
-                }))
-
-        // check if username has been set before
+                })
+            )
     }
 
     return (

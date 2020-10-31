@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import StandingEntry from './StandingEntry.js';
 import '../../css/Home.css';

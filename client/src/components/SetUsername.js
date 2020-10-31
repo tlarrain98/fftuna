@@ -4,6 +4,7 @@ import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import axios from 'axios'
+import '../css/Landing.css'
 
 const SetUsername = (props) => {
 
@@ -11,21 +12,32 @@ const SetUsername = (props) => {
     const [warning, setWarning] = useState(null)
 
     const check = () => {
+        setWarning(null);
         var data = {
             uid: userProfile.uid,
             username: document.getElementById("username").value
         }
         axios.put('/api/put/username', data)
-            .catch((error) => {
-                if(error.response) {
-                    console.log(error.response.data)
+            .then(() => {
+                getUpdate();
+                props.goHome();
+            })
+            .catch((err) => {
+                if(err.response.status === 500) {
+                    setWarning("This username has been taken.")
                 }
             })
-                // if(response.username === null) {
-                //     setWarning("username unavailable")
-                //     console.log(warning)
-                // }  
             
+    }
+
+    // needs more testing
+    const getUpdate = () => {
+        axios.get('/api/get/userfromdb', {
+            params: { email: userProfile.email }
+        })
+        .then(res => {
+            setUserProfile(res.data[0])
+        })
     }
 
     return (
@@ -35,7 +47,9 @@ const SetUsername = (props) => {
             </Modal.Header>
             <Modal.Body>
                 <Form.Control className="userForm" type="text" id="username"/>
-                {warning}
+                <div className="warning">
+                    {warning}
+                </div>
             </Modal.Body>
             <Modal.Footer>
                 <Button onClick={() => check()}>Set username</Button>

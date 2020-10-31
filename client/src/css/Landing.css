@@ -29,3 +29,9 @@
     width: 200px;
     margin-top: 5px;
 }
+
+.warning {
+    color: red;
+    margin-top: 10px;
+    margin-left: 3px;
+}

@@ -13,20 +13,20 @@ const CreatePost = (props) => {
     }
 
     const handleSubmit = (titleText, bodyText) => {
-        // const data = {
-        //     title: document.getElementById('title').value,
-        //     body: document.getElementById('body').value,
-        //     uid: 10,
-        //     username: 'exampleusername',
-        //     page: 'charlie'
-        // }
+        const data = {
+            title: document.getElementById('title').value,
+            body: document.getElementById('body').value,
+            uid: 10,
+            username: 'exampleusername',
+            page: 'charlie'
+        }
 
-        //console.log(data);
+        console.log(data);
 
-        // axios.post('/api/post/posttodb', data)
-        //     .then(response => console.log(response))
-        //     .catch((err) => console.log(err))
-        //     .then(setTimeout(() => console.log("timeout"), 700))
+        axios.post('/api/post/posttodb', data)
+            .then(response => console.log(response))
+            .catch((err) => console.log(err))
+            .then(setTimeout(() => console.log("timeout"), 700))
     }
 
     const chooseDisplay = () => {

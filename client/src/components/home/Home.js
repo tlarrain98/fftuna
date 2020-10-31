@@ -1,6 +1,5 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import '../../css/Home.css'
-import { UserContext } from '../../UserContext'
 import HomeContent from './HomeContent.js'
 import SideStandings from './SideStandings'
 
