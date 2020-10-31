@@ -12,11 +12,15 @@ import { UserContext } from '../UserContext'
 const ContentHandler = () => {
 
     const [page, setPage] = useState('landing');
-    const {userProfile, setUserProfile} = useContext(UserContext);
+    const { userProfile, setUserProfile } = useContext(UserContext);
 
     // helper functions
     const goLanding = () => {
         setPage('landing');
+    }
+    const goSetUsername = () => {
+        console.log("hi")
+        setPage('setuser')
     }
     const goHome = () => {
         setPage('home');
@@ -32,33 +36,23 @@ const ContentHandler = () => {
     }
 
     const showNavBar = () => {
-        if (page !== 'landing') {
+        if (page !== 'landing' && page!== 'setuser') {
             return (
                 <TunaNavBar goHome={goHome}
                     goTimes={goTimes}
                     goCharlie={goCharlie}
                     goTeams={goTeams}
-                    goLanding={goLanding}/>
+                    goLanding={goLanding} />
             )
         }
-    }
-
-    if (userProfile && userProfile.username === null) {
-        
     }
 
     // chooses which page to render
-    const pagePicker = () => {
+    const pickPage = () => {
         if (page === 'landing') {
             return (
-                <Landing goHome={goHome}/>
-            )
-        }
-        if (page === 'username') {
-            return(
-                <div>
-                    {console.log("set username page")}
-                </div>
+                <Landing goHome={goHome}
+                    goSetUsername={goSetUsername} />
             )
         }
         if (page === 'home') {
@@ -81,12 +75,17 @@ const ContentHandler = () => {
                 <TeamHandler />
             )
         }
+        if (page === 'setuser') {
+            return (
+                <SetUsername goHome={goHome} />
+            )
+        }
     }
     return (
         <div className='Wrapper'>
             {showNavBar()}
             <div className="pageWrapper">
-                {pagePicker()}
+                {pickPage()}
             </div>
         </div>
     );

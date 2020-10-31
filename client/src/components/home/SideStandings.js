@@ -7,20 +7,13 @@ import { Client } from 'espn-fantasy-football-api/node';
 const LID = '434534';
 const ffClient = new Client({ leagueId: LID });
 
-const SideStandings = (props) => {
+const SideStandings = () => {
     
     const [data, setData] = useState('');
     const [SID, setSID] = useState('2020');
 
-    // only rerenders on change of SID, prevents infinite loop
-    useEffect(() => {
-        setSID('2020');
-        getData();
-    }, [SID]);
-
     const getData = async () => {
         const response = await ffClient.getTeamsAtWeek({ seasonId: SID, scoringPeriodId: 18 });
-
         setData(response);
     }
 
@@ -48,6 +41,8 @@ const SideStandings = (props) => {
 
         return standings;
     }
+
+    getData();
 
     return (
         <div className="standings">

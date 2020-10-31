@@ -2,6 +2,9 @@ var express = require('express');
 var router = express.Router();
 var pool = require('./db');
 
+/**
+ * ROUTES FOR POSTS
+ */
 
 // inserts post into db
 router.post('/api/post/posttodb', (req, res, next) => {
@@ -21,6 +24,10 @@ router.post('/api/post/posttodb', (req, res, next) => {
     )
 })
 
+/**
+ * ROUTES FOR USERS
+ */
+
 // posts user into db (do nothing if user already exists)
 router.post('/api/post/usertodb', (req, res, next) => {
     const values = [
@@ -28,7 +35,7 @@ router.post('/api/post/usertodb', (req, res, next) => {
     ]
     pool.query(`INSERT INTO users(email, date_created)
                     VALUES($1, NOW())
-                    ON CONFLICT DO NOTHING`,  
+                    ON CONFLICT DO NOTHING`,
         values, (q_err, q_res) => {
             res.json(q_res.rows)
         }
@@ -39,12 +46,26 @@ router.post('/api/post/usertodb', (req, res, next) => {
 router.get('/api/get/userfromdb', (req, res, next) => {
     const email = req.query.email;
     pool.query(`SELECT * FROM users
-                WHERE email=$1`, 
+                WHERE email=$1`,
         [email], (q_err, q_res) => {
             res.json(q_res.rows)
-        })
+        }
+    )
 })
 
-// modify user values in db
+// modify or set username
+router.put('/api/put/username', (req, res, next) => {
+    const values = [
+        req.body.uid,
+        req.body.username
+    ]
+    pool.query(`UPDATE users
+                SET username=$2
+                WHERE uid=$1`,
+        values, (q_err, q_res) => {
+            console.log(q_err);
+        }
+    )
+})
 
 module.exports = router;

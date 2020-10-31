@@ -1,9 +1,9 @@
 import React, { useEffect, useContext } from 'react'
 import { UserContext } from '../../UserContext'
-import LoginButton from './LoginButton.js'
+import LoginButton from './LoginButton'
 import '../../css/Landing.css'
 import { useAuth0 } from '@auth0/auth0-react'
-import SignUpButton from './SignUpButton.js'
+import SignUpButton from './SignUpButton'
 import axios from 'axios'
 
 const Landing = (props) => {
@@ -33,9 +33,15 @@ const Landing = (props) => {
             })
                 .then(res => {
                     setUserProfile(res.data[0])
+                    if (userProfile && userProfile.username === null) {
+                        props.goSetUsername()
+                    }
+                    else {
+                        props.goHome()
+                    }
                 }))
 
-        props.goHome();
+        // check if username has been set before
     }
 
     return (
