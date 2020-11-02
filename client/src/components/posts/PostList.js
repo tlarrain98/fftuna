@@ -9,7 +9,7 @@ const PostList = (props) => {
     const [posts, setPosts] = useState(null);
 
     useEffect(() => {
-        getPostData()
+        getPostData();
     }, [pagination])
 
     const getPostData = () => {
@@ -29,7 +29,7 @@ const PostList = (props) => {
 
     const getPostPreviews = () => {
         let list = []
-        if(posts !== null) {
+        if (posts !== null) {
             for (let i = 0; i < posts.length; i++) {
                 list.push(
                     <PostPreview key={i} post={posts[i]} />
@@ -39,9 +39,21 @@ const PostList = (props) => {
         return list
     }
 
+    const prevnext = () => {
+        return (
+            <div className="prevnext">
+                <a className="prev" onClick={() => setPagination(pagination - 1)}>Previous page</a>
+                &emsp;
+                <a className="next" onClick={() => setPagination(pagination + 1)}>Next page</a>
+            </div>
+
+        )
+    }
+
     return (
         <div className="postListWrapper">
             {getPostPreviews()}
+            {prevnext()}
         </div>
     )
 }

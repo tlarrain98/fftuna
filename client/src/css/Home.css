@@ -5,6 +5,7 @@
 
 .col1 {
     flex: 75vw;
+    overflow-x: hidden;
 }
 
 .col2 {

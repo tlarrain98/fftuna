@@ -31,7 +31,7 @@ router.get('/api/get/postsfromdb', (req, res, next) => {
         req.query.offset,
         req.query.numposts
     ]
-    pool.query(`SELECT *
+    pool.query(`SELECT *,
                 FROM posts
                 ORDER BY date_created
                 OFFSET $1
@@ -41,6 +41,18 @@ router.get('/api/get/postsfromdb', (req, res, next) => {
             // console.log(q_err)
             // console.log(q_res)           
             console.log(values)
+            res.json(q_res.rows)
+        })
+})
+
+// get total number of posts from db
+router.get('/api/get/numpostsfromdb', (req, res, next) => {
+    pool.query(`SELECT COUNT(*),
+                FROM posts`,
+        null, (q_err, q_res) => {
+            if (q_err) return q_err
+            console.log(q_err)
+            console.log(q_res)
             res.json(q_res.rows)
         })
 })

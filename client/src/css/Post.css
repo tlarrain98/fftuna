@@ -6,4 +6,27 @@
 
 .postListWrapper {
     text-align: left;
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+.postPreview {
+    margin-bottom: 10px;
+}
+
+.prevnext {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: rgb(46, 96, 231);
+}
+.prev:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+.next:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
