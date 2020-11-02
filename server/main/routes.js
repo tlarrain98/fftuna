@@ -19,7 +19,8 @@ router.post('/api/post/posttodb', (req, res, next) => {
                     VALUES($1, $2, $3, $4, $5, NOW())`,
         values, (q_err, q_res) => {
             if (q_err) return next(q_err);
-            res.json(q_res.rows)
+            console.log(q_res)
+            res.json(q_res)
         }
     )
 })
