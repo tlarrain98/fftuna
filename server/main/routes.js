@@ -25,6 +25,26 @@ router.post('/api/post/posttodb', (req, res, next) => {
     )
 })
 
+// gets posts from db
+router.get('/api/get/postsfromdb', (req, res, next) => {
+    const values = [
+        req.query.offset,
+        req.query.numposts
+    ]
+    pool.query(`SELECT *
+                FROM posts
+                ORDER BY date_created
+                OFFSET $1
+                LIMIT $2`,
+        values, (q_err, q_res) => {
+            if(q_err) return q_err
+            // console.log(q_err)
+            // console.log(q_res)           
+            console.log(values)
+            res.json(q_res.rows)
+        })
+})
+
 /**
  * ROUTES FOR USERS
  */

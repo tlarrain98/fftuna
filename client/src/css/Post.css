@@ -1,0 +1,9 @@
+.postWrapper {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60vw;
+}
+
+.postListWrapper {
+    text-align: left;
+}

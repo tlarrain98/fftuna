@@ -17,27 +17,20 @@ const SetUsername = (props) => {
             uid: userProfile.uid,
             username: document.getElementById("username").value
         }
-        axios.put('/api/put/username', data)
-            .then(() => {
-                getUpdate();
-                props.goHome();
-            })
-            .catch((err) => {
-                if(err.response.status === 500) {
-                    setWarning("This username has been taken.")
-                }
-            })
-            
-    }
-
-    // needs more testing
-    const getUpdate = () => {
-        axios.get('/api/get/userfromdb', {
-            params: { email: userProfile.email }
-        })
-        .then(res => {
-            setUserProfile(res.data[0])
-        })
+        if(data.username !== '') {
+            axios.put('/api/put/username', data)
+                .then(() => {
+                    window.location.reload(); // make sure that user profile is set in state
+                })
+                .catch((err) => {
+                    if (err.response.status === 500) {
+                        setWarning("This username has been taken.")
+                    }
+                })
+        }
+        else {
+            setWarning("Please pick a username.")
+        }  
     }
 
     return (

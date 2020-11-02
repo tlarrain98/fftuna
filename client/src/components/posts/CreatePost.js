@@ -11,6 +11,7 @@ const CreatePost = (props) => {
     const [create, setCreate] = useState(false);
     const [show, setShow] = useState(false);
     const [warning, setWarning] = useState(false);
+    const [success, setSuccess] = useState(false);
     const {userProfile} = useContext(UserContext);
 
     const handleCancel = () => {
@@ -30,7 +31,10 @@ const CreatePost = (props) => {
             setShow(false)
             axios.post('/api/post/posttodb', data)
                 .then(response => {
-                    console.log(response.data)
+                    document.getElementById('title').value = ''
+                    document.getElementById('body').value = ''
+                    setSuccess(true);
+                    setCreate(false);
                 })
                 .catch((err) => {
                     console.log("error: " + err)
@@ -67,8 +71,11 @@ const CreatePost = (props) => {
 
     return (
         <div className="createPostWrapper">
-            <Alert variant="danger" show={show} onClose={() => setShow(false)}>
-                Error: {warning}
+            <Alert variant="danger" show={show} onClose={() => setShow(false)} dismissible>
+            Error: {warning}
+            </Alert>
+            <Alert variant="success" show={success} onClose={() => setSuccess(false)} dismissible>
+            Post submitted!
             </Alert>
             {chooseDisplay()}
         </div>
