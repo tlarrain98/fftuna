@@ -1,12 +1,12 @@
 import React from 'react';
-import '../../css/Home.css';
+import '../../css/SideStandings.css';
 
 const StandingEntry = (props) => {
     return (
-        <tr>
-            <td>{props.name}</td>
-            <td>{props.wins}</td>
-            <td>{props.losses}</td>
+        <tr className="trTeam">
+            <td className="tdTeam">{props.name}</td>
+            <td className="tdW">{props.wins}</td>
+            <td className="tdL">{props.losses}</td>
         </tr>
     )
 }

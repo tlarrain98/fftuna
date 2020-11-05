@@ -14,6 +14,16 @@
 
 .postPreview {
     margin-bottom: 10px;
+    border-radius: 0%;
+}
+
+.postTitle {
+    font-size: 150%;
+}
+
+.postAuthor {
+    font-size: 90%;
+    color: rgb(114, 114, 128);
 }
 
 .prevnext {
@@ -29,4 +39,12 @@
 .next:hover {
     text-decoration: underline;
     cursor: pointer;
+}
+
+.alertWarning {
+    text-align: left;
+}
+
+.alertSuccess {
+    text-align: left;
 }

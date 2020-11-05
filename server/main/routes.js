@@ -27,34 +27,75 @@ router.post('/api/post/posttodb', (req, res, next) => {
 
 // gets posts from db
 router.get('/api/get/postsfromdb', (req, res, next) => {
-    const values = [
-        req.query.offset,
-        req.query.numposts
-    ]
-    pool.query(`SELECT *,
+
+    if (req.query.pageName) {
+        const values = [
+            req.query.offset,
+            req.query.postsPerPage,
+            req.query.pageName
+        ]
+        pool.query(`SELECT *
                 FROM posts
-                ORDER BY date_created
+                WHERE page_name = $3
+                ORDER BY date_created DESC
                 OFFSET $1
                 LIMIT $2`,
-        values, (q_err, q_res) => {
-            if(q_err) return q_err
-            // console.log(q_err)
-            // console.log(q_res)           
-            console.log(values)
-            res.json(q_res.rows)
-        })
+            values, (q_err, q_res) => {
+                if (q_err) return next(q_err)
+                // console.log(q_err)
+                // console.log(q_res)           
+                res.json(q_res.rows)
+            }
+        )
+    }
+    else {
+        const values = [
+            req.query.offset,
+            req.query.postsPerPage
+        ]
+        pool.query(`SELECT *
+                FROM posts
+                ORDER BY date_created DESC
+                OFFSET $1
+                LIMIT $2`,
+            values, (q_err, q_res) => {
+                if (q_err) return next(q_err)
+                // console.log(q_err)
+                // console.log(q_res)           
+                res.json(q_res.rows)
+            }
+        )
+    }
 })
 
 // get total number of posts from db
 router.get('/api/get/numpostsfromdb', (req, res, next) => {
-    pool.query(`SELECT COUNT(*),
-                FROM posts`,
-        null, (q_err, q_res) => {
-            if (q_err) return q_err
-            console.log(q_err)
-            console.log(q_res)
-            res.json(q_res.rows)
-        })
+    if (req.query.pageName) {
+        const values = [
+            req.query.pageName
+        ]
+        pool.query(`SELECT COUNT(*)
+                    FROM posts
+                    WHERE page_name = $1`,
+            values, (q_err, q_res) => {
+                if (q_err) return next(q_err)
+                // console.log(q_err)
+                // console.log(q_res)  
+                res.json(q_res.rows)
+            }
+        )
+    }
+    else {
+        pool.query(`SELECT COUNT(*)
+                    FROM posts`,
+            null, (q_err, q_res) => {
+                if (q_err) return next(q_err)
+                // console.log(q_err)
+                // console.log(q_res)  
+                res.json(q_res.rows)
+            }
+        )
+    }
 })
 
 /**
@@ -96,7 +137,7 @@ router.put('/api/put/username', (req, res, next) => {
                 SET username=$2
                 WHERE uid=$1`,
         values, (q_err, q_res) => {
-            if(q_err) return next(q_err);
+            if (q_err) return next(q_err);
             res.json(q_res.rows)
         }
     )

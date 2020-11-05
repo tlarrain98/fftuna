@@ -1,10 +1,10 @@
 import React, { useState, useContext } from 'react'
 import Button from 'react-bootstrap/Button'
 import PostForm from './PostForm'
-import '../../css/CharlieFormula.css'
 import Alert from 'react-bootstrap/Alert'
 import axios from 'axios'
 import {UserContext} from '../../UserContext'
+import '../../css/Post.css'
 
 const CreatePost = (props) => {
 
@@ -24,7 +24,7 @@ const CreatePost = (props) => {
             body: document.getElementById('body').value,
             uid: userProfile.uid,
             username: userProfile.username,
-            page: props.page
+            page: props.pageName
         }
 
         if(!isError(data)) {
@@ -71,10 +71,12 @@ const CreatePost = (props) => {
 
     return (
         <div className="createPostWrapper">
-            <Alert variant="danger" show={show} onClose={() => setShow(false)} dismissible>
+            <Alert className="alertWarning" variant="danger" 
+                show={show} onClose={() => setShow(false)} dismissible>
             Error: {warning}
             </Alert>
-            <Alert variant="success" show={success} onClose={() => setSuccess(false)} dismissible>
+            <Alert className="alertSuccess" variant="success" 
+                show={success} onClose={() => setSuccess(false)} dismissible>
             Post submitted!
             </Alert>
             {chooseDisplay()}

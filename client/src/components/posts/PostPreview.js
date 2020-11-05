@@ -17,10 +17,10 @@ const PostPreview = (props) => {
     return(
         <div className="postPreview">
             <Card>
-                <Card.Header>{props.post.author} posted:</Card.Header>
                 <Card.Body>
-                    <Card.Title>{props.post.title}</Card.Title>
-                    {displayBody()}
+                    <div className="postTitle">{props.post.title}</div>
+                    <div className="postAuthor">by {props.post.author}</div>
+                    <div className="postBody">{displayBody()}</div>
                 </Card.Body>
             </Card>
         </div>

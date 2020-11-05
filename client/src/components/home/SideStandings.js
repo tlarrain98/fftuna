@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import StandingEntry from './StandingEntry.js';
-import '../../css/Home.css';
+import '../../css/SideStandings.css';
 import { Client } from 'espn-fantasy-football-api/node';
 
 const LID = '434534';
@@ -45,19 +45,20 @@ const SideStandings = () => {
     getData();
 
     return (
-        <div className="standings">
-            <Table size="sm" striped>
-                <thead>
-                    <tr>
-                        <th className="leftalign">Team</th>
-                        <th className="leftalign">W</th>
-                        <th className="leftalign">L</th>
+        <div className="standingsWrapper">
+            <div className="lsHeader">League Standings</div>
+            <table className="sideTable">
+                <thead className="thead">
+                    <tr className="trHeader">
+                        <th className="thTeam">Team</th>
+                        <th className="thW">W</th>
+                        <th className="thL">L</th>
                     </tr>
                 </thead>
-                <tbody className="leftalign">
+                <tbody className="tbody">
                     {displayStandings()}
                 </tbody>
-            </Table>
+            </table>
         </div>
     )
 }

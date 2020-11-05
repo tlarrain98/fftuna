@@ -1,7 +1,7 @@
 .charlieWrapper {
     width: 100vw;
-    height: 100vh;
     text-align: center;
+    overflow-y: scroll;
 }
 
 .headerWrapper {
@@ -10,4 +10,8 @@
 
 .charlieHeader {
     font-size: 500%;
+}
+
+.postWrapper {
+    width: 75%;
 }

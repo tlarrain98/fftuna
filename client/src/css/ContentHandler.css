@@ -1,7 +1,8 @@
 .Wrapper {
-  overflow-x: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .pageWrapper {
-
+    background-color: rgb(240, 240, 240);
 }
