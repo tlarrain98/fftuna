@@ -65,7 +65,7 @@ const CreatePost = (props) => {
             )
         }
         else {
-            return <Button onClick={() => setCreate(true)}>Create Post</Button>
+            return <button className="postButton" onClick={() => setCreate(true)}>Create Post</button>
         }
     }
 

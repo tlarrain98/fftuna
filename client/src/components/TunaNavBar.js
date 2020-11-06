@@ -5,14 +5,14 @@ import LogoutButton from './LogoutButton.js';
 
 const TunaNavBar = (props) => {
     return (
-        <Navbar bg="dark" variant="dark" expand="lg">
+        <Navbar className="NavBarContainer" bg="dark" variant="dark" expand="lg">
             <Nav className="container-fluid">
-                <Navbar.Brand href="" onClick={props.goHome}>Tuna</Navbar.Brand>
-                <Nav.Link onClick={props.goCharlie}>Charlie Formula</Nav.Link>
-                <Nav.Link onClick={props.goTimes}>Tuna Times</Nav.Link>
-                <Nav.Link onClick={props.goTeams}>Teams</Nav.Link>
+                <Navbar.Brand className="brand" onClick={props.goHome}>Tuna</Navbar.Brand>
+                <Nav.Link className="link" onClick={props.goCharlie}>Charlie Formula</Nav.Link>
+                <Nav.Link className="link" onClick={props.goTimes}>Tuna Times</Nav.Link>
+                <Nav.Link className="link" onClick={props.goTeams}>Teams</Nav.Link>
                 <Nav.Item className="ml-auto">
-                    <LogoutButton goLanding={props.goLanding} />
+                    <LogoutButton className="link" goLanding={props.goLanding} />
                 </Nav.Item>
             </Nav>
         </Navbar>

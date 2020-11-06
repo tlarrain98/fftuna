@@ -1,13 +1,16 @@
 .standingsWrapper {
     width: 98%;
-    background-color: white;
+    background-color: #fff;
     margin-top: 15px;
     margin-bottom: 15px;
     border-radius: .25rem;
+    background: linear-gradient(to bottom, rgb(43, 160, 255) 1%, white 1%);
 }
 
 .lsHeader {
+    padding-top: 3%;
     margin-left: 2%;
+    width: 100%;
     font-size: 150%;
     font-weight: 400;
 }
@@ -23,15 +26,19 @@
 
 .thTeam {
     padding-left: 2%;
+    border-bottom: black;
+    padding-top: 5px;
 }
 
 .thW {
     text-align: center;
+    padding-top: 5px;
 }
 
 .thL {
     text-align: center;
     padding-right: 2%;
+    padding-top: 5px;
 }
 
 .tbody {
@@ -42,7 +49,7 @@
     cursor: pointer;
 }
 .trTeam:hover {
-    background-color: rgb(212, 212, 212);
+    background: linear-gradient(to right, rgb(43, 160, 255) 0.8%, rgb(224, 224, 224) 0.8%);
 }
 
 .tdTeam {

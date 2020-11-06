@@ -1,26 +1,31 @@
 .teamListWrapper {
-    padding-bottom: 20px;
+    padding-bottom: 10px;
+    background-color: rgb(240, 240, 240);
 }
 
 .teamWrapper {
     text-align: left;
     display: flex;
-    width: 100vw;
+    width: 98%;
     height: 25vh;
-    margin-top: 20px;
+    margin-top: 10px;
     overflow-x: hidden;
     overflow-y: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    border-radius: .5rem;
+
 }
 
 .teamWrapper:hover {
-    background-color: rgb(212, 212, 212);
+    background: linear-gradient(to left, rgb(81, 177, 255) 0.8%, white 0.8%);
 }
 
 .teamRow {
     text-align: left;
     display: flex;
     width: 100%;
-    height: 100%;
     overflow-x: hidden;
     overflow-y: hidden;
     vertical-align: middle;
@@ -29,7 +34,9 @@
 
 .imageBox {
     width: 10%;
-    height: 100%;
+    height: 90%;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .descriptionBox {

@@ -12,25 +12,44 @@
     margin-top: 10px;
 }
 
-.postPreview {
+.previewWrapper {
+    width: 100%;
     margin-bottom: 10px;
-    border-radius: 0%;
+    border-radius: .25rem;
+    background-color: white;
+}
+.previewWrapper:hover {
+    background: linear-gradient(to left, rgb(43, 160, 255) 0.8%, white 0.8%);
 }
 
-.postTitle {
+.previewContent {
+    margin-left: auto;
+    margin-right: auto;
+    width: 96%;
+    overflow-x: hidden;
+    padding-top: 0.5%;
+    padding-bottom: 1%;
+}
+
+.previewTitle {
     font-size: 150%;
 }
 
-.postAuthor {
+.previewAuthor {
     font-size: 90%;
     color: rgb(114, 114, 128);
+    margin-top: 0%;
+}
+
+.previewBody {
+    margin-top: 0.5%;
 }
 
 .prevnext {
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
-    color: rgb(46, 96, 231);
+    color: rgb(43, 160, 255);
 }
 .prev:hover {
     text-decoration: underline;
@@ -47,4 +66,16 @@
 
 .alertSuccess {
     text-align: left;
+}
+
+.postButton {
+    color: white;
+    height: 2.5rem;
+    width: 15%;
+    background-color: rgb(43, 160, 255);
+    border: none;
+    border-radius: .25rem;
+}
+.postButton:hover{
+    background-color: rgb(4, 121, 218);
 }

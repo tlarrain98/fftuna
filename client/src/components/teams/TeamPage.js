@@ -17,23 +17,26 @@ const TeamPage = (props) => {
     return (
         <div className="teamPageWrapper">
             {console.log(props.data)}
-            <Button className="backButton"
+            <button className="backButton"
                 onClick={() => props.setTeam(null)}>
-                &#60; Back to teams
-            </Button>
+                Back to teams
+            </button>
             <div className="teamPage">
-                <div className="imageWrapper">
+                <div className="teamPageHeader">
                     <img className="image" alt="team" src={props.data.logoURL} />
-                </div>
-                <div className="teamInfo">
-                    <text className="name">{props.data.name}</text>
-                    <text style={{color: "grey"}}>  {props.data.abbreviation}</text>
-                    <br/>
-                    <text>Record: {props.data.wins} - {props.data.losses}</text>
-                    <br/>
-                    <text>PF: {formatPoints(props.data.regularSeasonPointsFor)}</text>
-                    <br />
-                    <text>PA: {formatPoints(props.data.regularSeasonPointsAgainst)}</text>
+                    <div className="teamInfo">
+                        <text className="name">{props.data.name}</text>
+                        <text style={{ color: "grey" }}>  {props.data.abbreviation}</text>
+                        <br />
+                        <text>Record: {props.data.wins} - {props.data.losses}</text>
+                        <br />
+                        <text>PF: {formatPoints(props.data.regularSeasonPointsFor)}</text>
+                        <br />
+                        <text>PA: {formatPoints(props.data.regularSeasonPointsAgainst)}</text>
+                    </div>
+                    <div className="teamContent">
+                        hello
+                    </div>
                 </div>
             </div>
         </div>

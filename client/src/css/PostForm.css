@@ -12,5 +12,26 @@
 }
 
 .submitButton {
+    color: white;
+    height: 2.5rem;
+    width: 15%;
+    background-color: rgb(43, 160, 255);
+    border: none;
+    border-radius: .25rem;
     margin-right: 3px;
+}
+.submitButton:hover {
+    background-color: rgb(4, 121, 218);
+}
+
+.cancelButton {
+    color: white;
+    height: 2.5rem;
+    width: 15%;
+    background-color: rgb(150, 150, 150);
+    border: none;
+    border-radius: .25rem;
+}
+.cancelButton:hover {
+    background-color: rgb(117, 117, 117);
 }

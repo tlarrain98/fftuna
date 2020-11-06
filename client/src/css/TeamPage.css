@@ -2,34 +2,55 @@
     text-align: left;
     width: 100vw;
     height: 100vh;
-    margin-left: 10vw;
 }
 
 .backButton {
-    margin-top: 15px;
+    margin-top: 5vh;
+    margin-left: 10%;
+    color: white;
+    height: 2.5rem;
+    width: 12%;
+    background-color: rgb(43, 160, 255);
+    border: none;
+    border-radius: .25rem;
+}
+.backButton:hover{
+    background-color: rgb(4, 121, 218);
 }
 
 .teamPage {
     display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vh;
+    border-radius: .25rem;
 }
 
-.imageWrapper {
-    margin-top: 50px;
-    width: 15%;
-    height: 100%;
+.teamPageHeader {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 1%;
+    margin-left: 1%;
 }
 
 .image {
-    width: 100%;
+    width: 20%;
     height: 100%;
 }
 
 .teamInfo {
-    margin-top: 50px;
     margin-left: 2%;
-    width: 68%;
+    width: 85%;
 }
 
 .name {
     font-size: xx-large;
+}
+
+.teamContent {
+
 }

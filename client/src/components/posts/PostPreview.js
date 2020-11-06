@@ -15,14 +15,12 @@ const PostPreview = (props) => {
     }
 
     return(
-        <div className="postPreview">
-            <Card>
-                <Card.Body>
-                    <div className="postTitle">{props.post.title}</div>
-                    <div className="postAuthor">by {props.post.author}</div>
-                    <div className="postBody">{displayBody()}</div>
-                </Card.Body>
-            </Card>
+        <div className="previewWrapper">
+            <div className="previewContent">
+                <div className="previewTitle">{props.post.title}</div>
+                <div className="previewAuthor">by {props.post.author}</div>
+                <div className="previewBody">{displayBody()}</div>
+            </div>
         </div>
     )
 }

@@ -17,12 +17,12 @@ const PostForm = (props) => {
                 <Form.Control className="titleForm" type="text" id="title" placeholder="Enter post title" />
                 <Form.Label>Body</Form.Label>
                 <Form.Control className="bodyForm" as="textarea" id="body" rows={10} />
-                <Button className="submitButton" onClick={() => handleText()}>
+                <button className="submitButton" onClick={() => handleText()}>
                     Submit
-                </Button>
-                <Button className="cancelButton" variant="secondary" onClick={() => props.handleCancel()}>
+                </button>
+                <button className="cancelButton" variant="secondary" onClick={() => props.handleCancel()}>
                     Cancel
-                </Button>
+                </button>
             </Form.Group>
         </div>
     )
