@@ -1,6 +1,6 @@
-import React from 'react';
-import '../../css/TeamPage.css';
-import Button from 'react-bootstrap/Button';
+import React from 'react'
+import '../../css/TeamPage.css'
+import Roster from './players/Roster'
 
 const TeamPage = (props) => {
 
@@ -12,6 +12,10 @@ const TeamPage = (props) => {
         }
 
         return points;
+    }
+
+    const getPlayers = () => {
+        return <Roster players={props.data.roster}/>
     }
 
     return (
@@ -34,9 +38,10 @@ const TeamPage = (props) => {
                         <br />
                         <text>PA: {formatPoints(props.data.regularSeasonPointsAgainst)}</text>
                     </div>
-                    <div className="teamContent">
-                        hello
-                    </div>
+                </div>
+                <div className="teamContent">
+                    <div className="rosterTitle">Roster</div>
+                    {getPlayers()}
                 </div>
             </div>
         </div>

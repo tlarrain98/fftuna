@@ -16,11 +16,26 @@ router.post('/api/post/posttodb', (req, res, next) => {
         req.body.page
     ]
     pool.query(`INSERT INTO posts(title, body, user_id, author, page_name, date_created)
-                    VALUES($1, $2, $3, $4, $5, NOW())`,
+                VALUES($1, $2, $3, $4, $5, NOW())`,
         values, (q_err, q_res) => {
             if (q_err) return next(q_err);
             console.log(q_res)
             res.json(q_res)
+        }
+    )
+})
+
+// gets singular post from db
+router.get('/api/get/post', (req, res, next) => {
+    const values = [
+        req.query.pid
+    ]
+    pool.query(`SELECT *
+                FROM posts
+                WHERE pid = $1`,
+        values, (q_err, q_res) => {
+            if (q_err) return next(q_err)
+            res.json(q_res.rows)
         }
     )
 })
@@ -35,15 +50,13 @@ router.get('/api/get/postsfromdb', (req, res, next) => {
             req.query.pageName
         ]
         pool.query(`SELECT *
-                FROM posts
-                WHERE page_name = $3
-                ORDER BY date_created DESC
-                OFFSET $1
-                LIMIT $2`,
+                    FROM posts
+                    WHERE page_name = $3
+                    ORDER BY date_created DESC
+                    OFFSET $1
+                    LIMIT $2`,
             values, (q_err, q_res) => {
                 if (q_err) return next(q_err)
-                // console.log(q_err)
-                // console.log(q_res)           
                 res.json(q_res.rows)
             }
         )
@@ -54,10 +67,10 @@ router.get('/api/get/postsfromdb', (req, res, next) => {
             req.query.postsPerPage
         ]
         pool.query(`SELECT *
-                FROM posts
-                ORDER BY date_created DESC
-                OFFSET $1
-                LIMIT $2`,
+                    FROM posts
+                    ORDER BY date_created DESC
+                    OFFSET $1
+                    LIMIT $2`,
             values, (q_err, q_res) => {
                 if (q_err) return next(q_err)
                 // console.log(q_err)
@@ -108,8 +121,8 @@ router.post('/api/post/usertodb', (req, res, next) => {
         req.body.email
     ]
     pool.query(`INSERT INTO users(email, date_created)
-                    VALUES($1, NOW())
-                    ON CONFLICT DO NOTHING`,
+                VALUES($1, NOW())
+                ON CONFLICT DO NOTHING`,
         values, (q_err, q_res) => {
             res.json(q_res.rows)
         }

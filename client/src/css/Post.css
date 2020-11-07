@@ -19,7 +19,7 @@
     background-color: white;
 }
 .previewWrapper:hover {
-    background: linear-gradient(to left, rgb(43, 160, 255) 0.8%, white 0.8%);
+    background: linear-gradient(to right, rgb(43, 160, 255) 0.8%, white 0.8%);
 }
 
 .previewContent {
@@ -33,6 +33,9 @@
 
 .previewTitle {
     font-size: 150%;
+}
+.previewTitle:hover {
+    cursor: pointer;
 }
 
 .previewAuthor {
@@ -78,4 +81,31 @@
 }
 .postButton:hover{
     background-color: rgb(4, 121, 218);
+}
+
+/* for the Post.js page */
+.postPageWrapper {
+    width: 90%;
+    background-color: white;
+    margin-top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: .25rem;
+    padding-bottom: 1%;
+    overflow-x: hidden;
+}
+
+.postPageTitle {
+    width: 95%;
+    margin-top: 1%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.postPageAuthor {
+
+}
+
+.postPageBody {
+
 }

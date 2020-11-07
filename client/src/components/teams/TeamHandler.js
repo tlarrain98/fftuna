@@ -7,7 +7,7 @@ import { Client } from 'espn-fantasy-football-api/node';
 const LID = '434534';
 const ffClient = new Client({ leagueId: LID });
 
-const TeamHandler = (props) => {
+const TeamHandler = () => {
 
     const [team, setTeam] = useState(null);
     const [data, setData] = useState(null);

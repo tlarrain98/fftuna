@@ -1,7 +1,7 @@
 .teamPageWrapper {
     text-align: left;
     width: 100vw;
-    height: 100vh;
+    padding-bottom: 10%;
 }
 
 .backButton {
@@ -44,7 +44,7 @@
 
 .teamInfo {
     margin-left: 2%;
-    width: 85%;
+    width: 80%;
 }
 
 .name {
@@ -52,5 +52,59 @@
 }
 
 .teamContent {
+    margin-top: 2%;
+    margin-left: 1%;
+}
 
+.rosterTitle {
+    font-size: x-large;
+}
+
+.roster {
+    display: flex;
+    width: 100%;
+    border-top: 2px solid rgb(43, 160, 255);
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 1%;
+}
+
+.position {
+    font-weight: bolder;
+}
+
+.teamAbb {
+    font-size: small;
+    font-weight: 500;
+    color: grey;
+}
+
+.player {
+
+    margin-top: 1%;
+}
+
+.qb {
+    width: 13vw;
+    margin-top: 1%;
+}
+.rb {
+    width: 13vw;
+    margin-top: 1%;
+}
+.wr {
+    width: 13vw;
+    margin-top: 1%;
+}
+.te {
+    width: 13vw;
+    margin-top: 1%;
+}
+.dst {
+    width: 13vw;
+    margin-top: 1%;
+}
+.k {
+    width: 13vw;
+    margin-top: 1%;
 }

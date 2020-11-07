@@ -1,6 +1,7 @@
 .Wrapper {
     overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-y: scroll;
+    height: 100vh;
     background-color: rgb(240, 240, 240);
 }
 

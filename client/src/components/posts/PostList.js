@@ -29,12 +29,18 @@ const PostList = (props) => {
             })
     }
 
+    const test = (value) => {
+        console.log(value);
+    }
+
     const getPostPreviews = () => {
         let list = []
         if (posts !== null) {
             for (let i = 0; i < posts.length; i++) {
                 list.push(
-                    <PostPreview key={i} post={posts[i]} />
+                    <PostPreview key={i} 
+                        post={posts[i]}
+                        goPost={props.goPost}/>
                 )
             }
         }
@@ -43,7 +49,6 @@ const PostList = (props) => {
 
     // make sure that the prev and next page links displaying correctly
     const prevnext = () => {
-        console.log("hereeeeeeeeeeeee")
         // if all the posts fit on one page, return nothing
         if (props.numPosts <= props.postsPerPage) {
             return

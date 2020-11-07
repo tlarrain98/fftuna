@@ -31,11 +31,11 @@ const CharlieFormula = () => {
                     <CreatePost pageName="charlie" />
                 </div>
             </div>
-            <div className="charliePost">
+            {/* <div className="charliePost">
                 <PostList postsPerPage={5}
                     numPosts={numPosts}
                     pageName="charlie"/>
-            </div>
+            </div> */}
         </div>
     )
 }

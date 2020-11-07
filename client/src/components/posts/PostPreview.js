@@ -1,6 +1,5 @@
 import React from 'react'
 import '../../css/Post.css'
-import Card from 'react-bootstrap/Card'
 
 const PostPreview = (props) => {
 
@@ -17,7 +16,10 @@ const PostPreview = (props) => {
     return(
         <div className="previewWrapper">
             <div className="previewContent">
-                <div className="previewTitle">{props.post.title}</div>
+                <div className="previewTitle"
+                    onClick={() => props.goPost(props.post.pid)}>
+                    {props.post.title}        
+                </div>
                 <div className="previewAuthor">by {props.post.author}</div>
                 <div className="previewBody">{displayBody()}</div>
             </div>

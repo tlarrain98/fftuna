@@ -6,7 +6,7 @@ import axios from 'axios'
 import CreatePost from '../posts/CreatePost'
 
 
-const Home = () => {
+const Home = (props) => {
 
     const [numPosts, setNumPosts] = useState(0);
 
@@ -32,7 +32,8 @@ const Home = () => {
                         <CreatePost />
                     </div>
                 </div>
-                <PostList postsPerPage={10}
+                <PostList goPost={props.goPost}
+                    postsPerPage={10}
                     numPosts={numPosts}
                     pageName=''/>
             </div>

@@ -7,11 +7,13 @@ import CharlieFormula from './charlieformula/CharlieFormula'
 import TeamHandler from './teams/TeamHandler'
 import Landing from './landingpages/Landing'
 import SetUsername from './SetUsername'
+import Post from './posts/Post'
 import { UserContext } from '../UserContext'
 
 const ContentHandler = () => {
 
     const [page, setPage] = useState('landing');
+    const [pid, setPid] = useState();
     const { userProfile, setUserProfile } = useContext(UserContext);
 
     // helper functions
@@ -32,6 +34,10 @@ const ContentHandler = () => {
     }
     const goTeams = () => {
         setPage('teams');
+    }
+    const goPost = (pageId) => {
+        setPid(pageId);
+        setPage('post')
     }
 
     const showNavBar = () => {
@@ -56,7 +62,7 @@ const ContentHandler = () => {
         }
         if (page === 'home') {
             return (
-                <Home />
+                <Home goPost={goPost} />
             )
         }
         if (page === 'times') {
@@ -78,6 +84,9 @@ const ContentHandler = () => {
             return (
                 <SetUsername goHome={goHome} />
             )
+        }
+        if (page === 'post') {
+            return <Post pid={pid}/>
         }
     }
     return (
