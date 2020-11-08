@@ -8,29 +8,34 @@ import '../css/Landing.css'
 
 const SetUsername = (props) => {
 
-    const { userProfile, setUserProfile } = useContext(UserContext);
-    const [warning, setWarning] = useState(null)
+    const {userProfile, setUserProfile} = useContext(UserContext);
+    const [warning, setWarning] = useState(null);
+    const [count, setCount] = useState(0);
 
     const check = () => {
         setWarning(null);
         var data = {
             uid: userProfile.uid,
-            username: document.getElementById("username").value
+            username: document.getElementById("username").value.trim()
         }
-        if(data.username !== '') {
+        if(data.username && data.username.length <= 25) {
             axios.put('/api/put/username', data)
                 .then(() => {
                     window.location.reload(); // make sure that user profile is set in state
                 })
                 .catch((err) => {
                     if (err.response.status === 500) {
-                        setWarning("This username has been taken.")
+                        setWarning("This username has been taken.");
                     }
                 })
         }
         else {
-            setWarning("Please pick a username.")
+            setWarning("Invalid username.");
         }  
+    }
+
+    const textCounter = () => {
+        setCount(document.getElementById('username').value.trim().length)
     }
 
     return (
@@ -39,10 +44,10 @@ const SetUsername = (props) => {
                 <Modal.Title>Set your username:</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <Form.Control className="userForm" type="text" id="username"/>
-                <div className="warning">
-                    {warning}
-                </div>
+                <Form.Control className="userForm" type="text" 
+                    id="username" onChange={() => textCounter()}/>
+                <div className="userCharCounter">{count}/25</div>
+                <div className="warning">{warning}</div>
             </Modal.Body>
             <Modal.Footer>
                 <Button onClick={() => check()}>Set username</Button>

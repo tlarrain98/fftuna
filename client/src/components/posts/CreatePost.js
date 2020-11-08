@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react'
-import Button from 'react-bootstrap/Button'
 import PostForm from './PostForm'
 import Alert from 'react-bootstrap/Alert'
 import axios from 'axios'
@@ -20,8 +19,8 @@ const CreatePost = (props) => {
 
     const handleSubmit = () => {
         const data = {
-            title: document.getElementById('title').value,
-            body: document.getElementById('body').value,
+            title: document.getElementById('title').value.trim(),
+            body: document.getElementById('body').value.trim(),
             uid: userProfile.uid,
             username: userProfile.username,
             page: props.pageName

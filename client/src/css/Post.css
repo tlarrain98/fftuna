@@ -95,17 +95,42 @@
     overflow-x: hidden;
 }
 
-.postPageTitle {
-    width: 95%;
+.postContent {
     margin-top: 1%;
+    width: 96%;
     margin-left: auto;
     margin-right: auto;
+    padding-bottom: 1%;
+}
+
+.postPageTitle {
+    font-size: 200%;
+}
+
+.postPageTS {
+    margin-top: 0.5%;
+    font-size: 90%;
+    color: rgb(114, 114, 128);
 }
 
 .postPageAuthor {
-
+    margin-top: 0.5%;
+    font-size: 90%;
+    color: rgb(114, 114, 128);
 }
 
 .postPageBody {
+    margin-top: 1%;
+}
 
+.commentTitle {
+    font-size: x-large;
+}
+
+.postCommentWrapper {
+    border-top: 1px solid rgb(194, 194, 194);
+    margin-top: 1%;
+    width: 96%;
+    margin-left: auto;
+    margin-right: auto;
 }

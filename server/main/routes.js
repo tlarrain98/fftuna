@@ -19,8 +19,7 @@ router.post('/api/post/posttodb', (req, res, next) => {
                 VALUES($1, $2, $3, $4, $5, NOW())`,
         values, (q_err, q_res) => {
             if (q_err) return next(q_err);
-            console.log(q_res)
-            res.json(q_res)
+            res.json(q_res);
         }
     )
 })
@@ -152,6 +151,43 @@ router.put('/api/put/username', (req, res, next) => {
         values, (q_err, q_res) => {
             if (q_err) return next(q_err);
             res.json(q_res.rows)
+        }
+    )
+})
+
+
+/**
+ * ROUTES FOR COMMENTS
+ */
+
+// post comment to database
+router.post('/api/post/comment', (req, res, next) => {
+    const values = [
+        req.body.comment,
+        req.body.author,
+        req.body.uid,
+        req.body.pid
+    ]
+    pool.query(`INSERT INTO comments(comment, author, user_id, post_id, date_created)
+                VALUES($1, $2, $3, $4, NOW())`,
+        values, (q_err, q_res) => {
+            if (q_err) return next(q_err);
+            res.json(q_res);
+        }
+    )
+})
+
+// get comments on a post
+router.get('/api/get/commentsonpost', (req, res, next) => {
+    const values = [
+        req.query.pid
+    ]
+    pool.query(`SELECT *
+                FROM comments
+                WHERE post_id = $1`,
+        values, (q_err, q_res) => {
+            if (q_err) return next(q_err);
+            res.json(q_res.rows);
         }
     )
 })

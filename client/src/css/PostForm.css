@@ -33,5 +33,10 @@
     border-radius: .25rem;
 }
 .cancelButton:hover {
-    background-color: rgb(117, 117, 117);
+    background-color: rgb(155, 155, 155);
+}
+
+.charCounter {
+    color: rgb(117, 117, 117);
+    font-size: small;
 }
