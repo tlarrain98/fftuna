@@ -3,11 +3,12 @@ import '../css/ContentHandler.css'
 import Home from './home/Home'
 import TunaNavBar from './TunaNavBar'
 import WeeklyRecap from './weeklyrecap/WeeklyRecap'
-import CharlieFormula from './charlieformula/CharlieFormula'
+import CharlieFormulaPage from './charlieformula/CharlieFormulaPage'
 import TeamHandler from './teams/TeamHandler'
 import Landing from './landingpages/Landing'
 import SetUsername from './SetUsername'
 import Post from './posts/Post'
+import Records from './records/Records'
 // import { UserContext } from '../UserContext'
 
 /*
@@ -16,9 +17,10 @@ import Post from './posts/Post'
  * setuser: if user has not set username, show prompt on login
  * home: home page including standings and league feed
  * times: shows the weekly recap page
- * charle: shows the charlie formula page
+ * charlie: shows the charlie formula page
  * teams: shows the teams page with the team list
  * post: loads an individual post when clicked on
+ * records: shows the league records page
 */
 const ContentHandler = () => {
 
@@ -49,6 +51,9 @@ const ContentHandler = () => {
         setPid(pageId);
         setPage('post')
     }
+    const goRecords = () => {
+        setPage('records')
+    }
 
     const showNavBar = () => {
         if (page !== 'landing' && page !== 'setuser') {
@@ -57,7 +62,8 @@ const ContentHandler = () => {
                     goWeekly={goWeekly}
                     goCharlie={goCharlie}
                     goTeams={goTeams}
-                    goLanding={goLanding} />
+                    goLanding={goLanding}
+                    goRecords={goRecords} />
             )
         }
     }
@@ -82,7 +88,7 @@ const ContentHandler = () => {
         }
         if (page === 'charlie') {
             return (
-                <CharlieFormula />
+                <CharlieFormulaPage />
             )
         }
         if (page === 'teams') {
@@ -97,6 +103,9 @@ const ContentHandler = () => {
         }
         if (page === 'post') {
             return <Post pid={pid}/>
+        }
+        if (page === 'records') {
+            return <Records />
         }
     }
     return (
