@@ -2,8 +2,10 @@ import React from 'react'
 import '../../../css/TeamPage.css'
 import Player from './Player'
 
+// roster displayed for every team
 const Roster = (props) => {
 
+    // get each team's QBs
     const getQBs = () => {
         let qbs = [];
 
@@ -17,6 +19,8 @@ const Roster = (props) => {
 
         return qbs
     }
+
+    // get each team's RBs
     const getRBs = () => {
         let rbs = [];
 
@@ -30,6 +34,8 @@ const Roster = (props) => {
 
         return rbs
     }
+
+    // get each team's WRs
     const getWRs = () => {
         let wrs = [];
 
@@ -43,6 +49,8 @@ const Roster = (props) => {
 
         return wrs
     }
+
+    // get each team's TEs
     const getTEs = () => {
         let tes = [];
 
@@ -59,6 +67,8 @@ const Roster = (props) => {
 
         return tes
     }
+
+    // get each team's D/ST
     const getDSTs = () => {
         let dst = [];
 
@@ -72,6 +82,8 @@ const Roster = (props) => {
 
         return dst
     }
+
+    // get each team's Ks
     const getKs = () => {
         let ks = [];
 
@@ -115,12 +127,6 @@ const Roster = (props) => {
                 <div className="position">K</div>
                 {getKs()}
             </div>
-
-
-
-
-
-
         </div>
     )
 }

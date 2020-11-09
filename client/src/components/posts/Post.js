@@ -6,8 +6,9 @@ import CommentList from '../comments/CommentList'
 
 const Post = (props) => {
 
-    const [post, setPost] = useState();
+    const [post, setPost] = useState(); // used to set and store post data
 
+    // get post data on load
     useEffect(() => {
         getPost();
     }, [])
@@ -26,6 +27,7 @@ const Post = (props) => {
             })
     }
 
+    // formats date into MM/DD/YYYY
     const formatDate = (temp) => {
         let year = temp.substring(0, 4);
         let month = temp.substring(5, 7);

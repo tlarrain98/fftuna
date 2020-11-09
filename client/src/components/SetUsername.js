@@ -6,18 +6,21 @@ import Form from 'react-bootstrap/Form'
 import axios from 'axios'
 import '../css/Landing.css'
 
+// prompt that shows when user has not set username
 const SetUsername = (props) => {
 
-    const {userProfile, setUserProfile} = useContext(UserContext);
-    const [warning, setWarning] = useState(null);
-    const [count, setCount] = useState(0);
+    const {userProfile} = useContext(UserContext); // used to retrieve user profile
+    const [warning, setWarning] = useState(null);  // warning text for setting username
+    const [count, setCount] = useState(0);         // counts username length
 
+    // checks if username is valid or if error occurred
     const check = () => {
         setWarning(null);
         var data = {
             uid: userProfile.uid,
             username: document.getElementById("username").value.trim()
         }
+        // if username isn't too short or too long
         if(data.username && data.username.length <= 25) {
             axios.put('/api/put/username', data)
                 .then(() => {
@@ -34,6 +37,7 @@ const SetUsername = (props) => {
         }  
     }
 
+    // counts the length of the username
     const textCounter = () => {
         setCount(document.getElementById('username').value.trim().length)
     }

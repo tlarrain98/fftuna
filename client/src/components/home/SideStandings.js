@@ -12,11 +12,14 @@ const SideStandings = () => {
     const [data, setData] = useState('');
     const [SID, setSID] = useState('2020');
 
+    // get league data on every team
     const getData = async () => {
+        // 18 gets the week that was last played
         const response = await ffClient.getTeamsAtWeek({ seasonId: SID, scoringPeriodId: 18 });
         setData(response);
     }
 
+    // orders the list of teams by record
     const getOrder = () => {
         let ordered = [];
 
@@ -27,9 +30,10 @@ const SideStandings = () => {
         return ordered;
     }
 
+    // displays standings
     const displayStandings = () => {
         let standings = [];
-        let ordered = getOrder();
+        let ordered = getOrder(); // find order by record
         for (let i = 0; i < ordered.length; i++) {
             standings.push(
                 <StandingEntry key={i}

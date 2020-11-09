@@ -27,17 +27,17 @@ const CreatePost = (props) => {
         }
 
         if(!isError(data)) {
-            setShow(false)
+            setShow(false);
             axios.post('/api/post/posttodb', data)
                 .then(response => {
-                    document.getElementById('title').value = ''
-                    document.getElementById('body').value = ''
+                    document.getElementById('title').value = '';
+                    document.getElementById('body').value = '';
                     setSuccess(true);
                     setCreate(false);
                 })
                 .catch((err) => {
-                    console.log("error: " + err)
-                    setWarning("Server error, could not post.")
+                    console.log("error: " + err);
+                    setWarning("Server error, could not post.");
                     setShow(true);
                 })
         }

@@ -1,6 +1,7 @@
 import React from 'react'
 import '../../../css/TeamPage.css'
 
+// individual players for each team's roster
 const Player = (props) => {
 
     return (

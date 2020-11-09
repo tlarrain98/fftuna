@@ -5,14 +5,16 @@ import axios from 'axios'
 
 const PostList = (props) => {
 
-    const [pagination, setPagination] = useState(1);
-    const [posts, setPosts] = useState(null);
+    const [pagination, setPagination] = useState(1); // keeps track of the page #
+    const [posts, setPosts] = useState(null); // used for post data
 
+    // on page change, scroll to top and get data for page
     useEffect(() => {
         window.scrollTo(0, 0)
         getPostData();
     }, [pagination])
 
+    // set the post data for the current page
     const getPostData = () => {
         axios.get('/api/get/postsfromdb', {
             params: {
@@ -29,10 +31,7 @@ const PostList = (props) => {
             })
     }
 
-    const test = (value) => {
-        console.log(value);
-    }
-
+    // returns a list of all the post preview components for the page
     const getPostPreviews = () => {
         let list = []
         if (posts !== null) {
@@ -53,7 +52,7 @@ const PostList = (props) => {
         if (props.numPosts <= props.postsPerPage) {
             return
         }
-        // show prev but not next
+        // show prev but not next if on last page
         else if (pagination * props.postsPerPage > props.numPosts) {
             return (
                 <div className="prevnext">
@@ -69,6 +68,7 @@ const PostList = (props) => {
                 </div>
             )
         }
+        // any other case, show both
         else {
             return (
                 <div className="prevnext">

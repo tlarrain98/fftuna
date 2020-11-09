@@ -1,26 +1,28 @@
-import React,{ useState, useEffect }  from 'react';
-import '../../css/Teams.css';
-import TeamPage from './TeamPage.js';
-import TeamList from './TeamList.js';
-import { Client } from 'espn-fantasy-football-api/node';
+import React,{ useState, useEffect }  from 'react'
+import '../../css/Teams.css'
+import TeamPage from './TeamPage'
+import TeamList from './TeamList'
+import { Client } from 'espn-fantasy-football-api/node'
+import * as Constants from '../../constants'
 
-const LID = '434534';
-const ffClient = new Client({ leagueId: LID });
+const ffClient = new Client({ leagueId: Constants.LEAGUE_ID });
 
+// handles the team list and navigation between teams
 const TeamHandler = () => {
 
     const [team, setTeam] = useState(null);
     const [data, setData] = useState(null);
-    const [SID, setSID] = useState('2020');
 
+    // on team change, scroll to top and get new team's data
     useEffect(() => {
         window.scrollTo(0, 0)
-        setSID('2020');
         getData();
     }, [team]);
 
     const getData = async () => {
-        const response = await ffClient.getTeamsAtWeek({ seasonId: SID, scoringPeriodId: 18 });
+        const response = await ffClient.getTeamsAtWeek({ 
+            seasonId: Constants.SEASON_ID, scoringPeriodId: 18   
+        });
         // console.log(response);
         setData(response);
     }

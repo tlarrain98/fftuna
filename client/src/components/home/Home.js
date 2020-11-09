@@ -33,8 +33,8 @@ const Home = (props) => {
                     </div>
                 </div>
                 <PostList goPost={props.goPost}
-                    postsPerPage={10}
-                    numPosts={numPosts}
+                    postsPerPage={10}   // posts per page on the league feed
+                    numPosts={numPosts} // total number of posts in the database
                     pageName=''/>
             </div>
             <div className="col2">

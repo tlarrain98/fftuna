@@ -1,8 +1,9 @@
-import React from 'react';
-import { Nav, Navbar } from 'react-bootstrap';
-import '../css/NavBar.css';
-import LogoutButton from './LogoutButton.js';
+import React from 'react'
+import { Nav, Navbar } from 'react-bootstrap'
+import '../css/NavBar.css'
+import LogoutButton from './LogoutButton'
 
+// navigation bar displayed on the top of the page
 const TunaNavBar = (props) => {
     return (
         <Navbar className="NavBarContainer" bg="dark" variant="dark" expand="lg">

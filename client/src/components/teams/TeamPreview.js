@@ -1,6 +1,7 @@
-import React from 'react';
-import '../../css/Teams.css';
+import React from 'react'
+import '../../css/Teams.css'
 
+// preview of team in team list
 const TeamPreview = (props) => {
 
     // ensures only two numbers after the decimal are displayed

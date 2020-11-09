@@ -8,15 +8,25 @@ import TeamHandler from './teams/TeamHandler'
 import Landing from './landingpages/Landing'
 import SetUsername from './SetUsername'
 import Post from './posts/Post'
-import { UserContext } from '../UserContext'
+// import { UserContext } from '../UserContext'
 
+/*
+ * Chooses the current page to display
+ * landing: landing page where user can log in
+ * setuser: if user has not set username, show prompt on login
+ * home: home page including standings and league feed
+ * times: shows the weekly recap page
+ * charle: shows the charlie formula page
+ * teams: shows the teams page with the team list
+ * post: loads an individual post when clicked on
+*/
 const ContentHandler = () => {
 
-    const [page, setPage] = useState('landing');
-    const [pid, setPid] = useState();
-    const { userProfile, setUserProfile } = useContext(UserContext);
+    const [page, setPage] = useState('landing'); // stores page context
+    const [pid, setPid] = useState(); // used for loading individual posts
+    // const { userProfile, setUserProfile } = useContext(UserContext);
 
-    // helper functions
+    // helper functions to dictate which page to show
     const goLanding = () => {
         setPage('landing');
     }

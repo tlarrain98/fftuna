@@ -3,6 +3,7 @@ import '../../css/Post.css'
 
 const PostPreview = (props) => {
 
+    // cut off long bodies so that the preview isn't too big
     const displayBody = () => {
         let body = props.post.body;
         body.replace(/[\r\n]+/g, " "); // newlines are only counted as one character so we need to

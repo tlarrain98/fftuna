@@ -6,11 +6,13 @@ const PostForm = (props) => {
 
     const [count, setCount] = useState(0);
     
+    // trims the title and body text and submits it
     const handleText = () => {
         props.handleSubmit(document.getElementById('title').value.trim(), 
             document.getElementById('body').value.trim()); 
     }
 
+    // counts the amount of characters in the title
     const textCounter = () => {
         setCount(document.getElementById('title').value.trim().length);
     }
