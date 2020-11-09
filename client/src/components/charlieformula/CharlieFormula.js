@@ -27,15 +27,11 @@ const CharlieFormula = () => {
             {getNumPosts()}
             <div className="headerWrapper">
                 <div className="charlieHeader">The Charlie Formula</div>
+                <div className="charlieSubtitle">by Charlie Keefe</div>
                 <div className="postWrapper">
                     <CreatePost pageName="charlie" />
                 </div>
             </div>
-            {/* <div className="charliePost">
-                <PostList postsPerPage={5}
-                    numPosts={numPosts}
-                    pageName="charlie"/>
-            </div> */}
         </div>
     )
 }

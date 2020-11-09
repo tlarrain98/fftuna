@@ -24,7 +24,7 @@ const CommentForm = (props) => {
         // check if there is anything in the text area
         if (commentText) {
             axios.post('/api/post/comment', data)
-                .then((response) => {
+                .then(() => {
                     document.getElementById("comment").value = '';
                     setAlertText("Comment submitted!");
                     setShowSuccess(true);

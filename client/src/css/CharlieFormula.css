@@ -5,11 +5,16 @@
 }
 
 .headerWrapper {
-    margin-top: 30px;
+    margin-top: 2%;
 }
 
 .charlieHeader {
     font-size: 500%;
+}
+
+.charlieSubtitle {
+    font-style: italic;
+    margin-bottom: 2%;
 }
 
 .postWrapper {

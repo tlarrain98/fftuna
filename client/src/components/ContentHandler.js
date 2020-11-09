@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import '../css/ContentHandler.css'
 import Home from './home/Home'
 import TunaNavBar from './TunaNavBar'
-import TunaTimes from './weeklytimes/TunaTimes'
+import WeeklyRecap from './weeklyrecap/WeeklyRecap'
 import CharlieFormula from './charlieformula/CharlieFormula'
 import TeamHandler from './teams/TeamHandler'
 import Landing from './landingpages/Landing'
@@ -26,7 +26,7 @@ const ContentHandler = () => {
     const goHome = () => {
         setPage('home');
     }
-    const goTimes = () => {
+    const goWeekly = () => {
         setPage('times');
     }
     const goCharlie = () => {
@@ -44,7 +44,7 @@ const ContentHandler = () => {
         if (page !== 'landing' && page !== 'setuser') {
             return (
                 <TunaNavBar goHome={goHome}
-                    goTimes={goTimes}
+                    goWeekly={goWeekly}
                     goCharlie={goCharlie}
                     goTeams={goTeams}
                     goLanding={goLanding} />
@@ -67,7 +67,7 @@ const ContentHandler = () => {
         }
         if (page === 'times') {
             return (
-                <TunaTimes />
+                <WeeklyRecap />
             )
         }
         if (page === 'charlie') {

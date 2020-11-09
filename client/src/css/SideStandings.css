@@ -46,7 +46,7 @@
 }
 
 .trTeam {
-    cursor: pointer;
+    cursor: default;
 }
 .trTeam:hover {
     background: linear-gradient(to right, rgb(43, 160, 255) 0.8%, rgb(224, 224, 224) 0.8%);

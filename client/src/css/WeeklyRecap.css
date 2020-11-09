@@ -1,0 +1,22 @@
+.weeklyRecapWrapper {
+
+}
+
+.weeklyHeader {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.weeklyTitle {
+    font-size: 500%;
+    margin-top: 2%;
+}
+
+.weeklySubtitle {
+    font-style: italic;
+}
+
+.postWrapper {
+    margin-top: 2%;
+}
