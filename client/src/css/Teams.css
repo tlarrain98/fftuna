@@ -3,23 +3,68 @@
     background-color: rgb(240, 240, 240);
 }
 
-.teamWrapper {
+.selectorWrapper {
     text-align: left;
     display: flex;
     width: 98%;
-    height: 25vh;
-    margin-top: 10px;
+    margin-top: 1%;
     overflow-x: hidden;
     overflow-y: hidden;
     margin-left: auto;
     margin-right: auto;
     background-color: white;
     border-radius: .5rem;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+}
 
+.loadingText {
+    text-align: center;
+    margin-top: 5%;
+    font-size: x-large;
+}
+
+.seasonSelect {
+    width: 15%;
+    margin-left: 1%;
+}
+
+.weekSelect {
+    width: 15%;
+    margin-left: 2%;
+}
+
+.note {
+    width: 70%;
+    text-align: right;
+    margin-right: 1%;
+    color: rgb(124, 124, 124);
+}
+
+.errorMessage {
+    margin-top: 5%;
+    text-align: center;
+    font-size: x-large;
+    color: red;
+}
+
+.teamWrapper {
+    text-align: left;
+    display: flex;
+    width: 98%;
+    height: 25vh;
+    margin-top: 1%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    border-radius: .5rem;
 }
 
 .teamWrapper:hover {
     background: linear-gradient(to left, rgb(81, 177, 255) 0.8%, white 0.8%);
+    cursor: pointer;
 }
 
 .teamRow {
@@ -29,7 +74,7 @@
     overflow-x: hidden;
     overflow-y: hidden;
     vertical-align: middle;
-    margin-left: 30px;
+    margin-left: 1%;
 }
 
 .imageBox {
@@ -41,8 +86,8 @@
 
 .descriptionBox {
     width: 90%;
-    margin-left: 10px;
-    margin-top: 10px;
+    margin-left: 0.5%;
+    margin-top: 0.5%;
 }
 
 .teamName {

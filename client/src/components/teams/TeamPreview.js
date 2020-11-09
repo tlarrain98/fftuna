@@ -21,12 +21,10 @@ const TeamPreview = (props) => {
                 <img className="logo" alt="team" src={props.logoURL} />
             </div>
             <div className="descriptionBox">
-                <text className="teamName">{props.name}</text>
-                <text className="w-l"> ({props.wins} - {props.losses})</text>
-                <br />
-                <text className="points">PF: {formatPoints(props.pf)}</text>
-                <br />
-                <text className="points">PA: {formatPoints(props.pa)}</text>
+                <div className="teamName">{props.name}</div>
+                <div className="w-l"> ({props.wins} - {props.losses})</div>
+                <div className="points">PF: {formatPoints(props.pf)}</div>
+                <div className="points">PA: {formatPoints(props.pa)}</div>
             </div>
         </div>
     )

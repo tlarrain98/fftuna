@@ -18,25 +18,32 @@ const TeamPage = (props) => {
         return <Roster players={props.data.roster}/>
     }
 
+    const getWeek = () => {
+        if(props.week === 18) {
+            return "Current Week"
+        }
+        return "Week: " + props.week
+    }
+
     return (
         <div className="teamPageWrapper">
-            {console.log(props.data)}
             <button className="backButton"
                 onClick={() => props.setTeam(null)}>
                 Back to teams
             </button>
+            <div className="seasonAndWeek">
+                {getWeek()}<br />
+                Season: {props.season}
+            </div>
             <div className="teamPage">
                 <div className="teamPageHeader">
                     <img className="image" alt="team" src={props.data.logoURL} />
                     <div className="teamInfo">
-                        <text className="name">{props.data.name}</text>
-                        <text style={{ color: "grey" }}>  {props.data.abbreviation}</text>
-                        <br />
-                        <text>Record: {props.data.wins} - {props.data.losses}</text>
-                        <br />
-                        <text>PF: {formatPoints(props.data.regularSeasonPointsFor)}</text>
-                        <br />
-                        <text>PA: {formatPoints(props.data.regularSeasonPointsAgainst)}</text>
+                        <div className="name">{props.data.name}</div>
+                        <div style={{ color: "grey" }}>  {props.data.abbreviation}</div>
+                        <div>Record: {props.data.wins} - {props.data.losses}</div>
+                        <div>PF: {formatPoints(props.data.regularSeasonPointsFor)}</div>
+                        <div>PA: {formatPoints(props.data.regularSeasonPointsAgainst)}</div>
                     </div>
                 </div>
                 <div className="teamContent">

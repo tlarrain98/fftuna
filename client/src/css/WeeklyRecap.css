@@ -1,5 +1,5 @@
 .weeklyRecapWrapper {
-
+    width: 100%;
 }
 
 .weeklyHeader {
@@ -17,6 +17,9 @@
     font-style: italic;
 }
 
-.postWrapper {
+.weeklyCreatePostWrapper {
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 2%;
+    width: 75%;
 }

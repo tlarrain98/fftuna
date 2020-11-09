@@ -18,6 +18,13 @@
     background-color: rgb(4, 121, 218);
 }
 
+.seasonAndWeek {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+}
+
 .teamPage {
     display: flex;
     flex-wrap: wrap;
@@ -25,7 +32,6 @@
     background-color: white;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 5vh;
     border-radius: .25rem;
 }
 

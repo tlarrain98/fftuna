@@ -8,11 +8,10 @@ const WeeklyRecap = () => {
             <div className="weeklyHeader">
                 <div className="weeklyTitle">Weekly Recap</div>
                 <div className="weeklySubtitle">by Jacob Morman</div>
-                <div className="postWrapper">
+                <div className="weeklyCreatePostWrapper">
                     <CreatePost pageName="weekly"/>
                 </div>
             </div>
-
         </div>
     )
 }

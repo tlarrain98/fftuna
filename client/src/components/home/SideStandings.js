@@ -3,19 +3,20 @@ import Table from 'react-bootstrap/Table';
 import StandingEntry from './StandingEntry.js';
 import '../../css/SideStandings.css';
 import { Client } from 'espn-fantasy-football-api/node';
+import * as Constants from '../../constants'
 
-const LID = '434534';
-const ffClient = new Client({ leagueId: LID });
+const ffClient = new Client({ leagueId: Constants.LEAGUE_ID });
 
 const SideStandings = () => {
     
     const [data, setData] = useState('');
-    const [SID, setSID] = useState('2020');
 
     // get league data on every team
     const getData = async () => {
         // 18 gets the week that was last played
-        const response = await ffClient.getTeamsAtWeek({ seasonId: SID, scoringPeriodId: 18 });
+        const response = await ffClient.getTeamsAtWeek({ 
+            seasonId: Constants.SEASON_ID, scoringPeriodId: 18
+        });
         setData(response);
     }
 
