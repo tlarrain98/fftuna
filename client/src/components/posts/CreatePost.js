@@ -60,7 +60,9 @@ const CreatePost = (props) => {
     const chooseDisplay = () => {
         if(create) {
             return(
-                <PostForm handleCancel={handleCancel} handleSubmit={handleSubmit}/>
+                <PostForm handleCancel={handleCancel} 
+                    handleSubmit={handleSubmit}
+                    pageName={props.pageName}/>
             )
         }
         else {

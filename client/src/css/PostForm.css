@@ -18,7 +18,7 @@
     background-color: rgb(43, 160, 255);
     border: none;
     border-radius: .25rem;
-    margin-right: 3px;
+    margin-right: 0.5%;
 }
 .submitButton:hover {
     background-color: rgb(4, 121, 218);
@@ -34,6 +34,26 @@
 }
 .cancelButton:hover {
     background-color: rgb(155, 155, 155);
+}
+
+.magicWrapper {
+    display: flex;
+    margin-top: 1%;
+}
+
+.magicButton {
+    color: white;
+    height: 2.5rem;
+    width: 15%;
+    background-color: gold;
+    border: none;
+    border-radius: .25rem;
+    margin-left: 0.5%;
+}
+
+.magicSelect {
+    width: 10.5%;
+    display: flex;
 }
 
 .charCounter {
