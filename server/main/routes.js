@@ -102,12 +102,32 @@ router.get('/api/get/numpostsfromdb', (req, res, next) => {
                     FROM posts`,
             null, (q_err, q_res) => {
                 if (q_err) return next(q_err)
-                // console.log(q_err)
-                // console.log(q_res)  
                 res.json(q_res.rows)
             }
         )
     }
+})
+
+// delete post from db
+router.delete('/api/delete/post', (req, res, next) => {
+    const pid = req.body.pid;
+    pool.query(`DELETE FROM posts 
+                WHERE pid = $1`,
+        [pid], (q_err, q_res) => {
+            res.json(q_res.rows);
+        }
+    )
+})
+
+// delete all comments on post from db
+router.delete('/api/delete/allcomments', (req, res, next) => {
+    const pid = req.body.pid;
+    pool.query(`DELETE FROM comments
+                WHERE post_id = $1`,
+        [pid], (q_err, q_res) => {
+            res.json(q_res.rows);
+        }
+    )
 })
 
 /**

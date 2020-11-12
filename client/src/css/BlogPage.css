@@ -1,22 +1,25 @@
-.charlieWrapper {
+.blogWrapper {
     width: 100vw;
     text-align: center;
     overflow-y: scroll;
 }
 
-.headerWrapper {
+.blogHeaderWrapper {
     margin-top: 2%;
 }
 
-.charlieHeader {
+.blogTitle {
     font-size: 500%;
 }
 
-.charlieSubtitle {
+.blogSubtitle {
     font-style: italic;
     margin-bottom: 2%;
 }
 
-.postWrapper {
+.blogCreatePost {
+    margin-left: auto;
+    margin-right: auto;
     width: 75%;
+    margin-bottom: 5%;
 }

@@ -3,15 +3,32 @@ import '../../css/Post.css'
 import axios from 'axios'
 import CommentForm from '../comments/CommentForm'
 import CommentList from '../comments/CommentList'
+import DeletePost from './DeletePost'
 
 const Post = (props) => {
 
     const [post, setPost] = useState(); // used to set and store post data
+    const [refresh, setRefresh] = useState(false); // refreshes page
+    const [show, setShow] = useState(false); // show delete post modal
 
     // get post data on load
     useEffect(() => {
         getPost();
     }, [])
+
+    // sets to true then false to ensure that post list can refresh more than once
+    const handleRefresh = () => {
+        setRefresh(true);
+        setRefresh(false);
+    }
+
+    const handleShow = () => {
+        setShow(true);
+    }
+
+    const handleClose = () => {
+        setShow(false);
+    }
 
     const getPost = () => {
         axios.get('/api/get/post', {
@@ -28,13 +45,13 @@ const Post = (props) => {
     }
 
     // formats date into MM/DD/YYYY
-    const formatDate = (temp) => {
-        let year = temp.substring(0, 4);
-        let month = temp.substring(5, 7);
-        let day = temp.substring(8, 10);
-        let date = month + '/' + day + '/' + year
+    const formatDate = (date) => {
+        let year = date.substring(0, 4);
+        let month = date.substring(5, 7);
+        let day = date.substring(8, 10);
+        let mdy = month + '/' + day + '/' + year
 
-        return date
+        return mdy
     }
 
     if (post) {
@@ -42,15 +59,22 @@ const Post = (props) => {
             <div className="postPageWrapper">
                 <div className="postContent">
                     <div className="postPageTitle">{post.title}</div>
-                    <div className="postPageTS">posted on {formatDate(post.date_created)}</div>
+                    <div className="postPageTS">{formatDate(post.date_created)}</div>
                     <div className="postPageAuthor">by {post.author}</div>
                     <div className="postPageBody">{post.body}</div>
+                    <div className="postDelete" onClick={() => handleShow()}>delete</div>
                 </div>
                 <div className="postCommentWrapper">
                     <div className="commentTitle">Comments</div>
-                    <CommentForm pid={props.pid}/>
-                    <CommentList pid={props.pid}/>
+                    <CommentForm pid={post.pid}
+                        handleRefresh={handleRefresh} />
+                    <CommentList pid={post.pid}
+                        refresh={refresh} />
                 </div>
+                <DeletePost goHome={props.goHome} 
+                    show={show}
+                    handleClose={handleClose}
+                    pid={post.pid}/>
             </div>
 
         )

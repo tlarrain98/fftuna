@@ -5,6 +5,11 @@
     background-color: rgb(240, 240, 240);
 }
 
-.pageWrapper {
-    
+@font-face {
+    font-family: myFont;
+    src: url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Titillium+Web&display=swap');
+}
+
+*{
+    font-family: myFont;
 }

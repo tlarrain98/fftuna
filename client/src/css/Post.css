@@ -20,6 +20,7 @@
 }
 .previewWrapper:hover {
     background: linear-gradient(to right, rgb(43, 160, 255) 0.8%, white 0.8%);
+    cursor: pointer;
 }
 
 .previewContent {
@@ -33,9 +34,6 @@
 
 .previewTitle {
     font-size: 150%;
-}
-.previewTitle:hover {
-    cursor: pointer;
 }
 
 .previewAuthor {
@@ -100,7 +98,6 @@
     width: 96%;
     margin-left: auto;
     margin-right: auto;
-    padding-bottom: 1%;
 }
 
 .postPageTitle {
@@ -121,6 +118,40 @@
 
 .postPageBody {
     margin-top: 1%;
+}
+
+.postDelete {
+    margin-top: 1%;
+    color: rgb(224, 0, 0);
+}
+.postDelete:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.deleteButton {
+    color: white;
+    height: 2.5rem;
+    width: 15%;
+    background-color: rgb(224, 0, 0);
+    border: none;
+    border-radius: .25rem;
+    margin-right: 1%;
+}
+.deleteButton:hover {
+    background-color: rgb(180, 0, 0);
+}
+
+.cancelDeleteButton {
+    color: white;
+    height: 2.5rem;
+    width: 15%;
+    background-color: rgb(150, 150, 150);
+    border: none;
+    border-radius: .25rem;
+}
+.cancelDeleteButton:hover {
+    background-color: rgb(126, 126, 126);
 }
 
 .commentTitle {

@@ -13,7 +13,6 @@ const CommentForm = (props) => {
     const [count, setCount] = useState(0);
 
     const postComment = () => {
-        console.log(userProfile)
         let commentText = document.getElementById("comment").value.trim();
         let data = {
             comment: commentText,
@@ -28,6 +27,8 @@ const CommentForm = (props) => {
                     document.getElementById("comment").value = '';
                     setAlertText("Comment submitted!");
                     setShowSuccess(true);
+                    setCount(0);
+                    props.handleRefresh();
                 })
                 .catch((error) => {
                     setAlertText("Could not submit comment.");
@@ -58,7 +59,7 @@ const CommentForm = (props) => {
                 <textarea className="commentForm" id="comment" 
                 rows="4" onChange={() => textCounter()}/>
             </div>
-            <div class="charCount">{count}/512</div>
+            <div className="charCount">{count}/512</div>
             <button className="commentButton" onClick={() => postComment()}>submit</button>
         </>
     )

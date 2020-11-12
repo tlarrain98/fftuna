@@ -29,11 +29,12 @@ const CreatePost = (props) => {
         if(!isError(data)) {
             setShow(false);
             axios.post('/api/post/posttodb', data)
-                .then(response => {
+                .then(() => {
                     document.getElementById('title').value = '';
                     document.getElementById('body').value = '';
                     setSuccess(true);
                     setCreate(false);
+                    props.handleRefresh();
                 })
                 .catch((err) => {
                     console.log("error: " + err);

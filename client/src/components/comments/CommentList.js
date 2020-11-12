@@ -10,7 +10,7 @@ const CommentList = (props) => {
 
     useEffect(() => {
         getComments();
-    }, [])
+    }, [props.refresh])
 
     const getComments = () => {
         axios.get('/api/get/commentsonpost', {

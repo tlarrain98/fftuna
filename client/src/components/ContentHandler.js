@@ -83,12 +83,12 @@ const ContentHandler = () => {
         }
         if (page === 'times') {
             return (
-                <WeeklyRecap />
+                <WeeklyRecap goPost={goPost}/>
             )
         }
         if (page === 'charlie') {
             return (
-                <CharlieFormulaPage />
+                <CharlieFormulaPage goPost={goPost}/>
             )
         }
         if (page === 'teams') {
@@ -102,7 +102,8 @@ const ContentHandler = () => {
             )
         }
         if (page === 'post') {
-            return <Post pid={pid}/>
+            return <Post pid={pid}
+                        goHome={goHome}/>
         }
         if (page === 'records') {
             return <Records />

@@ -12,7 +12,7 @@ const PostList = (props) => {
     useEffect(() => {
         window.scrollTo(0, 0)
         getPostData();
-    }, [pagination])
+    }, [pagination, props.refresh])
 
     // set the post data for the current page
     const getPostData = () => {

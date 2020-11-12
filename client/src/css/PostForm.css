@@ -33,7 +33,12 @@
     border-radius: .25rem;
 }
 .cancelButton:hover {
-    background-color: rgb(155, 155, 155);
+    background-color: rgb(126, 126, 126);
+}
+
+.deleteMessage {
+    margin-top: 5%;
+    margin-left: 0.5%;
 }
 
 .magicWrapper {

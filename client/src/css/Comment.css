@@ -1,4 +1,5 @@
 .commentFormWrapper {
+    width: 100%;
 }
 
 .commentForm {
@@ -57,16 +58,29 @@
 }
 
 .commentWrapper {
+    width: 100%;
     margin-top: 2%;
     background: linear-gradient(to right, rgb(43, 160, 255) 0.3%, white 0.3%);
     overflow-x: hidden;
 }
 
+.commentTop {
+    display: flex;
+}
+
 .commentAuthor {
+    width: 50%;
     color: rgba(150, 150, 150);
     margin-left: 1%;
 }
 
+.commentDate {
+    width: 50%;
+    text-align: right;
+    color: rgba(150, 150, 150);
+}
+
 .commentText {
     margin-left: 1%;
+    /* width: 100%; */
 }

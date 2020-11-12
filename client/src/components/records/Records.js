@@ -4,7 +4,7 @@ import '../../css/Records.css'
 const Records = () => {
     return(
         <div className="recordsPageWrapper">
-            records page
+            records page coming soon sry guys
         </div>
     )
 }

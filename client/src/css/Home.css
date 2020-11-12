@@ -2,7 +2,6 @@
     display: flex;
     width: 100vw;
     overflow-y: scroll;
-    background-color: rgb(240, 240, 240);
 }
 
 .col1 {

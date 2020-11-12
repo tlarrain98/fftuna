@@ -15,10 +15,10 @@ const PostPreview = (props) => {
     }
 
     return(
-        <div className="previewWrapper">
+        <div className="previewWrapper"
+            onClick={() => props.goPost(props.post.pid)}>
             <div className="previewContent">
-                <div className="previewTitle"
-                    onClick={() => props.goPost(props.post.pid)}>
+                <div className="previewTitle">
                     {props.post.title}        
                 </div>
                 <div className="previewAuthor">by {props.post.author}</div>
