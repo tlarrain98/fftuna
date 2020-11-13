@@ -4,6 +4,7 @@ import PostList from '../posts/PostList'
 import SideStandings from './SideStandings'
 import axios from 'axios'
 import CreatePost from '../posts/CreatePost'
+import MyProfile from '../profile/MyProfile'
 
 
 const Home = (props) => {
@@ -49,6 +50,7 @@ const Home = (props) => {
                     refresh={refresh}/>
             </div>
             <div className="col2">
+                <MyProfile />
                 <SideStandings />
             </div>
         </div>
