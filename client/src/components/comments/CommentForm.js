@@ -13,6 +13,8 @@ const CommentForm = (props) => {
     const [count, setCount] = useState(0);
 
     const postComment = () => {
+        console.log(document.getElementById("comment").value);
+        console.log(document.getElementById("comment").value.trim());
         let commentText = document.getElementById("comment").value.trim();
         let data = {
             comment: commentText,

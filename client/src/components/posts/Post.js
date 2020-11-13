@@ -4,7 +4,7 @@ import axios from 'axios'
 import CommentForm from '../comments/CommentForm'
 import CommentList from '../comments/CommentList'
 import DeletePost from './DeletePost'
-import {UserContext} from '../../UserContext'
+import { UserContext } from '../../UserContext'
 
 const Post = (props) => {
 
@@ -52,14 +52,14 @@ const Post = (props) => {
         let year = date.substring(0, 4);
         let month = date.substring(5, 7);
         let day = date.substring(8, 10);
-        let mdy = month + '/' + day + '/' + year
+        let mdy = month + '/' + day + '/' + year;
 
         return mdy
     }
 
     const showDelete = () => {
         if (userProfile.uid == post.user_id) {
-            return <div className="postDelete" onClick={() => handleShow()}>delete</div>
+            return <div className="postDelete" onClick={() => handleShow()}>delete post</div>
         }
     }
 
@@ -78,7 +78,8 @@ const Post = (props) => {
                     <CommentForm pid={post.pid}
                         handleRefresh={handleRefresh} />
                     <CommentList pid={post.pid}
-                        refresh={refresh} />
+                        refresh={refresh} 
+                        handleRefresh={handleRefresh}/>
                 </div>
                 <DeletePost goHome={props.goHome}
                     show={show}

@@ -7,7 +7,7 @@
 }
 
 .landingMargin {
-    margin-top: 75px;
+    margin-top: 5%;
 }
 
 .title {
@@ -19,15 +19,29 @@
 }
 
 .signupButton {
-    height: 50px;
-    width: 200px;
-    margin-top: 200px;
+    margin-top: 15%;
+    color: white;
+    height: 2.5rem;
+    width: 15%;
+    background-color: rgb(150, 150, 150);
+    border: none;
+    border-radius: .25rem;
+}
+.signupButton:hover {
+    background-color: rgb(126, 126, 126);
 }
 
 .loginButton {
-    height: 50px;
-    width: 200px;
-    margin-top: 5px;
+    margin-top: 0.5%;
+    color: white;
+    height: 2.5rem;
+    width: 15%;
+    background-color: #1e96ff;
+    border: none;
+    border-radius: .25rem;
+}
+.loginButton:hover {
+    background-color: #0073d8;
 }
 
 .warning {

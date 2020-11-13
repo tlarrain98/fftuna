@@ -39,7 +39,9 @@ const CommentList = (props) => {
                 let list = [];
                 for (let i = 0; i < comments.length; i++) {
                     list.push(
-                        <Comment key={i} data={comments[i]} />
+                        <Comment key={i} 
+                            data={comments[i]}
+                            handleRefresh={props.handleRefresh}/>
                     )
                 }
                 return list

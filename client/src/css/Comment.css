@@ -59,7 +59,7 @@
 
 .commentWrapper {
     width: 100%;
-    margin-top: 2%;
+    margin-top: 1.5%;
     background-color: rgb(58, 58, 58);
     background: linear-gradient(to right, #ffd257 0.3%, rgb(58, 58, 58) 0.3%);
     overflow-x: hidden;
@@ -87,4 +87,18 @@
 
 .commentText {
     margin-left: 1%;
+    white-space: pre-line;
+}
+
+.commentDelete {
+    font-size: 80%;
+    font-weight: 600;
+    margin-top: 1%;
+    margin-left: 1%;
+    color: rgb(150, 150, 150);
+    width: fit-content;
+}
+.commentDelete:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }

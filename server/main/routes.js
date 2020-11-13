@@ -126,8 +126,20 @@ router.delete('/api/delete/allcomments', (req, res, next) => {
                 WHERE post_id = $1`,
         [pid], (q_err, q_res) => {
             res.json(q_res.rows);
+            console.log(q_err);
         }
     )
+})
+
+// delete single comment on post from db
+router.delete('/api/delete/comment', (req, res, next) => {
+    const cid = req.body.cid;
+    pool.query(`DELETE FROM comments
+                WHERE cid = $1`,
+        [cid], (q_err, q_res) => {
+            res.json(q_res.rows);
+            console.log(q_err);
+        })
 })
 
 /**

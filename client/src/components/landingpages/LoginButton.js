@@ -8,11 +8,11 @@ const LoginButton = () => {
 
     return(
         <div>
-            <Button className="loginButton"
+            <button className="loginButton"
                 size="lg"
                 onClick={() => loginWithRedirect()}>
                 Log In
-            </Button>
+            </button>
         </div>
     )
 }

@@ -1,0 +1,24 @@
+.deleteButton {
+    color: white;
+    height: 2.5rem;
+    width: 15%;
+    background-color: rgb(224, 0, 0);
+    border: none;
+    border-radius: .25rem;
+    margin-right: 1%;
+}
+.deleteButton:hover {
+    background-color: rgb(180, 0, 0);
+}
+
+.cancelDeleteButton {
+    color: white;
+    height: 2.5rem;
+    width: 15%;
+    background-color: rgb(150, 150, 150);
+    border: none;
+    border-radius: .25rem;
+}
+.cancelDeleteButton:hover {
+    background-color: rgb(126, 126, 126);
+}

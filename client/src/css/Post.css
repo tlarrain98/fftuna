@@ -1,88 +1,3 @@
-.postWrapper {
-    margin-left: auto;
-    margin-right: auto;
-    width: 60vw;
-}
-
-.postListWrapper {
-    text-align: left;
-    width: 98%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-}
-
-.previewWrapper {
-    width: 100%;
-    margin-bottom: 10px;
-    border-radius: .25rem;
-    background-color: white;
-    background-color: rgb(39, 39, 39);
-    border: .1rem solid rgb(122, 122, 122);
-}
-.previewWrapper:hover {
-    background: linear-gradient(to left, #a357ff 0.8%, rgb(53, 53, 53) 0.8%);
-    cursor: pointer;
-}
-
-.previewContent {
-    margin-left: auto;
-    margin-right: auto;
-    width: 96%;
-    overflow-x: hidden;
-    padding-top: 0.5%;
-    padding-bottom: 1%;
-}
-
-.previewTitle {
-    font-size: 150%;
-}
-
-.previewAuthor {
-    font-size: 90%;
-    color: rgb(150, 150, 150);
-    margin-top: 0%;
-}
-
-.previewBody {
-    margin-top: 0.5%;
-}
-
-.prevnext {
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-.prev:hover {
-    text-decoration: underline;
-    cursor: pointer;
-}
-.next:hover {
-    text-decoration: underline;
-    cursor: pointer;
-}
-
-.alertWarning {
-    text-align: left;
-}
-
-.alertSuccess {
-    text-align: left;
-}
-
-.postButton {
-    color: white;
-    height: 2.5rem;
-    width: 15%;
-    background-color: #1e96ff;
-    border: none;
-    border-radius: .25rem;
-}
-.postButton:hover{
-    background-color: #0073d8;
-}
-
-/* for the Post.js page */
 .postPageWrapper {
     width: 90%;
     background-color: rgb(39, 39, 39);
@@ -125,6 +40,7 @@
     border: .1rem solid rgb(122, 122, 122);
     border-radius: .25rem;
     padding: 1%;
+    white-space: pre-line
 }
 
 .postDelete {
@@ -135,31 +51,6 @@
 .postDelete:hover {
     cursor: pointer;
     text-decoration: underline;
-}
-
-.deleteButton {
-    color: white;
-    height: 2.5rem;
-    width: 15%;
-    background-color: rgb(224, 0, 0);
-    border: none;
-    border-radius: .25rem;
-    margin-right: 1%;
-}
-.deleteButton:hover {
-    background-color: rgb(180, 0, 0);
-}
-
-.cancelDeleteButton {
-    color: white;
-    height: 2.5rem;
-    width: 15%;
-    background-color: rgb(150, 150, 150);
-    border: none;
-    border-radius: .25rem;
-}
-.cancelDeleteButton:hover {
-    background-color: rgb(126, 126, 126);
 }
 
 .commentTitle {

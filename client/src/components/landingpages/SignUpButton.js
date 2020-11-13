@@ -8,14 +8,14 @@ const SignUpButton = () => {
 
     return (
         <div>
-            <Button className="signupButton"
+            <button className="signupButton"
                 variant="secondary"
                 size="lg"
                 onClick={() => loginWithRedirect({
                     screen_hint: 'signup'
                 })}>
                 Sign Up
-            </Button>
+            </button>
         </div>
     )
 }

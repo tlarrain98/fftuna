@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import '../../css/Post.css'
+import '../../css/PostList.css'
 import PostPreview from './PostPreview'
 import axios from 'axios'
 
