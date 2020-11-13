@@ -31,3 +31,32 @@
     text-decoration: underline;
     cursor: pointer;
 }
+
+.profileButtons {
+    width: 100%;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+    margin-bottom: 1%;
+}
+
+.saveProfileButton {
+    margin-left: 2.5%;
+    color: white;
+    height: 2.5rem;
+    width: 30%;
+    background-color: #1e96ff;
+    border: none;
+    border-radius: .25rem;
+}
+
+.cancelProfileButton {
+    margin-left: 2.5%;
+    color: white;
+    height: 2.5rem;
+    width: 30%;
+    background-color: rgb(150, 150, 150);
+    border: none;
+    border-radius: .25rem;
+}
