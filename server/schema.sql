@@ -4,6 +4,7 @@ CREATE TABLE users (
   email VARCHAR(100) UNIQUE,
   date_created DATE,
   last_login DATE
+  bio VARCHAR
 );
 
 CREATE TABLE posts (
