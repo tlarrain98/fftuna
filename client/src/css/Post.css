@@ -17,9 +17,11 @@
     margin-bottom: 10px;
     border-radius: .25rem;
     background-color: white;
+    background-color: rgb(39, 39, 39);
+    border: .1rem solid rgb(122, 122, 122);
 }
 .previewWrapper:hover {
-    background: linear-gradient(to right, rgb(43, 160, 255) 0.8%, white 0.8%);
+    background: linear-gradient(to left, #a357ff 0.8%, rgb(53, 53, 53) 0.8%);
     cursor: pointer;
 }
 
@@ -38,7 +40,7 @@
 
 .previewAuthor {
     font-size: 90%;
-    color: rgb(114, 114, 128);
+    color: rgb(150, 150, 150);
     margin-top: 0%;
 }
 
@@ -50,7 +52,6 @@
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
-    color: rgb(43, 160, 255);
 }
 .prev:hover {
     text-decoration: underline;
@@ -73,21 +74,23 @@
     color: white;
     height: 2.5rem;
     width: 15%;
-    background-color: rgb(43, 160, 255);
+    background-color: #1e96ff;
     border: none;
     border-radius: .25rem;
 }
 .postButton:hover{
-    background-color: rgb(4, 121, 218);
+    background-color: #0073d8;
 }
 
 /* for the Post.js page */
 .postPageWrapper {
     width: 90%;
-    background-color: white;
+    background-color: rgb(39, 39, 39);
+    border: .2rem solid rgb(122, 122, 122);
     margin-top: 2%;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 1%;
     border-radius: .25rem;
     padding-bottom: 1%;
     overflow-x: hidden;
@@ -107,22 +110,27 @@
 .postPageTS {
     margin-top: 0.5%;
     font-size: 90%;
-    color: rgb(114, 114, 128);
+    color: rgb(150, 150, 150);
 }
 
 .postPageAuthor {
     margin-top: 0.5%;
     font-size: 90%;
-    color: rgb(114, 114, 128);
+    color: rgb(150, 150, 150);
 }
 
 .postPageBody {
     margin-top: 1%;
+    background-color: rgb(58, 58, 58);
+    border: .1rem solid rgb(122, 122, 122);
+    border-radius: .25rem;
+    padding: 1%;
 }
 
 .postDelete {
     margin-top: 1%;
-    color: rgb(224, 0, 0);
+    color: rgb(158, 46, 46);
+    width: fit-content;
 }
 .postDelete:hover {
     cursor: pointer;
@@ -160,8 +168,9 @@
 
 .postCommentWrapper {
     border-top: 1px solid rgb(194, 194, 194);
-    margin-top: 1%;
     width: 96%;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
 }

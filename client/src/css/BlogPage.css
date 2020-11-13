@@ -5,15 +5,23 @@
 }
 
 .blogHeaderWrapper {
+    margin-left: auto;
+    margin-right: auto;
+    width: 98%;
     margin-top: 2%;
 }
 
 .blogTitle {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
     font-size: 500%;
+    border-bottom: 1rem solid #ffd257;
 }
 
 .blogSubtitle {
     font-style: italic;
+    margin-top: 1%;
     margin-bottom: 2%;
 }
 

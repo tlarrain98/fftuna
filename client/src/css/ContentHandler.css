@@ -2,14 +2,28 @@
     overflow-x: hidden;
     overflow-y: scroll;
     height: 100vh;
-    background-color: rgb(240, 240, 240);
+    /* background-color: rgb(240, 240, 240); */
+    background-color: rgb(17, 17, 17);
+    color: rgb(230, 230, 230);
 }
 
 @font-face {
     font-family: myFont;
-    src: url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Titillium+Web&display=swap');
+    src: url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 }
 
 *{
-    font-family: myFont;
+    font-family: 'Open Sans', sans-serif;
 }
+
+/* notes:
+    borders: border: .1rem solid rgb(122, 122, 122);
+    background for postpreview: background-color: rgb(39, 39, 39);
+    text: color: rgb(230, 230, 230);
+    pp hover: background: linear-gradient(to right, rgb(43, 160, 255) 0.8%, rgb(59, 59, 59) 0.8%);  
+    secondary text: color: rgb(150, 150, 150);
+
+    secondary colors:
+    #a357ff // purple one
+    #ffd257 // orange one
+*/

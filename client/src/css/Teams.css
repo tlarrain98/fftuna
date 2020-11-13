@@ -1,5 +1,5 @@
 .teamListWrapper {
-    padding-bottom: 10px;
+    padding-bottom: 1%;
 }
 
 .selectorWrapper {
@@ -11,8 +11,7 @@
     overflow-y: hidden;
     margin-left: auto;
     margin-right: auto;
-    background-color: white;
-    border-radius: .5rem;
+    background-color: rgb(39, 39, 39);
     padding-top: 0.5%;
     padding-bottom: 0.5%;
 }
@@ -37,7 +36,7 @@
     width: 70%;
     text-align: right;
     margin-right: 1%;
-    color: rgb(124, 124, 124);
+    color: rgb(150, 150, 150);
 }
 
 .errorMessage {
@@ -57,12 +56,11 @@
     overflow-y: hidden;
     margin-left: auto;
     margin-right: auto;
-    background-color: white;
-    border-radius: .5rem;
+    background-color: rgb(39, 39, 39);
 }
 
 .teamWrapper:hover {
-    background: linear-gradient(to left, rgb(81, 177, 255) 0.8%, white 0.8%);
+    background: linear-gradient(to left, #a357ff 0.8%,  rgb(53, 53, 53) 0.8%);
     cursor: pointer;
 }
 
@@ -84,9 +82,11 @@
 }
 
 .descriptionBox {
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 90%;
     width: 90%;
     margin-left: 0.5%;
-    margin-top: 0.5%;
 }
 
 .teamName {
@@ -102,12 +102,12 @@
 }
 
 .w-l {
-    color: rgb(124, 124, 124);
+    color: rgb(150, 150, 150);
     font-size: medium;
 }
 
 .points {
-    color: rgb(124, 124, 124);
+    color: rgb(150, 150, 150);
     font-size: small;
     font-weight: 500;
 }

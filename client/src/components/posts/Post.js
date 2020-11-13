@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import '../../css/Post.css'
 import axios from 'axios'
 import CommentForm from '../comments/CommentForm'
 import CommentList from '../comments/CommentList'
 import DeletePost from './DeletePost'
+import {UserContext} from '../../UserContext'
 
 const Post = (props) => {
+
+    const { userProfile } = useContext(UserContext);
 
     const [post, setPost] = useState(); // used to set and store post data
     const [refresh, setRefresh] = useState(false); // refreshes page
@@ -54,6 +57,12 @@ const Post = (props) => {
         return mdy
     }
 
+    const showDelete = () => {
+        if (userProfile.uid == post.user_id) {
+            return <div className="postDelete" onClick={() => handleShow()}>delete</div>
+        }
+    }
+
     if (post) {
         return (
             <div className="postPageWrapper">
@@ -62,7 +71,7 @@ const Post = (props) => {
                     <div className="postPageTS">{formatDate(post.date_created)}</div>
                     <div className="postPageAuthor">by {post.author}</div>
                     <div className="postPageBody">{post.body}</div>
-                    <div className="postDelete" onClick={() => handleShow()}>delete</div>
+                    {showDelete()}
                 </div>
                 <div className="postCommentWrapper">
                     <div className="commentTitle">Comments</div>
@@ -71,10 +80,10 @@ const Post = (props) => {
                     <CommentList pid={post.pid}
                         refresh={refresh} />
                 </div>
-                <DeletePost goHome={props.goHome} 
+                <DeletePost goHome={props.goHome}
                     show={show}
                     handleClose={handleClose}
-                    pid={post.pid}/>
+                    pid={post.pid} />
             </div>
 
         )

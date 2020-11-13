@@ -26,10 +26,10 @@ const WeeklyRecap = (props) => {
             }
         })
             .then(res => {
-                setNumPosts(res.data[0].count)
+                setNumPosts(res.data[0].count);
             })
             .catch(error => {
-                console.log(error)
+                console.log(error);
             })
     }
 

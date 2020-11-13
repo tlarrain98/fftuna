@@ -1,10 +1,11 @@
 .standingsWrapper {
     width: 98%;
-    background-color: #fff;
     margin-top: 15px;
     margin-bottom: 15px;
     border-radius: .25rem;
-    background: linear-gradient(to bottom, rgb(43, 160, 255) 1%, white 1%);
+    /* background: linear-gradient(to bottom, rgb(43, 160, 255) 1%, rgb(39, 39, 39) 1%); */
+    background-color: rgb(39, 39, 39);
+    border: .1rem solid rgb(122, 122, 122);
 }
 
 .lsHeader {
@@ -49,7 +50,7 @@
     cursor: default;
 }
 .trTeam:hover {
-    background: linear-gradient(to right, rgb(43, 160, 255) 0.8%, rgb(224, 224, 224) 0.8%);
+    background: linear-gradient(to right, #a357ff 0.8%, rgb(53, 53, 53) 0.8%); 
 }
 
 .tdTeam {

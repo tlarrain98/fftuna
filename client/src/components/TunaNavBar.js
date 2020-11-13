@@ -6,7 +6,7 @@ import LogoutButton from './LogoutButton'
 // navigation bar displayed on the top of the page
 const TunaNavBar = (props) => {
     return (
-        <Navbar className="NavBarContainer" bg="dark" variant="dark" expand="lg">
+        <Navbar className="NavBarContainer" variant="dark" expand="lg">
             <Nav className="container-fluid">
                 <Navbar.Brand className="brand" onClick={props.goHome}>Tuna</Navbar.Brand>
                 <Nav.Link className="link" onClick={props.goCharlie}>Charlie Formula</Nav.Link>

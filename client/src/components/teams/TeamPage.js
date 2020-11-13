@@ -40,7 +40,7 @@ const TeamPage = (props) => {
                     <img className="image" alt="team" src={props.data.logoURL} />
                     <div className="teamInfo">
                         <div className="name">{props.data.name}</div>
-                        <div style={{ color: "grey" }}>  {props.data.abbreviation}</div>
+                        <div className="nameAbb">  {props.data.abbreviation}</div>
                         <div>Record: {props.data.wins} - {props.data.losses}</div>
                         <div>PF: {formatPoints(props.data.regularSeasonPointsFor)}</div>
                         <div>PA: {formatPoints(props.data.regularSeasonPointsAgainst)}</div>
