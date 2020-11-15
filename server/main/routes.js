@@ -71,9 +71,7 @@ router.get('/api/get/postsfromdb', (req, res, next) => {
                     OFFSET $1
                     LIMIT $2`,
             values, (q_err, q_res) => {
-                if (q_err) return next(q_err)
-                // console.log(q_err)
-                // console.log(q_res)           
+                if (q_err) return next(q_err)   
                 res.json(q_res.rows)
             }
         )
@@ -91,8 +89,6 @@ router.get('/api/get/numpostsfromdb', (req, res, next) => {
                     WHERE page_name = $1`,
             values, (q_err, q_res) => {
                 if (q_err) return next(q_err)
-                // console.log(q_err)
-                // console.log(q_res)  
                 res.json(q_res.rows)
             }
         )
@@ -171,15 +167,16 @@ router.get('/api/get/userfromdb', (req, res, next) => {
     )
 })
 
-// modify or set username
+// modify or set username/bio
 router.put('/api/put/username', (req, res, next) => {
     const values = [
         req.body.uid,
-        req.body.username
+        req.body.username,
+        req.body.bio
     ]
     pool.query(`UPDATE users
-                SET username=$2
-                WHERE uid=$1`,
+                SET username = $2, bio = $3
+                WHERE uid = $1`,
         values, (q_err, q_res) => {
             if (q_err) return next(q_err);
             res.json(q_res.rows)

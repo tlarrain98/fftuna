@@ -20,10 +20,11 @@ const SetUsername = (props) => {
         setWarning(null);
         var data = {
             uid: userProfile.uid,
-            username: document.getElementById("username").value.trim()
+            username: document.getElementById("username").value.trim(),
+            bio: ''
         }
         // if username isn't too short or too long
-        if(data.username && data.username.length <= 25) {
+        if (data.username && data.username.length <= 25) {
             axios.put('/api/put/username', data)
                 .then(() => {
                     axios.get('/api/get/userfromdb', {
@@ -37,17 +38,19 @@ const SetUsername = (props) => {
                             console.log(err);
                             setWarning("Server error, please refresh.");
                         })
-                    // window.location.reload(); // make sure that user profile is set in state
                 })
                 .catch((err) => {
                     if (err.response.status === 500) {
                         setWarning("This username has been taken.");
                     }
+                    else {
+                        setWarning("Server error: please refresh.");
+                    }
                 })
         }
         else {
             setWarning("Invalid username.");
-        }  
+        }
     }
 
     // counts the length of the username
@@ -61,8 +64,8 @@ const SetUsername = (props) => {
                 <Modal.Title>Set your username:</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <Form.Control className="userForm" type="text" 
-                    id="username" onChange={() => textCounter()}/>
+                <Form.Control className="userForm" type="text"
+                    id="username" onChange={() => textCounter()} />
                 <div className="userCharCounter">{count}/25</div>
                 <div className="warning">{warning}</div>
             </Modal.Body>

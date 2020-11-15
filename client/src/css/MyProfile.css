@@ -8,6 +8,7 @@
     padding-bottom: 1%;
 }
 
+/* MyProfile specific */
 .username {
     width: 96%;
     margin-left: auto;
@@ -59,4 +60,28 @@
     background-color: rgb(150, 150, 150);
     border: none;
     border-radius: .25rem;
+}
+
+/* EditProfile specific */
+.profileEdits {
+    width: 96%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profileLabels {
+    margin-top: 2%;
+}
+
+.profileForms {
+    margin-left: auto;
+    margin-right: auto;
+    width: 96%;
+}
+
+.profileWarning {
+    width: 96%;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgb(225, 0, 0);
 }

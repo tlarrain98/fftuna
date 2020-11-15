@@ -7,7 +7,6 @@ import EditProfile from './EditProfile'
 // used to display user's profile on the home page
 const MyProfile = () => {
 
-    const [saved, setSaved] = useState(false);
     const [edit, setEdit] = useState(false);
     const { userProfile, setUserProfile } = useContext(UserContext);
 
@@ -20,7 +19,7 @@ const MyProfile = () => {
         return(
             <div className="profileWrapper">
                 <div className="username">{userProfile.username}&nbsp;</div>
-                <div className="userBio">bio: test test test i'm writing things down here to test the bio div</div>
+                <div className="userBio">bio: {userProfile.bio}</div>
                 <div className="userEdit" onClick={() => setEdit(true)}>edit profile</div>
             </div>
         )
