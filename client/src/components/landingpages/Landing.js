@@ -28,17 +28,18 @@ const Landing = (props) => {
             email: user.email
         }
         axios.post('/api/post/usertodb', data)
-            .then(axios.get('/api/get/userfromdb', {
+            .then(
+                axios.get('/api/get/userfromdb', {
                 params: { email: user.email }
             })
                 .then(res => {
-                    setUserProfile(res.data[0])
+                    setUserProfile(res.data[0]);
                     // check if username has been set
                     if (userProfile && userProfile.username === null) {
-                        props.goSetUsername()
+                        props.goSetUsername();
                     }
                     else {
-                        props.goHome()
+                        props.goHome();
                     }
                 })
             )

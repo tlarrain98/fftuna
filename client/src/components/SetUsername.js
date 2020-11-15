@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { UserContext } from '../UserContext'
+import { useAuth0 } from '@auth0/auth0-react'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
@@ -9,7 +10,8 @@ import '../css/Landing.css'
 // prompt that shows when user has not set username
 const SetUsername = (props) => {
 
-    const {userProfile} = useContext(UserContext); // used to retrieve user profile
+    const { user } = useAuth0();
+    const { userProfile, setUserProfile } = useContext(UserContext); // used to retrieve user profile
     const [warning, setWarning] = useState(null);  // warning text for setting username
     const [count, setCount] = useState(0);         // counts username length
 
@@ -24,7 +26,18 @@ const SetUsername = (props) => {
         if(data.username && data.username.length <= 25) {
             axios.put('/api/put/username', data)
                 .then(() => {
-                    window.location.reload(); // make sure that user profile is set in state
+                    axios.get('/api/get/userfromdb', {
+                        params: { email: user.email }
+                    })
+                        .then(res => {
+                            setUserProfile(res.data[0]);
+                            props.goHome();
+                        })
+                        .catch(err => {
+                            console.log(err);
+                            setWarning("Server error, please refresh.");
+                        })
+                    // window.location.reload(); // make sure that user profile is set in state
                 })
                 .catch((err) => {
                     if (err.response.status === 500) {

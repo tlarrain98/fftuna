@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import '../css/ContentHandler.css'
 import Home from './home/Home'
 import TunaNavBar from './TunaNavBar'
