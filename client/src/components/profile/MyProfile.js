@@ -15,6 +15,7 @@ const MyProfile = () => {
         if (edit) {
             return <EditProfile setEdit={setEdit}/>
         }
+        
         // else
         return(
             <div className="profileWrapper">
@@ -24,6 +25,7 @@ const MyProfile = () => {
             </div>
         )
     }
+
     return <>{ isEdit() }</>
 }
 

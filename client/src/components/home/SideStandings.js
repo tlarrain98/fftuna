@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Table from 'react-bootstrap/Table';
 import StandingEntry from './StandingEntry.js';
 import '../../css/SideStandings.css';
 import { Client } from 'espn-fantasy-football-api/node';
@@ -33,6 +32,11 @@ const SideStandings = () => {
 
     // displays standings
     const displayStandings = () => {
+
+        // display loading
+        if (!data) {
+            return <div className="loadingStandings">Loading...</div>
+        }
         let standings = [];
         let ordered = getOrder(); // find order by record
         for (let i = 0; i < ordered.length; i++) {
