@@ -10,17 +10,22 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 1%;
+    padding-bottom: 2%;
 }
 
 .prevnext {
-    text-align: center;
+    width: 100%;
     margin-top: 2%;
-    margin-bottom: 2%;
+    display: flex;
+    justify-content: center;
+    color: rgb(0, 91, 211);
 }
+
 .prev:hover {
     text-decoration: underline;
     cursor: pointer;
 }
+
 .next:hover {
     text-decoration: underline;
     cursor: pointer;
@@ -42,6 +47,7 @@
     border: none;
     border-radius: .25rem;
 }
-.postButton:hover{
+
+.postButton:hover {
     background-color: #0073d8;
 }

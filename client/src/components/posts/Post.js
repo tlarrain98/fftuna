@@ -92,7 +92,7 @@ const Post = (props) => {
     else {
         return (
             <div className="postPageWrapper">
-                Loading...
+                <div className="postLoading">Loading...</div>
             </div>
         )
     }

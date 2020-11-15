@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import '../../css/PostList.css'
 import PostPreview from './PostPreview'
+import PrevNext from './PrevNext'
 import axios from 'axios'
 
 const PostList = (props) => {
@@ -10,7 +11,6 @@ const PostList = (props) => {
 
     // on page change, scroll to top and get data for page
     useEffect(() => {
-        window.scrollTo(0, 0)
         getPostData();
     }, [pagination, props.refresh])
 
@@ -46,44 +46,13 @@ const PostList = (props) => {
         return list
     }
 
-    // make sure that the prev and next page links displaying correctly
-    const prevnext = () => {
-        // if all the posts fit on one page, return nothing
-        if (props.numPosts <= props.postsPerPage) {
-            return
-        }
-        // show prev but not next if on last page
-        else if (pagination * props.postsPerPage > props.numPosts) {
-            return (
-                <div className="prevnext">
-                    <a className="prev" onClick={() => setPagination(pagination - 1)}>Previous page</a>
-                </div>
-            )
-        }
-        // if on the most current page, don't show prev
-        else if (pagination === 1) {
-            return (
-                <div className="prevnext">
-                    <a className="next" onClick={() => setPagination(pagination + 1)}>Next page</a>
-                </div>
-            )
-        }
-        // any other case, show both
-        else {
-            return (
-                <div className="prevnext">
-                    <a className="prev" onClick={() => setPagination(pagination - 1)}>Previous page</a>
-                &emsp;
-                    <a className="next" onClick={() => setPagination(pagination + 1)}>Next page</a>
-                </div>
-            )
-        }
-    }
-
     return (
         <div className="postListWrapper">
             {getPostPreviews()}
-            {prevnext()}
+            <PrevNext numPosts={props.numPosts}
+                postsPerPage={props.postsPerPage}
+                pagination={pagination}
+                setPagination={setPagination}/>
         </div>
     )
 }
