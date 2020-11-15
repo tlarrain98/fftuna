@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import StandingEntry from './StandingEntry.js';
 import '../../css/SideStandings.css';
 import { Client } from 'espn-fantasy-football-api/node';
@@ -8,7 +8,11 @@ const ffClient = new Client({ leagueId: Constants.LEAGUE_ID });
 
 const SideStandings = () => {
     
-    const [data, setData] = useState('');
+    const [data, setData] = useState(null);
+
+    useEffect(() => {
+        getData();
+    }, [])
 
     // get league data on every team
     const getData = async () => {
@@ -50,8 +54,6 @@ const SideStandings = () => {
 
         return standings;
     }
-
-    getData();
 
     return (
         <div className="standingsWrapper">
