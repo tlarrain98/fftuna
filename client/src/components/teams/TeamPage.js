@@ -19,7 +19,6 @@ const TeamPage = (props) => {
     }
 
     const getWeek = () => {
-        console.log(props.week);
         if(props.week == 18) {
             return "Current Week"
         }
