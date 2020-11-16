@@ -13,11 +13,39 @@
 .up {
     width: 75%;
     margin-bottom: 3%;
+    filter: brightness(40%);
+}
+
+.up:hover {
+    cursor: pointer;
+}
+
+.upHigh {
+    width: 75%;
+    margin-bottom: 3%;
+}
+
+.upHigh:hover {
+    cursor: pointer;
 }
 
 .down {
     width: 75%;
     margin-top: 3%;
+    filter: brightness(40%);
+}
+
+.down:hover {
+    cursor: pointer;
+}
+
+.downHigh {
+    width: 75%;
+    margin-top: 3%;
+}
+
+.downHigh:hover {
+    cursor: pointer;
 }
 
 .score {

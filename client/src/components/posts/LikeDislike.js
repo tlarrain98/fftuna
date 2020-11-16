@@ -29,12 +29,12 @@ const LikeDislike = (props) => {
 
     // if already liked, remove like, else add like
     const handleLikes = () => {
-        if (lod == 1) { // already liked, remove like
+        if (lod === 1) { // already liked, remove like
             removeLike();
             setLod(0);
             setScore(score - 1);
         }
-        else if (lod == 0) { // no likes or dislikes, add like
+        else if (lod === 0) { // no likes or dislikes, add like
             addLike();
             setLod(1);
             setScore(score + 1);
@@ -48,12 +48,12 @@ const LikeDislike = (props) => {
     }
 
     const handleDislikes = () => {
-        if (lod == -1) { // if already disliked, remove dislike
+        if (lod === -1) { // if already disliked, remove dislike
             removeDislike();
             setLod(0);
             setScore(score + 1);
         }
-        else if (lod == 0) { // no likes or dislikes, add dislike
+        else if (lod === 0) { // no likes or dislikes, add dislike
             addDislike();
             setLod(-1);
             setScore(score - 1);
@@ -132,8 +132,8 @@ const LikeDislike = (props) => {
         if (lod == 0) {
             return (
                 <div className="updown">
-                    <img src={hoff} className="up" onClick={() => handleLikes()} />
-                    <img src={medo} className="down" onClick={() => handleDislikes()} />
+                    <img src={hoff} alt="like" className="up" onClick={() => handleLikes()} />
+                    <img src={medo} alt="dislike" className="down" onClick={() => handleDislikes()} />
                 </div>
             )
         }
@@ -141,8 +141,8 @@ const LikeDislike = (props) => {
         else if (lod == 1) {
             return (
                 <div className="updown">
-                    <img src={hoff} className="up" onClick={() => handleLikes()} />
-                    <img src={medo} className="down" onClick={() => handleDislikes()} />
+                    <img src={hoff} alt="like" className="upHigh" onClick={() => handleLikes()} />
+                    <img src={medo} alt="dislike" className="down" onClick={() => handleDislikes()} />
                 </div>
             )
         }
@@ -150,8 +150,8 @@ const LikeDislike = (props) => {
         else if (lod == -1) {
             return (
                 <div className="updown">
-                    <img src={hoff} className="up" onClick={() => handleLikes()} />
-                    <img src={medo} className="down" onClick={() => handleDislikes()} />
+                    <img src={hoff} alt="like" className="up" onClick={() => handleLikes()} />
+                    <img src={medo} alt="dislike" className="downHigh" onClick={() => handleDislikes()} />
                 </div>
             )
         }
