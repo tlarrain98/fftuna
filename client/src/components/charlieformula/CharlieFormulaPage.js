@@ -36,7 +36,7 @@ const CharlieFormulaPage = (props) => {
     }
 
     const showCreatePost = () => {
-        if (userProfile.email === "mormanjacob7@gmail.com" ||
+        if (userProfile.email === "c6keefe@gmail.com" ||
             userProfile.email === "tlarrain98@gmail.com")
         return <CreatePost pageName="charlie" handleRefresh={handleRefresh} />
     }
