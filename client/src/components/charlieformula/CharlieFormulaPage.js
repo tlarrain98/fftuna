@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import CreatePost from '../posts/CreatePost'
 import '../../css/BlogPage.css'
 import axios from 'axios'
 import PostList from '../posts/PostList'
+import { UserContext } from '../../UserContext'
 
 const CharlieFormulaPage = (props) => {
 
+    const { userProfile } = useContext(UserContext)
     const [numPosts, setNumPosts] = useState(0);
     const [refresh, setRefresh] = useState(false);
 
@@ -33,14 +35,19 @@ const CharlieFormulaPage = (props) => {
             })
     }
 
+    const showCreatePost = () => {
+        if (userProfile.email === "mormanjacob7@gmail.com" ||
+            userProfile.email === "tlarrain98@gmail.com")
+        return <CreatePost pageName="charlie" handleRefresh={handleRefresh} />
+    }
+
     return (
         <div className="blogWrapper">
             <div className="blogHeaderWrapper">
                 <div className="blogTitle">The Charlie Formula</div>
                 <div className="blogSubtitle">by Charlie Keefe</div>
                 <div className="blogCreatePost">
-                    <CreatePost pageName="charlie" 
-                        handleRefresh={handleRefresh}/>
+                    {showCreatePost()}
                 </div>
             </div>
             <PostList goPost={props.goPost}

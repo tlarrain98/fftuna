@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import '../../css/BlogPage.css'
 import CreatePost from '../posts/CreatePost'
 import axios from 'axios'
 import PostList from '../posts/PostList'
+import { UserContext } from '../../UserContext'
 
 const WeeklyRecap = (props) => {
 
+    const { userProfile } = useContext(UserContext);
     const [numPosts, setNumPosts] = useState(0);
     const [refresh, setRefresh] = useState(false);
 
@@ -33,7 +35,13 @@ const WeeklyRecap = (props) => {
             })
     }
 
-
+    const showCreatePost = () => {
+        if (userProfile.email === "mormanjacob7@gmail.com" ||
+            userProfile.email === "tlarrain98@gmail.com") { 
+            return <CreatePost pageName="weekly"
+                               handleRefresh={handleRefresh} />
+        }
+    }
 
     return (
         <div className="blogWrapper">
@@ -41,8 +49,7 @@ const WeeklyRecap = (props) => {
                 <div className="blogTitle">Weekly Recap</div>
                 <div className="blogSubtitle">by Jacob Morman</div>
                 <div className="blogCreatePost">
-                    <CreatePost pageName="weekly"
-                        handleRefresh={handleRefresh}/>
+                    {showCreatePost()}
                 </div>
             </div>
             <PostList goPost={props.goPost}
