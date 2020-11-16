@@ -54,9 +54,7 @@ const PostList = (props) => {
             }
         }
         else if(empty) {
-            return (
-                <div className="noPosts">No posts.</div>
-            )
+            return <div className="noPosts">No posts.</div>
         }
 
         return list
