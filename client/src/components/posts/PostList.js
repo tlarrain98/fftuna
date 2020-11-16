@@ -8,6 +8,7 @@ const PostList = (props) => {
 
     const [pagination, setPagination] = useState(1); // keeps track of the page #
     const [posts, setPosts] = useState(null); // used for post data
+    const [empty, setEmpty] = useState(false);
 
     // on page change, scroll to top and get data for page
     useEffect(() => {
@@ -24,7 +25,13 @@ const PostList = (props) => {
             }
         })
             .then((res) => {
-                setPosts(res.data);
+                if(res.data.length) {
+                    setPosts(res.data);
+                    setEmpty(false);
+                }
+                else {
+                    setEmpty(true);
+                }
             })
             .catch(error => {
                 console.log("error: " + error);
@@ -33,8 +40,11 @@ const PostList = (props) => {
 
     // returns a list of all the post preview components for the page
     const getPostPreviews = () => {
-        let list = []
-        if (posts !== null) {
+        let list = [];
+        if (posts == null && !empty) {
+            return <div>Loading...</div>
+        }
+        else if (posts !== null) {
             for (let i = 0; i < posts.length; i++) {
                 list.push(
                     <PostPreview key={i} 
@@ -43,6 +53,12 @@ const PostList = (props) => {
                 )
             }
         }
+        else if(empty) {
+            return (
+                <div className="noPosts">No posts.</div>
+            )
+        }
+
         return list
     }
 
