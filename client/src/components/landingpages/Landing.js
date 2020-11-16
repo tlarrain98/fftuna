@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { UserContext } from '../../UserContext'
 import LoginButton from './LoginButton'
+import LandingTicker from './LandingTicker'
 import '../../css/Landing.css'
 import { useAuth0 } from '@auth0/auth0-react'
 import SignUpButton from './SignUpButton'
@@ -15,8 +16,8 @@ const Landing = (props) => {
 
     if (isLoading) {
         return (
-            <div className="landing">
-                <div className="landingMargin">
+            <div className="landingWrapper">
+                <div className="landingPage">
                     Loading...
                 </div>
             </div>
@@ -46,8 +47,9 @@ const Landing = (props) => {
     }
 
     return (
-        <div className="landing">
-            <div className="landingMargin">
+        <div className="landingWrapper">
+            {/* <LandingTicker/> */}
+            <div className="landingPage">
                 <div className="title">Show Me Your Tuna</div>
                 <SignUpButton />
                 <LoginButton />

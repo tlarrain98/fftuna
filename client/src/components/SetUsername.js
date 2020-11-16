@@ -5,7 +5,7 @@ import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import axios from 'axios'
-import '../css/Landing.css'
+import '../css/SetUsername.css'
 
 // prompt that shows when user has not set username
 const SetUsername = (props) => {

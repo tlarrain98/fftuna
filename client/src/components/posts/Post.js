@@ -1,10 +1,11 @@
 import React, { useEffect, useState, useContext } from 'react'
+import { UserContext } from '../../UserContext'
 import '../../css/Post.css'
 import axios from 'axios'
 import CommentForm from '../comments/CommentForm'
 import CommentList from '../comments/CommentList'
 import DeletePost from './DeletePost'
-import { UserContext } from '../../UserContext'
+import LikeDislike from './LikeDislike'
 
 const Post = (props) => {
 
@@ -13,11 +14,13 @@ const Post = (props) => {
     const [post, setPost] = useState(); // used to set and store post data
     const [refresh, setRefresh] = useState(false); // refreshes page
     const [show, setShow] = useState(false); // show delete post modal
+    const [likeRefresh, setLikeRefresh] = useState(false);
 
     // get post data on load
     useEffect(() => {
+        setLikeRefresh(false);
         getPost();
-    }, [])
+    }, [likeRefresh])
 
     // sets to true then false to ensure that post list can refresh more than once
     const handleRefresh = () => {
@@ -72,6 +75,8 @@ const Post = (props) => {
                     <div className="postPageAuthor">by {post.author}</div>
                     <div className="postPageBody">{post.body}</div>
                     {showDelete()}
+                    <LikeDislike post={post}
+                        setLikeRefresh={setLikeRefresh}/>
                 </div>
                 <div className="postCommentWrapper">
                     <div className="commentTitle">Comments</div>

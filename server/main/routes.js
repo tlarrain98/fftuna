@@ -115,28 +115,93 @@ router.delete('/api/delete/post', (req, res, next) => {
     )
 })
 
-// delete all comments on post from db
-router.delete('/api/delete/allcomments', (req, res, next) => {
-    const pid = req.body.pid;
-    pool.query(`DELETE FROM comments
-                WHERE post_id = $1`,
-        [pid], (q_err, q_res) => {
-            res.json(q_res.rows);
-            console.log(q_err);
-        }
-    )
+// change likes on post
+router.put('/api/put/likes', (req, res, next) => {
+    // add like
+    if (req.body.offset == 1) {
+        const values = [
+            [String(req.body.uid)],
+            req.body.offset,
+            req.body.pid
+        ]
+        pool.query(`UPDATE posts
+                SET like_user_id = like_user_id || $1, likes = likes + $2
+                WHERE NOT (like_user_id @> $1)
+                AND pid = $3`,
+            values, (q_err, q_res) => {
+                console.log(q_err);
+                console.log(q_res);
+                if (q_err) return next(q_err);
+                res.json(q_res.rows);
+            }
+        )
+    }
+    // remove like
+    else if (req.body.offset == -1) {
+        let user_id = req.body.uid;
+        const values = [
+            [user_id],
+            req.body.offset,
+            req.body.pid
+        ]
+        // console.log(req.body.uid);
+        pool.query(`UPDATE posts
+                SET like_user_id = array_remove(like_user_id, $1[1]), likes = likes + $2
+                WHERE (like_user_id @> $1)
+                AND pid = $3`,
+            values, (q_err, q_res) => {
+                if (q_err) return next(q_err);
+                res.json(q_res.rows);
+            }
+        )
+    }
 })
 
-// delete single comment on post from db
-router.delete('/api/delete/comment', (req, res, next) => {
-    const cid = req.body.cid;
-    pool.query(`DELETE FROM comments
-                WHERE cid = $1`,
-        [cid], (q_err, q_res) => {
-            res.json(q_res.rows);
-            console.log(q_err);
-        })
+// change dislikes on post
+router.put('/api/put/dislikes', (req, res, next) => {
+    // add dislike
+    if (req.body.offset == 1) {
+        const values = [
+            [String(req.body.uid)],
+            req.body.offset,
+            req.body.pid
+        ]
+        pool.query(`UPDATE posts
+                SET dislike_user_id = dislike_user_id || $1, dislikes = dislikes + $2
+                WHERE NOT (dislike_user_id @> $1)
+                AND pid = $3`,
+            values, (q_err, q_res) => {
+                if (q_err) return next(q_err);
+                res.json(q_res.rows);
+            }
+        )
+    }
+    // remove dislike
+    else if (req.body.offset == -1) {
+        let user_id = req.body.uid;
+        const values = [
+            [user_id],
+            req.body.offset,
+            req.body.pid
+        ]
+        // console.log(req.body.uid);
+        pool.query(`UPDATE posts
+                SET dislike_user_id = array_remove(dislike_user_id, $1[1]), likes = likes + $2
+                WHERE (dislike_user_id @> $1)
+                AND pid = $3`,
+            values, (q_err, q_res) => {
+                if (q_err) return next(q_err);
+                res.json(q_res.rows);
+            }
+        )
+    }
 })
+
+// get likes/dislikes info from post
+// router.get('/api/get/postinfo', (req, res, next) => {
+//     const pid = req.body.pid;
+//     pool.query(`SELECT `)
+// })
 
 /**
  * ROUTES FOR USERS
@@ -219,6 +284,39 @@ router.get('/api/get/commentsonpost', (req, res, next) => {
             res.json(q_res.rows);
         }
     )
+})
+
+// get all comments across all posts
+router.get('api/get/allcomments', (req, res, next) => {
+    pool.query(`SELECT *
+                FROM comments`,
+        null, (q_err, q_res) => {
+            if (q_err) return next(q_err);
+            res.json(q_res.rows);
+        })
+})
+
+// delete all comments on post from db
+router.delete('/api/delete/allcomments', (req, res, next) => {
+    const pid = req.body.pid;
+    pool.query(`DELETE FROM comments
+                WHERE post_id = $1`,
+        [pid], (q_err, q_res) => {
+            res.json(q_res.rows);
+            console.log(q_err);
+        }
+    )
+})
+
+// delete single comment on post from db
+router.delete('/api/delete/comment', (req, res, next) => {
+    const cid = req.body.cid;
+    pool.query(`DELETE FROM comments
+                WHERE cid = $1`,
+        [cid], (q_err, q_res) => {
+            res.json(q_res.rows);
+            console.log(q_err);
+        })
 })
 
 module.exports = router;

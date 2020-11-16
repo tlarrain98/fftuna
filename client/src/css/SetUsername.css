@@ -1,0 +1,12 @@
+.warning {
+    color: red;
+    margin-top: 10px;
+    margin-left: 3px;
+}
+
+.userCharCounter {
+    margin-left: 1%;
+    margin-top: 2%;
+    color: rgb(117, 117, 117);
+    font-size: small;
+}
