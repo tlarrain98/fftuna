@@ -5,12 +5,12 @@
     background-color: white;
     background-color: rgb(39, 39, 39);
     border: .1rem solid rgb(122, 122, 122);
+    display: flex;
 }
 
 .previewWrapper:hover {
     background: linear-gradient(to right, #9E4CEC 0.5%, rgb(53, 53, 53) 0.5%);
     background-color: rgb(53, 53, 53);
-    cursor: pointer;
 }
 
 .previewContent {
@@ -20,6 +20,10 @@
     overflow-x: hidden;
     padding-top: 0.5%;
     padding-bottom: 1%;
+}
+
+.previewContent:hover {
+    cursor: pointer;
 }
 
 .previewTitle {

@@ -1,5 +1,6 @@
 import React from 'react'
 import '../../css/PostPreview.css'
+import LikeDislike from './LikeDislike'
 
 const PostPreview = (props) => {
 
@@ -15,9 +16,9 @@ const PostPreview = (props) => {
     }
 
     return(
-        <div className="previewWrapper"
-            onClick={() => props.goPost(props.post.pid)}>
-            <div className="previewContent">
+        <div className="previewWrapper">
+            <LikeDislike post={props.post}/>
+            <div className="previewContent" onClick={() => props.goPost(props.post.pid)}>
                 <div className="previewTitle">
                     {props.post.title}        
                 </div>

@@ -131,8 +131,9 @@ const LikeDislike = (props) => {
         // not liked or disliked
         if (lod == 0) {
             return (
-                <div className="updown">
+                <div className="ldWrapper">
                     <img src={hoff} alt="like" className="up" onClick={() => handleLikes()} />
+                    <div className="score">{score}</div>
                     <img src={medo} alt="dislike" className="down" onClick={() => handleDislikes()} />
                 </div>
             )
@@ -140,8 +141,9 @@ const LikeDislike = (props) => {
         // user has liked
         else if (lod == 1) {
             return (
-                <div className="updown">
+                <div className="ldWrapper">
                     <img src={hoff} alt="like" className="upHigh" onClick={() => handleLikes()} />
+                    <div className="score">{score}</div>
                     <img src={medo} alt="dislike" className="down" onClick={() => handleDislikes()} />
                 </div>
             )
@@ -149,22 +151,17 @@ const LikeDislike = (props) => {
         // user has disliked
         else if (lod == -1) {
             return (
-                <div className="updown">
+                <div className="ldWrapper">
                     <img src={hoff} alt="like" className="up" onClick={() => handleLikes()} />
+                    <div className="score">{score}</div>
                     <img src={medo} alt="dislike" className="downHigh" onClick={() => handleDislikes()} />
                 </div>
             )
         }
     }
 
-    return (
-        <div className="ldWrapper">
-            {displayLikeDislike()}
-            <div className="score">
-                {score}
-            </div>
-        </div>
-    )
+    return <>{displayLikeDislike()}</>
+
 }
 
 export default LikeDislike

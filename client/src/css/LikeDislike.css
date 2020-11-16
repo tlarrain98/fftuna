@@ -1,19 +1,15 @@
 .ldWrapper {
-    margin-top: 1%;
-    display: flex;
-    width: 8%;
-}
-
-.updown {
-    text-align: center;
-    flex: 1;
-    margin-bottom: 1%;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 5%;
 }
 
 .up {
-    width: 75%;
-    margin-bottom: 3%;
+    display: block;
+    width: 50%;
     filter: brightness(40%);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .up:hover {
@@ -21,8 +17,10 @@
 }
 
 .upHigh {
-    width: 75%;
-    margin-bottom: 3%;
+    display: block;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .upHigh:hover {
@@ -30,9 +28,11 @@
 }
 
 .down {
-    width: 75%;
-    margin-top: 3%;
+    display: block;
+    width: 50%;
     filter: brightness(40%);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .down:hover {
@@ -40,8 +40,10 @@
 }
 
 .downHigh {
-    width: 75%;
-    margin-top: 3%;
+    display: block;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .downHigh:hover {
@@ -49,9 +51,8 @@
 }
 
 .score {
-    flex: 1;
-    text-align: left;
-    font-size: 300%;
+    text-align: center;
+    font-size: 200%;
     font-weight: 600;
     margin-top: auto;
     margin-bottom: auto;
