@@ -12,7 +12,7 @@ const LikeDislike = (props) => {
     useEffect(() => {
         setScore(props.post.likes - props.post.dislikes);
         checkLikes();
-    }, [props.post])
+    }, [])
 
     const checkLikes = () => {
         if (props.post.like_user_id.includes(userProfile.uid)) {
@@ -29,31 +29,44 @@ const LikeDislike = (props) => {
     const handleLikes = () => {
         if (lod == 1) { // already liked, remove like
             removeLike();
+            setLod(0);
+            setScore(score - 1);
         }
         else if (lod == 0) { // no likes or dislikes, add like
             addLike();
+            setLod(1);
+            setScore(score + 1);
         }
         else { // was disliked, remove dislike and add like
             removeDislike();
             addLike();
+            setLod(1);
+            setScore(score + 2);
         }
     }
 
     const handleDislikes = () => {
         if (lod == -1) { // if already disliked, remove dislike
             removeDislike();
+            setLod(0);
+            setScore(score + 1);
         }
-        else if (lod == 0) { // no likes or dislikes, add like
+        else if (lod == 0) { // no likes or dislikes, add dislike
             addDislike();
+            setLod(-1);
+            setScore(score - 1);
         }
         else { // was liked, remove like and add dislike
             removeLike();
             addDislike();
+            setLod(0);
+            setScore(score - 2);
         }
     }
 
     // these 4 functions are used to add/remove likes/dislikes from the post
     const addLike = () => {
+        console.log("add like")
         let data = {
             uid: userProfile.uid,
             offset: 1,
@@ -62,7 +75,6 @@ const LikeDislike = (props) => {
         axios.put('/api/put/likes', data)
             .then(res => {
                 // console.log(res);
-                props.setLikeRefresh(true); // refresh the page
             })
             .catch(err => {
                 console.log(err);
@@ -70,6 +82,7 @@ const LikeDislike = (props) => {
     }
 
     const removeLike = () => {
+        console.log("remove like")
         let data = {
             uid: userProfile.uid,
             offset: -1,
@@ -78,7 +91,6 @@ const LikeDislike = (props) => {
         axios.put('/api/put/likes', data)
             .then(res => {
                 // console.log(res);
-                props.setLikeRefresh(true); // refresh the page
             })
             .catch(err => {
                 console.log(err);
@@ -86,6 +98,7 @@ const LikeDislike = (props) => {
     }
 
     const addDislike = () => {
+        console.log("add dislike")
         let data = {
             uid: userProfile.uid,
             offset: 1,
@@ -94,7 +107,6 @@ const LikeDislike = (props) => {
         axios.put('/api/put/dislikes', data)
             .then(res => {
                 // console.log(res);
-                props.setLikeRefresh(true); // refresh the page
             })
             .catch(err => {
                 console.log(err);
@@ -102,6 +114,7 @@ const LikeDislike = (props) => {
     }
 
     const removeDislike = () => {
+        console.log("remove dislike");
         let data = {
             uid: userProfile.uid,
             offset: -1,
@@ -110,7 +123,6 @@ const LikeDislike = (props) => {
         axios.put('/api/put/dislikes', data)
             .then(res => {
                 // console.log(res);
-                props.setLikeRefresh(true); // refresh the page
             })
             .catch(err => {
                 console.log(err);

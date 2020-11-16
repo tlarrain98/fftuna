@@ -186,7 +186,7 @@ router.put('/api/put/dislikes', (req, res, next) => {
         ]
         // console.log(req.body.uid);
         pool.query(`UPDATE posts
-                SET dislike_user_id = array_remove(dislike_user_id, $1[1]), likes = likes + $2
+                SET dislike_user_id = array_remove(dislike_user_id, $1[1]), dislikes = dislikes + $2
                 WHERE (dislike_user_id @> $1)
                 AND pid = $3`,
             values, (q_err, q_res) => {
