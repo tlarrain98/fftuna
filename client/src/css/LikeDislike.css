@@ -7,16 +7,17 @@
 .updown {
     text-align: center;
     flex: 1;
+    margin-bottom: 1%;
 }
 
-.up:hover {
-    text-decoration: underline;
-    cursor: pointer;
+.up {
+    width: 75%;
+    margin-bottom: 3%;
 }
 
-.down:hover {
-    text-decoration: underline;
-    cursor: pointer;
+.down {
+    width: 75%;
+    margin-top: 3%;
 }
 
 .score {

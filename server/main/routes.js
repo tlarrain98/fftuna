@@ -197,12 +197,6 @@ router.put('/api/put/dislikes', (req, res, next) => {
     }
 })
 
-// get likes/dislikes info from post
-// router.get('/api/get/postinfo', (req, res, next) => {
-//     const pid = req.body.pid;
-//     pool.query(`SELECT `)
-// })
-
 /**
  * ROUTES FOR USERS
  */

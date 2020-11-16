@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from 'react'
 import '../../css/LikeDislike.css'
 import { UserContext } from '../../UserContext'
 import axios from 'axios'
+import medo from '../../images/medovote.png'
+import hoff from '../../images/hoffvote.png'
 
 const LikeDislike = (props) => {
 
@@ -59,14 +61,13 @@ const LikeDislike = (props) => {
         else { // was liked, remove like and add dislike
             removeLike();
             addDislike();
-            setLod(0);
+            setLod(-1);
             setScore(score - 2);
         }
     }
 
     // these 4 functions are used to add/remove likes/dislikes from the post
     const addLike = () => {
-        console.log("add like")
         let data = {
             uid: userProfile.uid,
             offset: 1,
@@ -82,7 +83,6 @@ const LikeDislike = (props) => {
     }
 
     const removeLike = () => {
-        console.log("remove like")
         let data = {
             uid: userProfile.uid,
             offset: -1,
@@ -98,7 +98,6 @@ const LikeDislike = (props) => {
     }
 
     const addDislike = () => {
-        console.log("add dislike")
         let data = {
             uid: userProfile.uid,
             offset: 1,
@@ -114,7 +113,6 @@ const LikeDislike = (props) => {
     }
 
     const removeDislike = () => {
-        console.log("remove dislike");
         let data = {
             uid: userProfile.uid,
             offset: -1,
@@ -134,38 +132,26 @@ const LikeDislike = (props) => {
         if (lod == 0) {
             return (
                 <div className="updown">
-                    <div className="up" onClick={() => handleLikes()}>
-                        like
-                    </div>
-                    <div className="down" onClick={() => handleDislikes()}>
-                        dislike
-                    </div>
+                    <img src={hoff} className="up" onClick={() => handleLikes()} />
+                    <img src={medo} className="down" onClick={() => handleDislikes()} />
                 </div>
             )
         }
         // user has liked
         else if (lod == 1) {
-            return(
+            return (
                 <div className="updown">
-                    <div className="up" onClick={() => handleLikes()}>
-                        like
-                    </div>
-                    <div className="down" onClick={() => handleDislikes()}>
-                        dislike
-                    </div>
+                    <img src={hoff} className="up" onClick={() => handleLikes()} />
+                    <img src={medo} className="down" onClick={() => handleDislikes()} />
                 </div>
             )
         }
         // user has disliked
         else if (lod == -1) {
-            return(
+            return (
                 <div className="updown">
-                    <div className="up" onClick={() => handleLikes()}>
-                        like
-                    </div>
-                    <div className="down" onClick={() => handleDislikes()}>
-                        dislike
-                    </div>
+                    <img src={hoff} className="up" onClick={() => handleLikes()} />
+                    <img src={medo} className="down" onClick={() => handleDislikes()} />
                 </div>
             )
         }
