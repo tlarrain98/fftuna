@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import { UserContext } from '../../UserContext'
 import LoginButton from './LoginButton'
-import LandingTicker from './LandingTicker'
 import '../../css/Landing.css'
 import { useAuth0 } from '@auth0/auth0-react'
 import SignUpButton from './SignUpButton'
@@ -28,6 +27,12 @@ const Landing = (props) => {
         const data = {
             email: user.email
         }
+        // set last login
+        axios.put('/api/put/lastlogin', data)
+            .catch(err => {
+                console.log(err);
+            })
+        
         axios.post('/api/post/usertodb', data)
             .then(
                 axios.get('/api/get/userfromdb', {
@@ -48,7 +53,6 @@ const Landing = (props) => {
 
     return (
         <div className="landingWrapper">
-            {/* <LandingTicker/> */}
             <div className="landingPage">
                 <div className="title">Show Me Your Tuna</div>
                 <SignUpButton />
