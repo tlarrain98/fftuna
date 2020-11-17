@@ -18,11 +18,14 @@ const PostPreview = (props) => {
     return(
         <div className="previewWrapper">
             <LikeDislike post={props.post}/>
-            <div className="previewContent" onClick={() => props.goPost(props.post.pid)}>
-                <div className="previewTitle">
+            <div className="previewContent">
+                <div className="previewTitle" onClick={() => props.goPost(props.post.pid)}>
                     {props.post.title}        
                 </div>
-                <div className="previewAuthor">by {props.post.author}</div>
+                <div className="previewAuthor" 
+                    onClick={() => props.goProfile(props.post.user_id)}>
+                    {props.post.author}
+                </div>
                 <div className="previewBody">{displayBody()}</div>
             </div>
         </div>

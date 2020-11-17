@@ -49,7 +49,8 @@ const PostList = (props) => {
                 list.push(
                     <PostPreview key={i} 
                         post={posts[i]}
-                        goPost={props.goPost}/>
+                        goPost={props.goPost}
+                        goProfile={props.goProfile}/>
                 )
             }
         }

@@ -41,7 +41,8 @@ const CommentList = (props) => {
                     list.push(
                         <Comment key={i} 
                             data={comments[i]}
-                            handleRefresh={props.handleRefresh}/>
+                            handleRefresh={props.handleRefresh}
+                            goProfile={props.goProfile}/>
                     )
                 }
                 return list

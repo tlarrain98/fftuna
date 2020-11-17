@@ -70,7 +70,10 @@ const Post = (props) => {
                 <div className="postContent">
                     <div className="postPageTitle">{post.title}</div>
                     <div className="postPageTS">{formatDate(post.date_created)}</div>
-                    <div className="postPageAuthor">by {post.author}</div>
+                    <div className="postPageAuthor"
+                        onClick={() => props.goProfile(post.user_id)}>
+                        {post.author}
+                    </div>
                     <div className="postPageBody">{post.body}</div>
                     {showDelete()}
                     <LikeDislike post={post} />
@@ -81,7 +84,8 @@ const Post = (props) => {
                         handleRefresh={handleRefresh} />
                     <CommentList pid={post.pid}
                         refresh={refresh} 
-                        handleRefresh={handleRefresh}/>
+                        handleRefresh={handleRefresh}
+                        goProfile={props.goProfile}/>
                 </div>
                 <DeletePost goHome={props.goHome}
                     show={show}

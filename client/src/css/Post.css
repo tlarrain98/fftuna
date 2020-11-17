@@ -32,6 +32,12 @@
     margin-top: 0.5%;
     font-size: 90%;
     color: rgb(150, 150, 150);
+    width: fit-content;
+}
+
+.postPageAuthor:hover {
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 .postPageBody {

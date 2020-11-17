@@ -44,13 +44,14 @@ const Home = (props) => {
                     </div>
                 </div>
                 <PostList goPost={props.goPost}
+                    goProfile={props.goProfile}
                     postsPerPage={10}   // posts per page on the league feed
                     numPosts={numPosts} // total number of posts in the database
                     pageName=''
                     refresh={refresh}/>
             </div>
             <div className="col2">
-                <MyProfile />
+                <MyProfile goProfile={props.goProfile}/>
                 <SideStandings />
             </div>
         </div>

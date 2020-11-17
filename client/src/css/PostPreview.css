@@ -22,18 +22,24 @@
     padding-bottom: 1%;
 }
 
-.previewContent:hover {
-    cursor: pointer;
-}
-
 .previewTitle {
     font-size: 150%;
+}
+
+.previewTitle:hover {
+    cursor: pointer;
 }
 
 .previewAuthor {
     font-size: 90%;
     color: rgb(150, 150, 150);
     margin-top: 0%;
+    width: fit-content;
+}
+
+.previewAuthor:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .previewBody {

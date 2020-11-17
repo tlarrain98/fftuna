@@ -9,6 +9,7 @@ import Landing from './landingpages/Landing'
 import SetUsername from './SetUsername'
 import Post from './posts/Post'
 import Records from './records/Records'
+import ShowProfile from './profile/ShowProfile'
 // import { UserContext } from '../UserContext'
 
 /*
@@ -21,11 +22,13 @@ import Records from './records/Records'
  * teams: shows the teams page with the team list
  * post: loads an individual post when clicked on
  * records: shows the league records page
+ * profile: shows profile that was clicked on
 */
 const ContentHandler = () => {
 
     const [page, setPage] = useState('landing'); // stores page context
     const [pid, setPid] = useState(); // used for loading individual posts
+    const [uid, setUid] = useState();
     // const { userProfile, setUserProfile } = useContext(UserContext);
 
     // helper functions to dictate which page to show
@@ -49,10 +52,14 @@ const ContentHandler = () => {
     }
     const goPost = (pageId) => {
         setPid(pageId);
-        setPage('post')
+        setPage('post');
     }
     const goRecords = () => {
-        setPage('records')
+        setPage('records');
+    }
+    const goProfile = (userId) => {
+        setUid(userId);
+        setPage('profile');
     }
 
     const showNavBar = () => {
@@ -78,17 +85,20 @@ const ContentHandler = () => {
         }
         if (page === 'home') {
             return (
-                <Home goPost={goPost} />
+                <Home goPost={goPost}
+                    goProfile={goProfile}/>
             )
         }
         if (page === 'times') {
             return (
-                <WeeklyRecap goPost={goPost}/>
+                <WeeklyRecap goPost={goPost} 
+                    goProfile={goProfile}/>
             )
         }
         if (page === 'charlie') {
             return (
-                <CharlieFormulaPage goPost={goPost}/>
+                <CharlieFormulaPage goPost={goPost} 
+                    goProfile={goProfile}/>
             )
         }
         if (page === 'teams') {
@@ -103,10 +113,14 @@ const ContentHandler = () => {
         }
         if (page === 'post') {
             return <Post pid={pid}
-                        goHome={goHome}/>
+                goHome={goHome} 
+                goProfile={goProfile}/>
         }
         if (page === 'records') {
             return <Records />
+        }
+        if (page === 'profile') {
+            return <ShowProfile uid={uid}/>
         }
     }
     return (

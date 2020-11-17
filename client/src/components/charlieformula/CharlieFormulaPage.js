@@ -51,6 +51,7 @@ const CharlieFormulaPage = (props) => {
                 </div>
             </div>
             <PostList goPost={props.goPost}
+                goProfile={props.goProfile}
                 postsPerPage={5}
                 numPosts={numPosts}
                 pageName='charlie'

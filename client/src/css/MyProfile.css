@@ -17,6 +17,15 @@
     font-size: 150%;
 }
 
+.username2 {
+    width: fit-content;
+}
+
+.username2:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 .userBio {
     margin-top: 1%;
     margin-left: 2%;

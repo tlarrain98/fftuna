@@ -35,12 +35,15 @@ const Comment = (props) => {
     
     return(
         <div className="commentWrapper">
-            <div className="commentTop">
-                <div className="commentAuthor">{props.data.author}</div>
-                <div className="commentDate">{formatDate(props.data.date_created)}</div>
+            <div className="commentContent">
+                <div className="commentAuthor"
+                    onClick={() => props.goProfile(props.data.user_id)}>
+                    {props.data.author}
+                </div>
+                <div className="commentText">{props.data.comment}</div>
+                {showDelete()}
             </div>
-            <div className="commentText">{props.data.comment}</div>
-            {showDelete()}
+            <div className="commentDate">{formatDate(props.data.date_created)}</div>
             <DeleteComment show={show}
                 handleRefresh={props.handleRefresh}
                 handleClose={handleClose}
