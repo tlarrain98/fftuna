@@ -4,8 +4,7 @@
 /server/node_modules
 /client/node_modules
 /client/.env
-/client/src/constants.js
-/server/main/db.js
+/server/.env
 /.pnp
 .pnp.js
 
