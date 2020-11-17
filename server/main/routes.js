@@ -71,7 +71,7 @@ router.get('/api/get/postsfromdb', (req, res, next) => {
                     OFFSET $1
                     LIMIT $2`,
             values, (q_err, q_res) => {
-                if (q_err) return next(q_err)   
+                if (q_err) return next(q_err)
                 res.json(q_res.rows)
             }
         )
@@ -206,8 +206,8 @@ router.post('/api/post/usertodb', (req, res, next) => {
     const values = [
         req.body.email
     ]
-    pool.query(`INSERT INTO users(email, date_created)
-                VALUES($1, NOW())
+    pool.query(`INSERT INTO users(email, date_created, last_login)
+                VALUES($1, NOW(), NOW())
                 ON CONFLICT DO NOTHING`,
         values, (q_err, q_res) => {
             res.json(q_res.rows)
@@ -215,13 +215,27 @@ router.post('/api/post/usertodb', (req, res, next) => {
     )
 })
 
-// get user from db
+// get user from db by email
 router.get('/api/get/userfromdb', (req, res, next) => {
     const email = req.query.email;
-    pool.query(`SELECT * FROM users
+    pool.query(`SELECT * 
+                FROM users
                 WHERE email=$1`,
         [email], (q_err, q_res) => {
             res.json(q_res.rows)
+        }
+    )
+})
+
+// get user from db by user id
+router.get('/api/get/userbyuid', (req, res, next) => {
+    const uid = req.query.uid;
+    pool.query(`SELECT * 
+                FROM users
+                WHERE uid=$1`,
+        [uid], (q_err, q_res) => {
+            if (q_err) return next(q_err);
+            res.json(q_res.rows);
         }
     )
 })
@@ -238,9 +252,21 @@ router.put('/api/put/username', (req, res, next) => {
                 WHERE uid = $1`,
         values, (q_err, q_res) => {
             if (q_err) return next(q_err);
-            res.json(q_res.rows)
+            res.json(q_res.rows);
         }
     )
+})
+
+router.put('/api/put/lastlogin', (req, res, next) => {
+    const values = [req.body.email]
+    pool.query(`UPDATE users
+                SET last_login = NOW()
+                WHERE email = $1`,
+        values, (q_err, q_res) => {
+            if (q_err) return next(q_err);
+            res.json(q_res.rows);
+        })
+
 })
 
 
