@@ -1,0 +1,56 @@
+.pcWrapper {
+    width: 100%;
+    margin-top: 2%;
+    display: flex;
+    border-left: .2rem solid #ffd257;
+    background-color: rgb(39, 39, 39);
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.pcWrapper:hover {
+    background-color: rgb(53, 53, 53);
+    cursor: pointer;
+}
+
+.pcContent {
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pcAuthor {
+    margin-left: 1%;
+    color: rgb(150, 150, 150);
+}
+
+.pcText {
+    white-space: pre-line;
+    margin-left: 1%;
+}
+
+.pcError {
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 200%;
+    color: rgb(206, 0, 0);
+}
+
+.noPC {
+    color: rgb(100, 100, 100);
+    font-style: italic;
+}
+
+.errWrap {
+    display: flex;
+}
+
+.comZucc {
+    width: 10%;
+}
+
+.pcNoComments {
+    margin-top: 1%;
+    font-style: italic;
+    color: rgb(150, 150, 150);
+}

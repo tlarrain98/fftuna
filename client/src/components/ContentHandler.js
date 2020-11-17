@@ -120,7 +120,9 @@ const ContentHandler = () => {
             return <Records />
         }
         if (page === 'profile') {
-            return <ShowProfile uid={uid}/>
+            return <ShowProfile uid={uid}
+                        goProfile={goProfile}
+                        goPost={goPost}/>
         }
     }
     return (

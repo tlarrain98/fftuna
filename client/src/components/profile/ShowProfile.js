@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react'
 import '../../css/ShowProfile.css'
 import axios from 'axios'
 import zucc from '../../images/zucc.png'
+import UserPosts from './UserPosts'
+import UserComments from './UserComments'
 
 const ShowProfile = (props) => {
-    
+
     const [profile, setProfile] = useState();
     const [error, setError] = useState(false);
 
@@ -24,13 +26,13 @@ const ShowProfile = (props) => {
                 console.log(err);
             })
     }
-    
+
     const getDates = () => {
-        if(profile.date_created && profile.last_login) {
-            return(
+        if (profile.date_created && profile.last_login) {
+            return (
                 <>
-                <div className="spDates">date created: {formatDate(profile.date_created)}</div>
-                <div className="spDates">last online: {formatDate(profile.last_login)}</div>
+                    <div className="spDates">date created: {formatDate(profile.date_created)}</div>
+                    <div className="spDates">last online: {formatDate(profile.last_login)}</div>
                 </>
             )
         }
@@ -54,7 +56,7 @@ const ShowProfile = (props) => {
         )
     }
     else if (error) {
-        return(
+        return (
             <div className="spWrapper">
                 <div className="errWrap">
                     <img src={zucc} alt="error" className="spZucc" />
@@ -66,17 +68,25 @@ const ShowProfile = (props) => {
     else {
         return (
             <div className="spWrapper">
-                <div className="spHeader">
-                    <div className="spUsername">{profile.username}</div>
-                    {getDates()}
-                    <div className="spBio">{profile.bio}</div>
-                </div>
-                <div className="spPC">
-                    <div className="spPosts">
-                        <div className="spTitle">Recent posts</div>
+                <div className="pCol1">
+                    <div className="spHeader">
+                        <div className="spUsername">{profile.username}</div>
+                        {getDates()}
+                        <div className="spBio">{profile.bio}</div>
                     </div>
+                    <div className="spPosts">
+                        <div className="spPostsTitle">Recent posts</div>
+                        <UserPosts uid={props.uid}
+                            goProfile={props.goProfile}
+                            goPost={props.goPost} />
+                    </div>
+                </div>
+                <div className="pCol2">
                     <div className="spComments">
-                        <div className="spTitle">Recent comments</div>
+                        <div className="spCommentsTitle">Recent comments</div>
+                        <UserComments uid={props.uid}
+                            goProfile={props.goProfile}
+                            goPost={props.goPost} />
                     </div>
                 </div>
             </div>

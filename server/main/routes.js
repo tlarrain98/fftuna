@@ -257,6 +257,33 @@ router.put('/api/put/username', (req, res, next) => {
     )
 })
 
+// get all posts from a specified user
+router.get('/api/get/postsfromuser', (req, res, next) => {
+    const uid = req.query.uid;
+    pool.query(`SELECT *
+                FROM posts
+                WHERE user_id = $1
+                ORDER BY date_created DESC`,
+        [uid], (q_err, q_res) => {
+            if (q_err) return next(q_err);
+            res.json(q_res.rows);
+        })
+})
+
+// get all posts from a specified user
+router.get('/api/get/commentsfromuser', (req, res, next) => {
+    const uid = req.query.uid;
+    pool.query(`SELECT *
+                FROM comments
+                WHERE user_id = $1
+                ORDER BY date_created DESC`,
+        [uid], (q_err, q_res) => {
+            if (q_err) return next(q_err);
+            res.json(q_res.rows);
+        })
+})
+
+// update time of last login
 router.put('/api/put/lastlogin', (req, res, next) => {
     const values = [req.body.email]
     pool.query(`UPDATE users
