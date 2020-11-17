@@ -12,7 +12,7 @@ const TunaNavBar = (props) => {
                 <Nav.Link className="link" onClick={props.goCharlie}>Charlie Formula</Nav.Link>
                 <Nav.Link className="link" onClick={props.goWeekly}>Weekly Recap</Nav.Link>
                 <Nav.Link className="link" onClick={props.goTeams}>Teams</Nav.Link>
-                <Nav.Link className="link" onClick={props.goRecords}>Records</Nav.Link>
+                {/* <Nav.Link className="link" onClick={props.goRecords}>Records</Nav.Link> */}
                 <Nav.Item className="ml-auto">
                     <LogoutButton className="link" goLanding={props.goLanding} />
                 </Nav.Item>
