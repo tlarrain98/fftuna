@@ -24,6 +24,17 @@ const ShowProfile = (props) => {
                 console.log(err);
             })
     }
+    
+    const getDates = () => {
+        if(profile.date_created && profile.last_login) {
+            return(
+                <>
+                <div className="spDates">date created: {formatDate(profile.date_created)}</div>
+                <div className="spDates">last online: {formatDate(profile.last_login)}</div>
+                </>
+            )
+        }
+    }
 
     // formats date into MM/DD/YYYY
     const formatDate = (date) => {
@@ -57,13 +68,16 @@ const ShowProfile = (props) => {
             <div className="spWrapper">
                 <div className="spHeader">
                     <div className="spUsername">{profile.username}</div>
-                    <div className="spDates">date created: {formatDate(profile.date_created)}</div>
-                    <div className="spDates">last online: {formatDate(profile.last_login)}</div>
+                    {getDates()}
                     <div className="spBio">{profile.bio}</div>
                 </div>
                 <div className="spPC">
-                    <div className="spPosts">Recent posts</div>
-                    <div className="spComments">Recent comments</div>
+                    <div className="spPosts">
+                        <div className="spTitle">Recent posts</div>
+                    </div>
+                    <div className="spComments">
+                        <div className="spTitle">Recent comments</div>
+                    </div>
                 </div>
             </div>
         )

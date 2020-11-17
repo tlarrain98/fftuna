@@ -57,17 +57,29 @@
 }
 
 .spPosts {
-    width: 49%;
+    width: 49.5%;
     background-color: rgb(39, 39, 39);
     border: .2rem solid rgb(122, 122, 122);
     border-radius: .25rem;
     overflow-x: hidden;
+    padding-bottom: 1%;
 }
 
 .spComments {
-    width: 49%;
+    width: 49.5%;
     background-color: rgb(39, 39, 39);
     border: .2rem solid rgb(122, 122, 122);
     border-radius: .25rem;
     overflow-x: hidden;
+    margin-left: 1%;
+    padding-bottom: 1%;
+}
+
+.spTitle {
+    margin-top: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 150%;
+    width: 96%;
+    border-bottom: 0.1rem solid rgb(122, 122, 122);
 }
