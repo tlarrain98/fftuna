@@ -1,13 +1,5 @@
 .spWrapper {
-    width: 80%;
-    background-color: rgb(39, 39, 39);
-    border: .2rem solid rgb(122, 122, 122);
-    margin-top: 2%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 1%;
-    border-radius: .25rem;
-    padding-bottom: 1%;
+    width: 100%;
     overflow-x: hidden;
 }
 
@@ -16,11 +8,21 @@
     margin-top: 1%;
 }
 
+.errWrap {
+    display: flex;
+}
+
+.spZucc {
+    margin-left: 1%;
+    width: 10%;
+}
+
 .spError {
+    margin-top: auto;
+    margin-bottom: auto;
     font-size: 200%;
     color: rgb(206, 0, 0);
     margin-left: 1%;
-    margin-top: 1%;
 }
 
 .spHeader {
@@ -30,6 +32,42 @@
     margin-top: 1%;
 }
 
+.spDates {
+    font-size: 100%;
+    color: rgb(150, 150, 150);
+}
+
 .spUsername {
     font-size: 300%;
+}
+
+.spBio {
+    overflow-x: hidden;
+    width: 35%;
+    font-size: 110%;
+    margin-top: 1%;
+}
+
+.spPC {
+    display: flex;
+    width: 95%;
+    margin-top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.spPosts {
+    width: 49%;
+    background-color: rgb(39, 39, 39);
+    border: .2rem solid rgb(122, 122, 122);
+    border-radius: .25rem;
+    overflow-x: hidden;
+}
+
+.spComments {
+    width: 49%;
+    background-color: rgb(39, 39, 39);
+    border: .2rem solid rgb(122, 122, 122);
+    border-radius: .25rem;
+    overflow-x: hidden;
 }

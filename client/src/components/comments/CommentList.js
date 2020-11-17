@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import '../../css/Comment.css'
 import axios from 'axios'
 import Comment from './Comment'
+import zucc from '../../images/zucc.png'
 
 const CommentList = (props) => {
 
@@ -28,7 +29,12 @@ const CommentList = (props) => {
     const showComments = () => {
         // if the server couldn't retrieve comments
         if (isError) {
-            return <div className="errorComments">Error while retrieving comments.</div>
+            return (
+                <div className="errWrap">
+                    <img src={zucc} alt="error" className="comZucc"/>
+                    <div className="errorComments">Error while retrieving comments.</div>
+                </div>
+            )
         }
         if (comments) {
             // if no comments exist for the post

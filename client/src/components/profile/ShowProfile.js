@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import '../../css/ShowProfile.css'
 import axios from 'axios'
+import zucc from '../../images/zucc.png'
 
 const ShowProfile = (props) => {
     
     const [profile, setProfile] = useState();
-    const [error, setError] = useState();
+    const [error, setError] = useState(false);
 
     useEffect(() => {
         getUser();
@@ -24,8 +25,14 @@ const ShowProfile = (props) => {
             })
     }
 
-    const formatDate = () => {
+    // formats date into MM/DD/YYYY
+    const formatDate = (date) => {
+        let year = date.substring(0, 4);
+        let month = date.substring(5, 7);
+        let day = date.substring(8, 10);
+        let mdy = month + '/' + day + '/' + year;
 
+        return mdy
     }
 
     if (!profile) {
@@ -35,10 +42,13 @@ const ShowProfile = (props) => {
             </div>
         )
     }
-    else if (true) {
+    else if (error) {
         return(
             <div className="spWrapper">
-                <div className="spError">Could not load profile, please refresh.</div>
+                <div className="errWrap">
+                    <img src={zucc} alt="error" className="spZucc" />
+                    <div className="spError">Could not load profile, please refresh.</div>
+                </div>
             </div>
         )
     }
@@ -47,9 +57,13 @@ const ShowProfile = (props) => {
             <div className="spWrapper">
                 <div className="spHeader">
                     <div className="spUsername">{profile.username}</div>
+                    <div className="spDates">date created: {formatDate(profile.date_created)}</div>
+                    <div className="spDates">last online: {formatDate(profile.last_login)}</div>
                     <div className="spBio">{profile.bio}</div>
-                    <div>{formatDate(profile.date_created)}</div>
-                    <div>{formatDate(profile.last_login)}</div>
+                </div>
+                <div className="spPC">
+                    <div className="spPosts">Recent posts</div>
+                    <div className="spComments">Recent comments</div>
                 </div>
             </div>
         )

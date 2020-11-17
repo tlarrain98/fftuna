@@ -40,17 +40,19 @@
     margin-top: 5%;
 }
 
+.errWrap {
+    display: flex;
+}
+
+.comZucc {
+    width: 10%;
+}
+
 .errorComments {
-    display: inline;
-    text-align: center;
-    font-size: large;
-    color: white;
-    background-color: rgb(235, 0, 0);
-    border-radius: .25rem;
-    padding-left: 1%;
-    padding-right: 1%;
-    padding-top: 0.5%;
-    padding-bottom: 0.5%;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 200%;
+    color: rgb(206, 0, 0);
 }
 
 .noComments {

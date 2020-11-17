@@ -11,6 +11,24 @@
     overflow-x: hidden;
 }
 
+.errWrap {
+    display: flex;
+}
+
+.postZucc {
+    margin-top: 1%;
+    margin-left: 1%;
+    width: 5%;
+}
+
+.postError {
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 200%;
+    color: rgb(206, 0, 0);
+    margin-left: 1%;
+}
+
 .postContent {
     margin-top: 1%;
     width: 96%;
@@ -54,6 +72,7 @@
     color: rgb(158, 46, 46);
     width: fit-content;
 }
+
 .postDelete:hover {
     cursor: pointer;
     text-decoration: underline;

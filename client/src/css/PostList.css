@@ -64,3 +64,19 @@
     background-color: rgb(39, 39, 39);
     border: .1rem solid rgb(122, 122, 122);
 }
+
+.errWrap {
+    display: flex;
+}
+
+.plZucc {
+    width: 10%;
+    margin-left: 1%;
+}
+
+.plError {
+    margin-top: 1%;
+    font-size: 200%;
+    color: rgb(206, 0, 0);
+    margin-left: 1%;
+}

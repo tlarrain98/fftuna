@@ -3,12 +3,14 @@ import '../../css/PostList.css'
 import PostPreview from './PostPreview'
 import PrevNext from './PrevNext'
 import axios from 'axios'
+import zucc from '../../images/zucc.png'
 
 const PostList = (props) => {
 
     const [pagination, setPagination] = useState(1); // keeps track of the page #
     const [posts, setPosts] = useState(null); // used for post data
-    const [empty, setEmpty] = useState(false);
+    const [empty, setEmpty] = useState(false); // if no posts returned
+    const [error, setError] = useState(false); // displays error
 
     // on page change, scroll to top and get data for page
     useEffect(() => {
@@ -25,7 +27,7 @@ const PostList = (props) => {
             }
         })
             .then((res) => {
-                if(res.data.length) {
+                if (res.data.length) {
                     setPosts(res.data);
                     setEmpty(false);
                 }
@@ -34,6 +36,7 @@ const PostList = (props) => {
                 }
             })
             .catch(error => {
+                setError(true);
                 console.log("error: " + error);
             })
     }
@@ -41,20 +44,28 @@ const PostList = (props) => {
     // returns a list of all the post preview components for the page
     const getPostPreviews = () => {
         let list = [];
-        if (posts == null && !empty) {
+        if (error) {
+            return(
+                <div className="errWrap">
+                    <img src={zucc} alt="error" className="plZucc" />
+                    <div className="plError">Error loading post list, please refresh.</div>
+                </div>
+            )
+        }
+        else if (posts == null && !empty) {
             return <div>Loading...</div>
         }
         else if (posts !== null) {
             for (let i = 0; i < posts.length; i++) {
                 list.push(
-                    <PostPreview key={i} 
+                    <PostPreview key={i}
                         post={posts[i]}
                         goPost={props.goPost}
-                        goProfile={props.goProfile}/>
+                        goProfile={props.goProfile} />
                 )
             }
         }
-        else if(empty) {
+        else if (empty) {
             return <div className="noPosts">No posts.</div>
         }
 
@@ -67,7 +78,7 @@ const PostList = (props) => {
             <PrevNext numPosts={props.numPosts}
                 postsPerPage={props.postsPerPage}
                 pagination={pagination}
-                setPagination={setPagination}/>
+                setPagination={setPagination} />
         </div>
     )
 }

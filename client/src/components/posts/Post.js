@@ -6,6 +6,7 @@ import CommentForm from '../comments/CommentForm'
 import CommentList from '../comments/CommentList'
 import DeletePost from './DeletePost'
 import LikeDislike from './LikeDislike'
+import zucc from '../../images/zucc.png'
 
 const Post = (props) => {
 
@@ -14,6 +15,7 @@ const Post = (props) => {
     const [post, setPost] = useState(); // used to set and store post data
     const [refresh, setRefresh] = useState(false); // refreshes page
     const [show, setShow] = useState(false); // show delete post modal
+    const [error, setError] = useState(false); // shows error
 
     // get post data on load
     useEffect(() => {
@@ -44,6 +46,7 @@ const Post = (props) => {
                 setPost(res.data[0]);
             })
             .catch(error => {
+                setError(true);
                 console.log("error: " + error)
             })
     }
@@ -64,7 +67,18 @@ const Post = (props) => {
         }
     }
 
-    if (post) {
+    if (error) {
+        return(
+            <div className="postPageWrapper">
+                <div className="errWrap">
+                    <img src={zucc} alt="error" className="postZucc"/>
+                <div className="postError">Error loading post, please refresh.</div>
+                </div>
+            </div>
+        )
+    }
+
+    else if (post) {
         return (
             <div className="postPageWrapper">
                 <div className="postContent">
