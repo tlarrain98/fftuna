@@ -84,7 +84,7 @@ After installation has finished, open a new shell and navigate into the `/server
 
 Once this is complete, go back to the first shell, which should still be in the `client` directory, and run the command:
 
-`npm start`
+`npm run dev`
 
 As the client side is loading, go back to the other shell,, which should still be in the `server` directory and run the command:
 
