@@ -285,6 +285,7 @@ router.get('/api/get/commentsfromuser', (req, res, next) => {
 
 // update time of last login
 router.put('/api/put/lastlogin', (req, res, next) => {
+    console.log("\n\n\n" + req.body.email);
     const values = [req.body.email]
     pool.query(`UPDATE users
                 SET last_login = NOW()
