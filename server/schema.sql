@@ -12,7 +12,7 @@ CREATE TABLE posts (
   title VARCHAR(256),
   body VARCHAR,
   user_id INT REFERENCES users(uid),
-  author VARCHAR REFERENCES users(username),
+  author VARCHAR REFERENCES users(username) ON UPDATE CASCADE,
   page_name VARCHAR(20),
   date_created TIMESTAMP,
   like_user_id INT[] DEFAULT ARRAY[]::INT[],
@@ -24,7 +24,7 @@ CREATE TABLE posts (
 CREATE TABLE comments (
   cid SERIAL PRIMARY KEY,
   comment VARCHAR(512),
-  author VARCHAR REFERENCES users(username),
+  author VARCHAR REFERENCES users(username) ON UPDATE CASCADE,
   user_id INT REFERENCES users(uid),
   post_id INT REFERENCES posts(pid),
   date_created TIMESTAMP,
