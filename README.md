@@ -70,7 +70,7 @@ export const SEASON_ID = process.env.REACT_APP_SEASON_ID;
 
 
 # Database Schema
-The database schema can be found at `server/schema.sql`.
+The database schema can be found at `server/schema.sql`. Make sure that the foreign keys for `users.username` cascade update, otherwise it won't be possible to change the username.
 
 
 # To run the project:
