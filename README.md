@@ -43,13 +43,13 @@ module.exports = pool;
 ### 3. Create .env file for db.js
 Inside the `/server/` directory, create a .env file and fill it with the following values:
 
-`
+```
 DB_USER={username}
 DB_HOST={host}
 DB_NAME={database name}
 DB_PASS={password}
 DB_POST={post}
-`
+```
 
 
 Replace the bracketed variables with the same values you used to set up the Postgres database.
