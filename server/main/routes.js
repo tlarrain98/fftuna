@@ -129,8 +129,6 @@ router.put('/api/put/likes', (req, res, next) => {
                 WHERE NOT (like_user_id @> $1)
                 AND pid = $3`,
             values, (q_err, q_res) => {
-                console.log(q_err);
-                console.log(q_res);
                 if (q_err) return next(q_err);
                 res.json(q_res.rows);
             }
@@ -144,7 +142,6 @@ router.put('/api/put/likes', (req, res, next) => {
             req.body.offset,
             req.body.pid
         ]
-        // console.log(req.body.uid);
         pool.query(`UPDATE posts
                 SET like_user_id = array_remove(like_user_id, $1[1]), likes = likes + $2
                 WHERE (like_user_id @> $1)
@@ -184,7 +181,6 @@ router.put('/api/put/dislikes', (req, res, next) => {
             req.body.offset,
             req.body.pid
         ]
-        // console.log(req.body.uid);
         pool.query(`UPDATE posts
                 SET dislike_user_id = array_remove(dislike_user_id, $1[1]), dislikes = dislikes + $2
                 WHERE (dislike_user_id @> $1)
@@ -285,7 +281,6 @@ router.get('/api/get/commentsfromuser', (req, res, next) => {
 
 // update time of last login
 router.put('/api/put/lastlogin', (req, res, next) => {
-    console.log("\n\n\n" + req.body.email);
     const values = [req.body.email]
     pool.query(`UPDATE users
                 SET last_login = NOW()
@@ -351,7 +346,6 @@ router.delete('/api/delete/allcomments', (req, res, next) => {
                 WHERE post_id = $1`,
         [pid], (q_err, q_res) => {
             res.json(q_res.rows);
-            console.log(q_err);
         }
     )
 })
@@ -363,7 +357,6 @@ router.delete('/api/delete/comment', (req, res, next) => {
                 WHERE cid = $1`,
         [cid], (q_err, q_res) => {
             res.json(q_res.rows);
-            console.log(q_err);
         })
 })
 

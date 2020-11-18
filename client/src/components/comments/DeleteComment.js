@@ -9,7 +9,6 @@ const DeleteComment = (props) => {
     const [show, setShow] = useState(false); // dictates whether message is shown or not
 
     const handleDelete = () => {
-        console.log(props.cid)
         setShow(true);
         let data = {
             cid: props.cid

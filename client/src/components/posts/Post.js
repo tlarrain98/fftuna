@@ -47,7 +47,7 @@ const Post = (props) => {
             })
             .catch(error => {
                 setError(true);
-                console.log("error: " + error)
+                console.log(error)
             })
     }
 

@@ -19,11 +19,9 @@ const LikeDislike = (props) => {
     const checkLikes = () => {
         if (props.post) {
             if (props.post.like_user_id.includes(userProfile.uid)) {
-                console.log("liked!!!!!!!!")
                 setLod(1);
             }
             else if (props.post.dislike_user_id.includes(userProfile.uid)) {
-                console.log("dislikeeeeeeeeeeeeee")
                 setLod(-1);
             }
         }
@@ -77,9 +75,6 @@ const LikeDislike = (props) => {
             pid: props.post.pid
         }
         axios.put('/api/put/likes', data)
-            .then(res => {
-                // console.log(res);
-            })
             .catch(err => {
                 console.log(err);
             })
@@ -92,9 +87,6 @@ const LikeDislike = (props) => {
             pid: props.post.pid
         }
         axios.put('/api/put/likes', data)
-            .then(res => {
-                // console.log(res);
-            })
             .catch(err => {
                 console.log(err);
             })
@@ -107,9 +99,6 @@ const LikeDislike = (props) => {
             pid: props.post.pid
         }
         axios.put('/api/put/dislikes', data)
-            .then(res => {
-                // console.log(res);
-            })
             .catch(err => {
                 console.log(err);
             })
@@ -122,9 +111,6 @@ const LikeDislike = (props) => {
             pid: props.post.pid
         }
         axios.put('/api/put/dislikes', data)
-            .then(res => {
-                // console.log(res);
-            })
             .catch(err => {
                 console.log(err);
             })

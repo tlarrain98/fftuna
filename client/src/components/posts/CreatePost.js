@@ -37,7 +37,7 @@ const CreatePost = (props) => {
                     props.handleRefresh();
                 })
                 .catch((err) => {
-                    console.log("error: " + err);
+                    console.log(err);
                     setWarning("Server error, could not post.");
                     setShow(true);
                 })

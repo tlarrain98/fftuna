@@ -9,7 +9,7 @@ const Comment = (props) => {
     const [show, setShow] = useState(false);
 
     const showDelete = () => {
-        if (userProfile.uid == props.data.user_id) {
+        if (userProfile.uid === props.data.user_id) {
             return <div className="commentDelete"
                 onClick={() => handleShow()}>delete</div>
         } 
