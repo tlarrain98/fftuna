@@ -5,8 +5,8 @@ Currently, this project is only set up to work with ESPN fantasy football league
 # To set up for your own league: 
 
 
-### 1. Create a .env file and an Auth0 account and application
-You can create your Auth0 account and app [here.](https://auth0.com/) After doing this, create a `.env` file inside the `/client/` directory. Put these four lines of code in the file:
+### 1. Create client .env file and an Auth0 account and application
+You can create your Auth0 account and app [here.](https://auth0.com/) After doing this, create a `.env` file inside the `client` directory. Put these four lines of code in the file:
 
 ```
 REACT_APP_AUTH0_DOMAIN={Domain}
@@ -22,7 +22,7 @@ Replace `{League ID}` and `{Season ID}` with your ESPN league id and the season 
 
 
 ### 2. Create a database with Postgres
-Link to [Postgres.](https://www.postgresql.org/) Follow the download link and set up your database. After creating your database, create the file `db.js` in the `/server/main/` directory and paste the following code into it:
+Link to [Postgres.](https://www.postgresql.org/) Follow the download link and set up your database. After creating your database, create the file `db.js` in the `server/main` directory and paste the following code into it:
 
 ```
 const { Pool } = require('pg');
@@ -41,7 +41,7 @@ module.exports = pool;
 
 
 ### 3. Create .env file for db.js
-Inside the `/server/` directory, create a .env file and fill it with the following values:
+Inside the `server` directory, create a .env file and fill it with the following values:
 
 ```
 DB_USER={username}
@@ -54,11 +54,11 @@ DB_POST={post}
 
 Replace the bracketed variables with the same values you used to set up the Postgres database.
 
-After setting up the database, in the SQL Shell (psql), login to your database, and copy and paste the schema commands found in `/server/schema.sql`. If done correctly, the shell should respond with `CREATE TABLE`.
+After setting up the database, in the SQL Shell (psql), login to your database, and copy and paste the schema commands found in `server/schema.sql`. If done correctly, the shell should respond with `CREATE TABLE`.
 
 
 ### 4. Create constants file for ESPN API
-Inside the `/client/src` directory, create a file `constants.js` and copy the following code: 
+Inside the `client/src` directory, create a file `constants.js` and copy the following code: 
 
 ```
 // espn league id
@@ -78,7 +78,7 @@ Navigate into the `client` directory and in your shell, run the command:
 
 `npm install`
 
-After installation has finished, open a new shell and navigate into the `/server` directory, then run the command:
+After installation has finished, open a new shell and navigate into the `server` directory, then run the command:
 
 `npm install`
 
@@ -90,4 +90,4 @@ As the client side is loading, go back to the other shell,, which should still b
 
 `npm start` or `npm run devstart` (runs nodemon script)
 
-If done correctly, you should be redirected to localhost:3000, where the clientside code will be running. The serverside code will be hosted on localhost:5000.
+If done correctly, you should be redirected to localhost:3000 (or localhost:5000 if you used npm start, which runs a serve script.), where the client-side code will be running. The serverside code will be hosted on localhost:6000.

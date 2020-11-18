@@ -17,14 +17,17 @@ const LikeDislike = (props) => {
     }, [])
 
     const checkLikes = () => {
-        if (props.post.like_user_id.includes(userProfile.uid)) {
-            console.log("liked!!!!!!!!")
-            setLod(1);
+        if (props.post) {
+            if (props.post.like_user_id.includes(userProfile.uid)) {
+                console.log("liked!!!!!!!!")
+                setLod(1);
+            }
+            else if (props.post.dislike_user_id.includes(userProfile.uid)) {
+                console.log("dislikeeeeeeeeeeeeee")
+                setLod(-1);
+            }
         }
-        else if (props.post.dislike_user_id.includes(userProfile.uid)) {
-            console.log("dislikeeeeeeeeeeeeee")
-            setLod(-1);
-        }
+
     }
 
     // if already liked, remove like, else add like
