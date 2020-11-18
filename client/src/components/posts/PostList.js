@@ -28,7 +28,6 @@ const PostList = (props) => {
         })
             .then((res) => {
                 if (res.data.length) {
-                    console.log(res.data);
                     setPosts(res.data);
                     setEmpty(false);
                 }
