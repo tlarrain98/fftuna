@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.077ad817.chunk.css",
+    "main.js": "/static/js/main.619c6525.chunk.js",
+    "main.js.map": "/static/js/main.619c6525.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.4e92a8be.js",
+    "runtime-main.js.map": "/static/js/runtime-main.4e92a8be.js.map",
+    "static/css/2.d9ad5f5c.chunk.css": "/static/css/2.d9ad5f5c.chunk.css",
+    "static/js/2.5b4fb3cc.chunk.js": "/static/js/2.5b4fb3cc.chunk.js",
+    "static/js/2.5b4fb3cc.chunk.js.map": "/static/js/2.5b4fb3cc.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.30c4555076455b6d952ba19d5880d709.js": "/precache-manifest.30c4555076455b6d952ba19d5880d709.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.d9ad5f5c.chunk.css.map": "/static/css/2.d9ad5f5c.chunk.css.map",
+    "static/css/main.077ad817.chunk.css.map": "/static/css/main.077ad817.chunk.css.map",
+    "static/js/2.5b4fb3cc.chunk.js.LICENSE.txt": "/static/js/2.5b4fb3cc.chunk.js.LICENSE.txt",
+    "static/media/hoffvote.png": "/static/media/hoffvote.2e9cebd1.png",
+    "static/media/medovote.png": "/static/media/medovote.bd801e6c.png",
+    "static/media/zucc.png": "/static/media/zucc.0606e454.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4e92a8be.js",
+    "static/css/2.d9ad5f5c.chunk.css",
+    "static/js/2.5b4fb3cc.chunk.js",
+    "static/css/main.077ad817.chunk.css",
+    "static/js/main.619c6525.chunk.js"
+  ]
+}
