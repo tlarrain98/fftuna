@@ -3,7 +3,7 @@ CREATE TABLE users (
   username VARCHAR(25) UNIQUE,
   email VARCHAR(100) UNIQUE,
   date_created DATE,
-  last_login DATE
+  last_login DATE,
   bio VARCHAR
 );
 
